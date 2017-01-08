@@ -1,0 +1,40 @@
+\section{Transformers: More Than Meets the Eye}
+\label{lab_transformers}
+
+%\makelabheader %(Space for student name, etc., defined in master.tex)
+
+\bigskip
+
+\begin{enumerate}[wide]
+
+\item Grab a transformer and examine the wiring diagram on the left below.  Notice that there are actually two primaries and two secondaries.  Wire up your transformer so that the two primaries are in parallel and the two secondaries are in series, and show what color wires are connected where to make this happen.  \textit{Note that the small dots in the picture mark an arbitrary ``positive'' polarity.  This matters because you wouldn't want current going clockwise in one primary coil and counter-clockwise in the other primary coil.  Besides not working, that would blow out your transformer.}   
+
+\vspace{-0.2in}
+\begin{center}
+\includegraphics{transformers/transformer_wiring.eps}
+\hspace{0.5in}
+\includegraphics{transformers/transformer_wiring2.eps}
+\end{center}
+\vspace{-0.2in}
+
+\item Hook up your ``primary'' (actually two primaries) to your signal generator, set to about 60~Hz, and measure the ratio of the primary voltage to the secondary voltage.  (The circuit above on the right shows what it would look like with just one primary and one secondary.)  What ``turns ratio'' does your measurement suggest?''  Is this a ``step down'' or ``step up'' transformer? \label{part_turns1}
+
+\item For this part, you will keep the wiring of the transformer the same: the side that's in parallel stays in parallel, and the side that's in series stays in series. But switch it so that the signal generator is connected to the other side of the transformer (that is, what was formerly the ``secondary'' of the transformer is now functioning as the primary, and vice versa).  In this new configuration, is this a ``step down'' or ``step up'' transformer?  What is the turns ratio?  Is this consistent with your measurement in the previous part? \label{part_turns2}
+
+\end{enumerate}
+
+\textit{If a transformer steps the voltage UP, it has to step the current DOWN and vice-versa.  (If it stepped both of them up, then it would be stepping up the power.  If it could do that, then our nation's energy problems would be solved.)  The way the transformer ``steps up the current'' is by effectively having a lower output impedance than the original source.  Although this can't buy you power for free, you'll see in this next part that transformers can help you match impedances to use the power you have more efficiently.}
+
+\begin{enumerate}[wide,resume]
+
+\item Use your transformer to step down the voltage of your signal generator, and put the output from the transformer to the speaker.  (Use a frequency of about 300~Hz, so you get an easily audible tone.)  Does using the transformer make the tone louder or quieter?  Calculate the average power dissipated in the speaker both with and without the transformer.  
+
+\item Now hook the transformer's primary up to an AC power cord, using two wire nuts, with the two sets of primary leads wired in parallel.  Tie all the wires together in a knot when you are done, to prevent mechanical stress on the wire connections.  FOR SAFETY, YOU MUST HAVE YOUR WIRING INSPECTED BY THE INSTRUCTOR BEFORE PLUGGING IT IN.  Measure the output of your transformer's secondary.  Based on the turns ratio you found in parts \ref{part_turns1} and \ref{part_turns2}, what is the actual voltage of the AC outlet?  Is that a peak voltage, or RMS?
+
+\end{enumerate}
+
+
+
+
+
+

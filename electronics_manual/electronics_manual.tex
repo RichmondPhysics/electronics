@@ -1,0 +1,99 @@
+%\documentclass[english,twoside]{article}
+\documentclass[english,12pt,twoside]{labmanual} %labmanual.cls is a modified version of article.cls, 
+                                                                     %tweaked to handle \part{} differently
+
+\input{labmanual_formatting_commands} %all general latex packages, commands, and definitions now here.
+
+%The \includeonly line below is a great way to save time so you don't always have to compile the WHOLE latex document, if for instance you've only made changes to a single lab.  If you want to compile more than two labs, the syntax is \includeonly{lab1,lab2,lab3} with no spaces after the commas.
+%The master.pdf produced will have only the title page, TOC, and that single lab, though the other lab names will appear in the TOC.
+%\includeonly{voltage_dividers/voltage_dividers}
+
+%Use the following line to override all of the 1's and 0's in the \includelab statements below
+%\includealllabstrue
+
+\makeindex
+
+\newcommand{\supplementmark}{Lab }
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\supplementmark \thesection}{1em}{}
+\fancyhead[LO,RE]{\slshape \rightmark} 
+\fancyhead[LE,RO]{\slshape \MakeUppercase{\supplementmark}\leftmark} % Reversed LE, RO to  LO,RE to make headers come out correctly on even/odd 
+%\usepackage{emptypa‌​ge}
+
+\let\oldsection\section% Store \section in \oldsection
+\renewcommand{\section}{\cleardoublepage\oldsection}% Prepend new \section with \cleardoublepage
+
+\let\oldpart\part% See above
+\renewcommand{\part}{\cleardoublepage\oldpart}% Prepend new \part with \cleardoublepage
+	
+
+\hyphenation{im-ped-ance}
+\begin{document}
+
+\input{electronics_front_pages/electronics_title_page}
+
+
+\let\oldsupplementmark\supplementmark %All of this buisiness is to keep from getting ``Lab'' at the top of the toc
+\renewcommand{\supplementmark}{}
+\tableofcontents{}
+
+%\cleardoublepage
+
+%--------------------------------------------
+\part{The Basics}
+\renewcommand{\supplementmark}{\oldsupplementmark}
+
+\includelab{1}{equipment/equipment}
+\includelab{1}{power/power}
+\includelab{1}{voltage_dividers/voltage_dividers}
+\includelab{1}{input_output_impedance/input_output_impedance}
+\includelab{1}{oscilloscope/oscilloscope}
+\includelab{1}{bridge_circuit/bridge_circuit}
+
+%\cleardoublepage
+%--------------------------------------------
+\part{Two Very Important Kinds of Integrated Circuits}
+
+\includelab{1}{op-amps/op-amps}
+\includelab{1}{digital_electronics/digital_electronics} %ADD pinouts sometime later
+
+%--------------------------------------------
+\part{Capacitors, Inductors, and AC circuits}
+
+\includelab{1}{capacitors/capacitors}
+\includelab{1}{transformers/transformers}
+\includelab{1}{diodes/diodes}
+\includelab{1}{power_supply/power_supply}
+\includelab{1}{inductors/inductors}
+\includelab{1}{ac_circuits/ac_circuits}
+\includelab{1}{filters/filters}
+
+%--------------------------------------------
+\part{Relays and Transistors}
+
+\includelab{1}{relays/relays}
+\includelab{1}{bjt/bjt}
+\includelab{1}{multisim/multisim}
+\includelab{1}{bjt_saturation/bjt_saturation}
+\includelab{1}{jfet/jfet}
+
+%--------------------------------------------
+\part{Sensors, Some Special Purpose Chips, and Applications}
+
+\includelab{1}{microphone_photocell/microphone_photocell}
+\includelab{1}{flipflops/flipflops}
+\includelab{1}{timers/timers}
+\includelab{1}{counters/counters}
+\setcounter{section}{98} %set this to desired next section number MINUS ONE
+\includelab{1}{lab_99/lab_99}
+
+%--------------------------------------------
+%\part{Appendices}
+\immediateaddcontentsline{toc}{part}{Appendices} %Avoids a Roman part number for the Appendices in the toc
+\appendix
+\renewcommand{\supplementmark}{}
+
+\includelab{1}{appendices/pinouts/pinouts}
+\includelab{1}{appendices/one_page_uncertainty/one_page_uncertainty}
+
+\end{document}

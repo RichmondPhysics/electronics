@@ -1,0 +1,59 @@
+\section{The Oscilloscope is Our Friend!}
+\label{lab_oscilloscope}
+
+%\makelabheader %(Space for student name, etc., defined in master.tex)
+
+\bigskip
+
+\begin{enumerate}[wide]
+
+\item Turn on your oscilloscope, and hook a probe into the BNC connector of the scope marked ``CH1'' (Channel 1).  Use it to measure the output of a 1 kHz sine wave from your function generator, with the amplitude cranked up high (a maximum amplitude of about 10 or 12 volts).  What does the VOLTS/DIV knob do?  What does the ``Div'' mean?
+
+\item Your probe has a little alligator clip at the end of it, which you probably connected to ground.  Try disconnecting it.  Why does it not matter here?
+
+\item There's a tiny little switch on your probes, marked ``1X'' and ``10X.'' (I'm NOT talking about the menu item on the scope screen, but the switch at the end of the actual probes.)  What does this switch do?
+
+\item The menu on your scope's screen should show various options, including ``coupling,'' ``BW Limit,'' ``Volts/Div,'' and ``Probe.''  (If it doesn't show that, probably because you were already playing with other buttons, hit the ``Ch1 Menu'' button.)  What does hitting the button next to ``Probe'' do?  How is this related to the switch on the side of your probes?
+
+\item What does the SEC/DIV knob do?  Measure the period of the sine wave by counting divisions on the screen.  Is it consistent with a 1 kHz sine wave?
+
+\item Sketch the shape of the waveform from your function generators for a triangle wave and a square wave.  For a square wave, use your scope to measure about how long it takes for the voltage to rise from its negative value to its peak positive value.  (Is it really instantaneous?)
+
+\item Go back to a sine wave, and hit the ``measure'' button.  Hit the first menu button (to the right of the screen), and then under ``Type'' have it measure ``Mean.''  Hit the ``Back'' option, and set up the second menu button to measure peak-to-peak voltage.  Set up the third measurement for RMS, a fourth one for ``MAX,'' and a fifth one for ``MIN.'' Show in a sketch which parts of the sine wave these are measuring.  Which of these correspond to the measurements your DMM makes when it measures AC voltage?
+
+\item How do the values of those measurements change for triangle and square waves?  What the heck is RMS, anyway?
+
+\item What do the knobs marked ``position'' do?  (Vertical and Horizontal.)  Notice on screen how you can tell when they're back to zero. 
+
+\item Use your second probe to measure the function generator output marked ``TTL.'' Plug it into channel 2, and hit the blue ``Ch 2 menu'' button to turn on the second display.  How is the TTL output affected when you adjust the amplitude and frequency of the sine wave (or triangle or square wave)?
+
+\item Set your function generator back to a nice big 1 kHz sine wave, and hit the ``trig menu'' button.  (``Trig'' stands for ``Trigger.'')  Cycle through all of the options under ``Source'' and describe what you see.  What the heck does ``triggering'' mean?  Back on ``Ch1'' for source, play with the ``level'' knob, and describe what happens.
+
+\item With the level adjustment back on zero, adjust the amplitude of your function generator down to a point where the triggering really flips out and can't give you a decent looking clean sine wave.   At this point, when you would normally despair of ever being able to get a clean measurement, go to the trigger menu, and select ``Ch 2'' under source.  You may also need to adjust the trigger level slightly.  Why is it better to trigger off of the TTL output than a sine wave?
+
+\item Under trigger sources, after ``Ch1'' and ``Ch2,'' what does ``Ext'' mean?  (Hint: unplug the probe from channel 2, and plug it into the jack marked ``Ext Trig.'')  
+
+\item Plug the 2nd probe (measuring the TTL output) back into channel two, and go back to using channel 1 as a trigger.  Crank up the amplitude to get a clean signal.  Now hit the ``Ch~2'' menu, and start playing with the on-screen options.   What does ``Invert'' do?  What does ``Coupling'' do? 
+
+\item While you have pretty traces of ch1 and ch2 on your screens, hit the Cursor button, select ``Voltage'' under Type, and be sure the ``Source'' is set to either Ch1 or Ch2, whatever you have on your screen.  Try twiddling the vertical position knobs.  Cool, eh?  What do the various other options do?
+
+\item Use AC coupling to take a careful look at the output of your 5 Volt DC power supply.  If you crank up the sensitivity of the scope using the volts/div knob, you should be able to see in great detail the small AC part that lies on top of the 5 volt DC signal.  Adjust the time scale to get a good picture of what the AC part is really doing.  What is the characteristic frequency (or frequencies) of this AC part?  Where might they be coming from?
+
+
+\end{enumerate}
+
+
+\textbf{Possible Exam Questions:}
+
+\begin{itemize}
+
+\item A signal varies sinusoidally between +4 volts and +6 volts.  Describe what the oscilloscope trace would look like for AC coupling, DC coupling, and ground.
+
+\item Describe how to use the TTL output of your function generator to get good triggering for a precise measurement of a small signal. What inputs would you use, and how would you trigger? 
+
+\end{itemize}
+
+
+
+
+

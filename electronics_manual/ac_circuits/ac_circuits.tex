@@ -1,0 +1,80 @@
+\section{Inductors and Capacitors in AC Circuits }
+\label{lab_ac_circuits}
+
+%\makelabheader %(Space for student name, etc., defined in master.tex)
+
+\bigskip
+
+\begin{enumerate}[wide]
+
+\item Construct the circuit below.  Use your DMM (not your oscilloscope) to measure all three RMS voltages $V_{AB}$,  $V_{BC}$, and $V_{AC}$.  Do it for frequencies of 20~Hz and 20~kHz.  Is there more current in this circuit at high frequencies, or low frequencies? 
+
+\begin{minipage}{.55\textwidth}
+\begin{center}
+\includegraphics{ac_circuits/RandL.eps}
+\end{center}
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+\begin{center} 
+\begin{tabular}{|c|c|c|} 
+\hline & 20 Hz & 20 kHz \\ 
+\hline $V_{AB}$ & & \\ 
+\hline $V_{BC}$ & & \\ 
+\hline $V_{AC}$ & & \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\end{minipage}
+
+
+\item Think of the inductor as part of a voltage divider circuit.  How does the inductor's ``resistance'' (actually its ``impedance,'' $Z_L$) depend on the angular frequency $\omega$, where $\omega = 2 \pi f$?
+
+\item Adjust the \textit{frequency} of the generator so that the RMS value of $V_{AB}$ is about 0.3 volts, which should be at about $f \approx 1$~kHz.  Predict what will happen to $V_{AB}$ if the 33~mH inductor is replaced by 10~mH.  Test your prediction.
+
+\item Based on your previous answer, how does the inductor's ``resistance'' (actually its ``impedance,''  $Z_L$) depend on its inductance $L$?  Take a stab at writing a single equation relating $Z_L$ to both $\omega$ and $L$.
+
+\item (Today's shocker!) With the 33~mH inductor back in place, adjust the frequency of the generator so that the RMS value of $V_{AB} = V_{BC}$, which should be around $f \approx 2$~kHz.   Is it still the case that $V_{AB} + V_{BC} = V_{AC}$?  How can this be?  Use your oscilloscope to measure all three voltages versus time, and demonstrate that Kirchoff's loop rule is not being violated here.  (Use channel 1 for $V_B$, channel 2 for $V_C$, and the difference Ch$2- $Ch1 for $V_{BC}$.)
+
+\item Graph the voltage across the inductor and the current as a function of time.  What is the relative phase shift between them?  Does the current ``lead'' the voltage, or does the voltage ``lead'' the current? \label{part_RL_graphs}
+
+\newpage
+
+\item Now construct the circuit below. Again, use either the DMM or your oscilloscope to measure all three RMS voltages  $V_{AB}$,  $V_{BC}$, and $V_{AC}$.   Do it for frequencies of 20 Hz and 20 kHz.  Is there more current in this circuit at high frequencies or low frequencies?
+
+\begin{minipage}{.55\textwidth}
+\begin{center}
+\includegraphics{ac_circuits/RandC.eps}
+\end{center}
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+\begin{center} 
+\begin{tabular}{|c|c|c|} 
+\hline & 20 Hz & 20 kHz \\ 
+\hline $V_{AB}$ & & \\ 
+\hline $V_{BC}$ & & \\ 
+\hline $V_{AC}$ & & \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\end{minipage}
+
+\item Think of the capacitor as a resistor in a voltage divider circuit: how does its ``resistance'' (actually its ``impedance,'' $Z_C$) depend on the angular frequency $\omega$, where $\omega$, where $\omega = 2 \pi f$?
+
+\item Adjust the \textit{frequency} of the generator so that the RMS value of $V_{AB}$ is about 0.1 volts.  Predict what will happen to $V_{AB}$ if the 330~nF capacitor is replaced by 100~nF.  Test your prediction.  
+
+\item Based on your previous answer, how does the capacitor's ``resistance'' (actually its ``impedance,'' $Z_C$) depend on its capacitance $C$?  Take a stab at writing a single equation relating $Z_C$ to both $\omega$ and $C$.
+
+\item Adjust the frequency of the generator so that the RMS value of $V_{AB} = V_{BC}$.   Again, is it the case that $V_{AB} + V_{BC} = V_{AC}$?  Again, use your oscilloscope to measure all three voltages versus time, and demonstrate that Kirchoff's loop rule is not being violated here.  
+
+\item Graph the voltage across the capacitor and the current through the capacitor as a function of time.  What is the relative phase shift between them?  Does the current ``lead'' the voltage, or does the voltage ``lead'' the current? \label{part_RC_graphs}
+
+\vfill
+
+\item You probably came up with laws for $Z_L = \omega L$ and $Z_C = 1/ \omega C$, which is close to being correct.  We'd like for the impedances   and   to follow something like Ohm's law, where $V_L = I Z_L$, and $V_C = I Z_C$.  If  $I(t) = I_0 \cos(\omega t)$, do the equations $Z_L = \omega L$ and $Z_C = 1/ \omega C$ really give the correct voltages for the inductor and the capacitor?  Why not?  Think about your graphs for part~\ref{part_RL_graphs} and part~\ref{part_RC_graphs}, and think carefully which graphs represents $I(t)$.
+
+\end{enumerate}
+
+
+
+
+
