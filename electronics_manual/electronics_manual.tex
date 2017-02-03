@@ -21,12 +21,7 @@
 \fancyhead[LE,RO]{\slshape \MakeUppercase{\supplementmark}\leftmark} % Reversed LE, RO to  LO,RE to make headers come out correctly on even/odd 
 %\usepackage{emptypa‌​ge}
 
-\let\oldsection\section% Store \section in \oldsection
-\renewcommand{\section}{\cleardoublepage\oldsection}% Prepend new \section with \cleardoublepage
-
-\let\oldpart\part% See above
-\renewcommand{\part}{\cleardoublepage\oldpart}% Prepend new \part with \cleardoublepage
-	
+\renewcommand{\section}{\cleardoublepage\NoExtraPageSection} %Makes each lab start on odd numbered page (right hand side).
 
 \hyphenation{im-ped-ance}
 \begin{document}
