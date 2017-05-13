@@ -87,7 +87,8 @@
 %\part{Appendices}
 \immediateaddcontentsline{toc}{part}{Appendices} %Avoids a Roman part number for the Appendices in the toc
 \appendix
-\renewcommand{\supplementmark}{}
+\renewcommand{\supplementmark}{Appendix }
+\titleformat{\section}{\normalfont\large\bfseries}{\supplementmark \thesection :}{1ex}{}
 
 \includelab{1}{appendices/pinouts/pinouts}
 \includelab{1}{appendices/one_page_uncertainty/one_page_uncertainty}
