@@ -14,12 +14,11 @@
 
 \makeindex
 
-\newcommand{\supplementmark}{Lab }
+%\newcommand{\supplementmark}{}
 
-\titleformat{\section}{\normalfont\Large\bfseries}{\supplementmark \thesection}{1em}{}
-\fancyhead[LO,RE]{\slshape \rightmark} 
-\fancyhead[LE,RO]{\slshape \MakeUppercase{\supplementmark}\leftmark} % Reversed LE, RO to  LO,RE to make headers come out correctly on even/odd 
-%\usepackage{emptypa‌​ge}
+%\titleformat{\section}{\normalfont\Large\bfseries}{\supplementmark \thesection}{1em}{}
+%\fancyhead[LO,RE]{\slshape \rightmark} 
+%\fancyhead[LE,RO]{\slshape \MakeUppercase{\supplementmark}\leftmark} % Reversed LE, RO to  LO,RE to make headers come out correctly on even/odd 
 
 \ForceSectionOddPage
 
@@ -28,14 +27,12 @@
 
 \input{electronics_front_pages/electronics_title_page}
 
-
-\let\oldsupplementmark\supplementmark %All of this buisiness is to keep from getting ``Lab'' at the top of the toc
-\renewcommand{\supplementmark}{}
 \tableofcontents{}
+\cleardoublepage
+\renewcommand{\headersupplementmark}{Lab }
 
 %--------------------------------------------
 \part{The Basics}
-\renewcommand{\supplementmark}{\oldsupplementmark}
 
 \includelab{1}{equipment/equipment}
 \includelab{1}{power/power}
@@ -84,8 +81,8 @@
 %\part{Appendices}
 \immediateaddcontentsline{toc}{part}{Appendices} %Avoids a Roman part number for the Appendices in the toc
 \appendix
-\renewcommand{\supplementmark}{Appendix }
-\titleformat{\section}{\normalfont\large\bfseries}{\supplementmark \thesection :}{1ex}{}
+\renewcommand{\headersupplementmark}{Appendix }
+\titleformat{\section}{\normalfont\large\bfseries}{\headersupplementmark \thesection :}{1ex}{}
 
 %\cleardoublepage
 %\NoForceSectionOddPage
