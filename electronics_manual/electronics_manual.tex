@@ -21,7 +21,7 @@
 \fancyhead[LE,RO]{\slshape \MakeUppercase{\supplementmark}\leftmark} % Reversed LE, RO to  LO,RE to make headers come out correctly on even/odd 
 %\usepackage{emptypa‌​ge}
 
-\renewcommand{\section}{\cleardoublepage\NoExtraPageSection} %Makes each lab start on odd numbered page (right hand side).
+\ForceSectionOddPage
 
 \hyphenation{im-ped-ance}
 \begin{document}
@@ -89,6 +89,7 @@
 \appendix
 \renewcommand{\supplementmark}{Appendix }
 \titleformat{\section}{\normalfont\large\bfseries}{\supplementmark \thesection :}{1ex}{}
+
 
 \includelab{1}{appendices/pinouts/pinouts}
 \includelab{1}{appendices/one_page_uncertainty/one_page_uncertainty}
