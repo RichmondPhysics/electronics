@@ -7,21 +7,20 @@
 
 \begin{enumerate}[wide]
 
-\item Measure the resistance of a 10k resistor, and see if you can detect any change in its value if you heat it up between your fingers, being careful not to short circuit the leads.  (You probably can't see any change.)  Be sure you are not accidentally shorting out the resistor with your fingers as you do this.  What is the smallest change in resistance that you could detect in principle, given the precision of your multimeter?
+\item Measure the resistance of a 27~k$\Omega$ resistor, and see if you can detect any change in its value if you heat it up between your fingers, being careful not to short circuit the two leads through your own skin.  (You probably can't see any change.)  What is the smallest change in resistance that you could detect in principle, given the precision of your multimeter?
 
-\item Now construct the bridge circuit shown below.  For $V_1$, use your variable DC power supply, $+V$, cranked up as high as it will go.  Let $R_1$ and $R_2$ be 10~k$\Omega$ resistors.  If $R_3$ is 100~k$\Omega$, what should $R_4$ be so that the measured voltage $\Delta V_{ab}$ is zero?  
-
+\item Now construct the bridge circuit shown below.  For $V_1$, use your variable DC power supply, $+V$, cranked up as high as it will go.  Let $R_1$ and $R_2$ be 27~k$\Omega$ resistors.  If $R_3$ is 100~k$\Omega$, what should $R_4$ be so that the measured voltage $\Delta V_{ab}$ is zero?  
 
 \begin{center}
+\vspace{0.1in}
 \includegraphics{bridge_circuit/bridge.eps}
 \end{center}
 
-
-\item Draw a circuit showing how how you can insert a trimpot in between $R_3$ and $R_4$, as you did in Lab~\ref{lab_voltage_dividers}, to get $\Delta V_{ab} = 0$ exactly.
+\item Draw a circuit showing how how you can insert a trimpot in between $R_3$ and $R_4$, as you did in Lab~\ref{lab_voltage_dividers}, to get $\Delta V_{ab} = 0$ exactly.  Build it, and show that it works as expected.
 	
 \item Now see if you can detect a change in $\Delta V_{ab}$ if you warm up $R_1$ with your fingers.  How much does $\Delta V_{ab}$ change by?
 
-\item What is the smallest change in $\Delta V_{ab}$ that you \textit{could} detect, based on the precision of your DMM? \label{part_voltage_measure}
+\item What is the smallest change in $\Delta V_{ab}$ that you \textit{could} detect, based on the precision of your DMM?  (Note that there's a subtle difference between the ``absolute accuracy'' of your DMM listed in the manual and the actual smallest \textit{change} you can see.  Can your DMM reliably detect a small change in the last decimal place?) \label{part_voltage_measure}
 
 \item Based on your answer to part~\ref{part_voltage_measure}, what is the smallest change in the resistance of $R_1$ that you \textit{could} detect using this bridge circuit?  How does this compare to what you found in part 1?  (This bridge circuit is a good example of a fundamental and powerful principle of experimentation: that doing a difference measurement is usually a lot more sensitive than doing a single measurement directly.)
 
