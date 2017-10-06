@@ -7,19 +7,40 @@
 
 \begin{enumerate}[wide]
 
-\item Grab a transformer and examine the wiring diagram on the left below.  Notice that there are actually two primaries and two secondaries.  Wire up your transformer so that the two primaries are in parallel and the two secondaries are in series, and show what color wires are connected where to make this happen.  \textit{Note that the small dots in the picture mark an arbitrary ``positive'' polarity.  This matters because you wouldn't want current going clockwise in one primary coil and counter-clockwise in the other primary coil.  Besides not working, that would blow out your transformer.}   
+\item Your transformer, shown in the circuit diagram below, has two primary coils and two secondary coils that can be wired in a variety of ways to yield different effective turn ratios $N_1/N_2$.  Wire the circuit as shown below, using your oscilloscope to measure the RMS voltages $V_1$ and $V_2$.  (Note: the wires may come out of your transformer in a different order than is shown here; ignore the order and go by the colors.)  Based on your measurements, what is the apparent turns ratio of the transformer as it is connected here?  Is this a ``step down'' or ``step up'' transformer?  
 
-\vspace{-0.2in}
 \begin{center}
-\includegraphics{transformers/transformer_wiring.eps}
-\hspace{0.5in}
-\includegraphics{transformers/transformer_wiring2.eps}
+\includegraphics{transformers/transformer_par_single.eps}
 \end{center}
-\vspace{-0.2in}
 
-\item Hook up your ``primary'' (actually two primaries) to your signal generator, set to about 60~Hz, and measure the ratio of the primary voltage to the secondary voltage.  (The circuit above on the right shows what it would look like with just one primary and one secondary.)  What ``turns ratio'' does your measurement suggest?''  Is this a ``step down'' or ``step up'' transformer? \label{part_turns1}
+\item Predict the value of the secondary voltage $V_2$ if the transformer wiring is changed as shown below, with the two secondary coils now connected in parallel, just as the two primary coils are.  Test your prediction.
 
-\item For this part, you will keep the wiring of the transformer the same: the side that's in parallel stays in parallel, and the side that's in series stays in series. But switch it so that the signal generator is connected to the other side of the transformer (that is, what was formerly the ``secondary'' of the transformer is now functioning as the primary, and vice versa).  In this new configuration, is this a ``step down'' or ``step up'' transformer?  What is the turns ratio?  Is this consistent with your measurement in the previous part? \label{part_turns2}
+\begin{center}
+\includegraphics{transformers/transformer_par_par.eps}
+\end{center}
+
+\item If you look closely at the transformer wiring diagrams above, you'll see that some of the transformer terminals have a small dot near them.  This denotes an arbitrary polarity of the coils.  Essentially, although it doesn't matter whether the two secondary coils are wound around clockwise or counterclockwise, it \textit{does} matter that both are wired the same direction.  Predict what will happen if you reverse the polarity of one of the coils as shown below, and test your prediction with a measurement.
+
+\begin{center}
+\includegraphics{transformers/transformer_par_par_reversed.eps}
+\end{center}
+
+\item Predict what secondary voltage $V_2$ you will measure if your circuit is rewired so that the two primary coils remain in parallel, but the two secondary coils are connected in series, as shown below.  Test your prediction with a measurement.  What is the turns ratio for the transformer when it is wired this way?
+
+\begin{center}
+\includegraphics{transformers/transformer_par_ser.eps}
+\end{center}
+
+\item Predict the secondary voltage $V_2$ and the turns ratio of the transformer if the circuit is rewired so that both the primary coils and the secondary coils connected in series. Test your prediction with a measurement.  (You may find that the primary voltage has also changed slightly from the previous part, due to the internal resistance of the function generator.)
+
+\item In the circuit shown below, both pairs of coils are still connected in series as before, but the roles of the primary and secondary have now been reversed.  Measure the voltages $V_1$ and $V_2$.  In this new configuration, is this a ``step down'' or ``step up'' transformer?  What is the turns ratio?  Is this consistent with your measurement in the previous part? 
+
+\begin{center}
+\includegraphics{transformers/transformer_ser_ser_inverted.eps}
+\end{center}
+
+\item What accounts for the slight descrepancy between the apparent turns ratios you measured in the last two parts?
+
 
 \end{enumerate}
 
@@ -29,12 +50,29 @@
 
 \item Use your transformer to step down the voltage of your signal generator, and put the output from the transformer to the speaker.  (Use a frequency of about 300~Hz, so you get an easily audible tone.)  Does using the transformer make the tone louder or quieter?  Calculate the average power dissipated in the speaker both with and without the transformer.  
 
-\item Now hook the transformer's primary up to an AC power cord, using two wire nuts, with the two sets of primary leads wired in parallel.  Tie all the wires together in a knot when you are done, to prevent mechanical stress on the wire connections.  FOR SAFETY, YOU MUST HAVE YOUR WIRING INSPECTED BY THE INSTRUCTOR BEFORE PLUGGING IT IN.  Measure the output of your transformer's secondary.  Based on the turns ratio you found in parts \ref{part_turns1} and \ref{part_turns2}, what is the actual voltage of the AC outlet?  Is that a peak voltage, or RMS?
+\item Now hook the transformer's primary up to an AC power cord, using two wire nuts, with the two sets of primary leads wired in parallel.  Tie all the wires together in a knot when you are done, to prevent mechanical stress on the wire connections.  FOR SAFETY, YOU MUST HAVE YOUR WIRING INSPECTED BY THE INSTRUCTOR BEFORE PLUGGING IT INTO AN OUTLET.  After plugging it in, measure both the ampltitude and RMS voltage of your transformer's secondary coils, connected in parallel.  Since you already know the turns ratio of the transformer in this configuration, you should be able to estimate the amplitude and RMS value of the voltage at the wall socket.  
+
+\item A standard AC outlet in the US is nominally ``120 volts.''  Is that value an amplitude, an RMS value, or a peak-to-peak voltage? 
 
 \end{enumerate}
 
+\textit{Keep your transformer hooked up to the AC power cord as it is now.  You'll use it that way in Lab \ref{lab_diodes}.}
 
+\bigskip
 
+\textbf{Possible Exam Questions:}
+
+\begin{itemize}
+
+\item Show how to correctly wire the transformer below so that the primaries are in parallel and the secondaries are in series.
+
+\begin{center}
+\includegraphics{transformers/transformer_wiring.eps}
+\end{center}
+
+\item Show how to correctly wire the transformer above in order to maximize its turns ratio as a step-down transformer.  (That is, in order to step the voltage down as much as possible.)
+
+\end{itemize}
 
 
 
