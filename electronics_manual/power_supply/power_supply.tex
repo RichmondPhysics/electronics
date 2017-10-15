@@ -34,12 +34,12 @@ The purpose of this lab is to show how to convert an AC voltage, for instance fr
 
 \item Calculate the size of capacitor required to lower the ripple voltage to 100~mV for a load of 100~k$\Omega$.  Test your calculation.  (As we continue to decrease the ripple voltage, you may find it handy to use the average function on your scope, under the acquire menu, to improve your measurements.)
 
-\item Replace the half-wave rectifier with a full-wave bridge rectifier, shown below, using 1N4001 for all the diodes.  As before, sketch the waveform both with and without the capacitor.
+\item Replace the half-wave rectifier with a full-wave bridge rectifier, shown below, using the 1N4001 for all the diodes.  As before, sketch the waveform of $V_{LOAD}$ both with and without the capacitor.
 \begin{center}
 \includegraphics{power_supply/full_wave_bridge_rectifier.eps}
 \end{center}
 
-\item With the capacitor in place, you can measure that the maximum voltage across $R_{LOAD}$ is slightly less than with the half wave rectifier.  (How much less?  And why is that?)  
+\item With the capacitor in place, you can measure that the maximum voltage across $R_{LOAD}$ is slightly less than with the half wave rectifier.  How much less?  And why is that?
 
 \item You should also see that the ripple voltage is about half what it was before.  Why is that?  Which part of your calculation in part \ref{part_symbolic_derivation} has changed by a factor of two?  
 
@@ -54,7 +54,7 @@ The purpose of this lab is to show how to convert an AC voltage, for instance fr
 
 \item You can still make your circuit work with $R_{LOAD} = 2.2$~k$\Omega$ if you lower the value of $R_{LIM}$.  What is the largest value of $R_{LIM}$ that will make your circuit work?  Fix your circuit using an ``extra safe'' value of $R_{LIM}=330$~$\Omega$ and redo the measurements you took in part~\ref{part_zener_regulator}.  \label{part_small_rlim}
 
-\item Why is the output ripple voltage you found in part~\ref{part_small_rlim} larger than you found in part~\ref{part_zener_regulator}? 
+\item Why is the output ripple voltage you found in part~\ref{part_small_rlim} larger than you found in part~\ref{part_zener_regulator}?  (Hint: draw a graph of the $IV$ curve for a Zener diode.  Are the vertical parts really exactly vertical?)
 
 \item You have now seen the limitation of using a Zener shunt clipper for a DC power supply: for loads that draw large output currents, you need to lower $R_{LIM}$ so that the output voltage never falls below $V_R$ of the diode.  But small values of $R_{LIM}$ draw more current, which leads to larger ripple voltages, and would eventually lead to currents that would damage the diode.  And fundamentally, the output ripple voltage is \textit{always} going to be a problem for large currents, because the voltage across the diode isn't exactly 9.00000 volts---it always depends a little on the current in the diode.  So you can't win!  Fortunately, there's a terrific solution to all of these problems, and it comes in a little chip that costs just pennies and can happily output 100 mA.  Build the circuit shown below, and verify that it produces a smooth 9 V output.
 \begin{center}
@@ -68,16 +68,22 @@ The purpose of this lab is to show how to convert an AC voltage, for instance fr
 
 \item Using $R_{LOAD} = 2.2$~k$\Omega$ and $C = 22$~$\mu$F, measure the ripple voltage across $R_{LOAD}$, and compare that to the ripple voltage at the input of the 7809.  By what factor has this ripple voltage been reduced?  How does that compare to the value stated on the data sheet, which is given in dB?
 
-\item You also have in your kits a 7805, in a larger TO-220 package.  How much output current are these capable of?  What is their ``ripple rejection'' ratio, in dB?  How big would $V_{RIPPLE}$ be if you used this in your circuit above?
+\item You also have in your kits an MC7805, in a larger TO-220 package.  How much output current are these capable of?  What is their ``ripple rejection'' ratio, in dB?  How big would $V_{RIPPLE}$ be if you used this in your circuit above?  (No need to build this one.)
 
 \end{enumerate}
 
 \textbf{Possible Exam Questions:}
 
 \begin{itemize}
-\item Use a transformer, four silicon diodes, one capacitor, and a 7805 regulator to design a power supply to design a power supply that delivers 5 volts at 300~mA with 0.1~mV ripple.  The 7805 has ripple rejection of 75~dB and a dropout voltage of 1.7 volts.  Specify the capacitance and transformer turns ratio required.
+%\item Use a transformer, four silicon diodes, one capacitor, and a 7805 regulator to design a power supply to design a power supply that delivers 5 volts at 300~mA with 0.1~mV ripple.  The 7805 has ripple rejection of 75~dB and a dropout voltage of 1.7 volts.  Specify the capacitance and transformer turns ratio required.
 
 \item Derive the expression $V_{RIPPLE}=V_{MAX}/2fR_{LOAD} C$.
+
+\item Draw a circuit diagram showing how to use a Zener shunt clipper as a voltage regulator.  Do these work best at high currents or low currents?  What two problems will you face if you push these past their useful current range?
+
+\item Draw a half wave rectifier and a full wave rectifier.  Which requires a larger capacitor to yield the same ripple voltage?  Which has a slightly larger voltage drop across it, thus dissipating slightly more power and lowering its efficiency?
+
+\item What does the ``dropout voltage'' of a voltage regulator mean?  What is the ``ripple rejection'' ratio of a regulator?
 
 \end{itemize}
 
