@@ -25,7 +25,7 @@
 \includegraphics{diodes/led_with_resistor.eps}
 \end{center}
 
-\item Return your scope to ``YT'' mode, and \textit{do not forget to turn the Ch2 invert OFF}.  Build the ``series clipper'' circuit pictured below, using a 1N4001 diode and a load resistance of 100~k$\Omega$.  Make a sketch of the input waveform and the output waveform.  Make precise measurements of the peak positive and negative input voltages, and the peak positive and negative output voltages.  Are they exactly the same?  (You may want to shift the vertical positions of your traces and increase the scale on your scopes for more precise measurements.)  Also predict how your graph will change if you reverse the polarity of the diode, and test your prediction.
+\item Return your scope to ``YT'' mode, and \textit{do not forget to turn the Ch2 invert OFF}.  Build the ``series clipper'' circuit pictured below, using a 1N4001 diode and a load resistance of 100~k$\Omega$.  Make a sketch of the input waveform and the output waveform.  Make precise measurements of the peak positive and negative input voltages, and the peak positive and negative output voltages.  Are they \textit{exactly} the same?  (You may want to shift the vertical positions of your traces and increase the scale on your scopes for more precise measurements.)  Also predict how your graph will change if you reverse the polarity of the diode, and test your prediction.
 \begin{center}
 \includegraphics{diodes/series_clipper.eps}
 \end{center}
@@ -49,7 +49,7 @@
 
 \item Why is it necessary to use an op-amp in the biased shunt clipper above, rather than connecting the diode to $R_3$ and $R_4$ directly?  If you did omit the op-amp, how would you have to adjust the values of your resistors? (No need to build this.)
 
-\item The unbiased shunt clipper you built in part~\ref{part_shunt_clipper} actually gives a minimum $V_{OUT}$ of $-0.7$~volts.  Design and build a biased version of that circuit with a minimum output of exactly $0.0$~volts.  (Incidentally, there's a very slick way to guarantee exactly the voltage you need at the op-amp input $V_+$ without having to calculate precise resistor values.  Can you find it?)  \label{part_biased_clipper_zero}
+\item The unbiased shunt clipper you built in part~\ref{part_shunt_clipper} actually gives a minimum $V_{OUT}$ of $-0.7$~volts.  Design and build a biased version of that circuit with a minimum output of exactly $0.0$~volts.  (Incidentally, there's a very slick way to guarantee exactly the voltage you need at the op-amp input $V_+$ without having to calculate precise resistor values or mess with a trimpot.  Can you find it?)  \label{part_biased_clipper_zero}
 
 \item Another way to build clippers that work at a variety of voltages is to use Zener diodes with specific values of $V_R$.  Predict the maximum and minimum output voltages of the circuit below, which uses a 1N4733 Zener diode.  Build the circuit, and test your predictions.  What is the maximum instantaneous power dissipated by the diode?  (Consider both $V_{Diode}=V_F$ and $V_{Diode}=V_R$.)  \label{part_zener_shunt_clipper}
 %\vspace{-0.1in}
