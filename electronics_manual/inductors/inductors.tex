@@ -5,8 +5,6 @@
 
 \bigskip
 
-\textit{Note: before starting this lab, be sure both channels of your oscilloscope are set to DC coupling.  Also set both of your probes to 10$\times$ to minimize the effects of probe capacitance.}
-
 \begin{enumerate}[wide]
 
 \item Use your DMM to measure the inductance (in Henries) of several of the inductors in your kits.  You should have eight of them to choose from.  What can you deduce about the color code for the bands?
@@ -21,6 +19,10 @@
 \includegraphics{inductors/transformer_as_inductor2.eps}
 \end{center}
  
+\medskip 
+
+\textit{Note: For the remainder of this lab, set both of your probes to $10\times$ to minimize the effects of probe capacitance. Also, be sure both channels of your oscilloscope are set to DC coupling.}
+
 \item Build the circuit shown below, with channels 1 and 2 of your scope hooked up as shown, using the two transformer primaries in series as your inductor.  Note that the switch is kind of funny here in that it shorts out the power supply.  To measure the voltage across the resistor $V_{R1}$, you will need to push the ``math'' button on your scope to get it to display the difference Ch2 $-$ Ch1.  It's hard to get the switch to open and close cleanly every time; for best results, try to slide the switch quickly but silently.  Sketch graphs of $V_{R1}$ and $V_L$ versus time as you open and close the switch.   Also sketch the current $I$ vs. time.  What is the time constant $\tau$ of this circuit?  (It should be in the neighborhood of about a millisecond.)  \label{part_rl_constant}
 \begin{center}
 \includegraphics{inductors/single_dc_inductor.eps}
@@ -28,7 +30,9 @@
 
 \item Sanity check: Does $V_{R1} +V_L = 5$ volts when the switch is open?  What's $V_{R1} +V_L$ when the switch is closed?
 
-\item In the water pipe analogy, we can think of power supplies as pumps, resistors as constrictions in the pipes, and capacitors as flexible rubber membranes that block the pipes.  Take a look at your graph of current versus time, and think of an analogy for the inductor in your circuit.  (Hint: something with a lot of mass or inertia.)
+\item In the water pipe analogy, we can think of power supplies as pumps, resistors as constrictions in the pipes, and a capacitor as a flexible rubber membranes stretched across an enlarged section of pipe.  Draw a picture showing the $RL$ circuit you have just built as a system of water pipes, representing the inductor as a giant, heavy water wheel or turbine on frictionless bearings.  
+The water flow changes when the pump is turned on or when a valve is opened or closed.
+If the mass of the wheel \textit{increases}, does the amount of the water flowing change \textit{more quickly} or \textit{more slowly}?
 
 \item Make a prediction: what will happen to the time constant if you replace $L$ with only a single primary coil of your transformer, instead of two primaries in series?  Check it and see.    
 
