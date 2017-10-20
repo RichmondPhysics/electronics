@@ -41,7 +41,7 @@ The purpose of this lab is to show how to convert an AC voltage, for instance fr
 
 \item With the capacitor in place, you can measure that the maximum voltage across $R_{LOAD}$ is slightly less than with the half wave rectifier.  How much less?  And why is that?
 
-\item You should also see that the ripple voltage is about half what it was before.  Why is that?  Which part of your calculation in part \ref{part_symbolic_derivation} has changed by a factor of two?  
+\item You should also see that the ripple voltage is about half what it was before.  Why is that?  Which part of your calculation in part \ref{part_symbolic_derivation} has changed by a factor of two?  \label{part_symbolic_derivation_2f}
 
 \item Replace the four diodes with the integrated bridge rectifier from your kits, and confirm that it works as predicted.  How are the leads labeled to indicate AC input and DC output?
 
@@ -52,7 +52,7 @@ The purpose of this lab is to show how to convert an AC voltage, for instance fr
 
 \item The circuit you just built should work fine as long as the value of $R_{LOAD}$ isn't too small.  But now what happens to your output when you change the load to $R_{LOAD} = 2.2$~k$\Omega$?  Why is your output no longer a steady 9 volts?
 
-\item You can still make your circuit work with $R_{LOAD} = 2.2$~k$\Omega$ if you lower the value of $R_{LIM}$.  What is the largest value of $R_{LIM}$ that will make your circuit work?  Fix your circuit using an ``extra safe'' value of $R_{LIM}=330$~$\Omega$ and redo the measurements you took in part~\ref{part_zener_regulator}.  \label{part_small_rlim}
+\item You can still make your circuit work with $R_{LOAD} = 2.2$~k$\Omega$ if you lower the value of $R_{LIM}$.  What is the largest value of $R_{LIM}$ that will make your circuit work?  (To make this problem doable, you can assume that you know that the ripple voltage at the capacitors will be about 2 volts.)  Fix your circuit using an ``extra safe'' value of $R_{LIM}=330$~$\Omega$ and redo the measurements you took in part~\ref{part_zener_regulator}.  \label{part_small_rlim}
 
 \item Why is the output ripple voltage you found in part~\ref{part_small_rlim} larger than you found in part~\ref{part_zener_regulator}?  (Hint: draw a graph of the $IV$ curve for a Zener diode.  Are the vertical parts really exactly vertical?)
 
@@ -62,11 +62,11 @@ The purpose of this lab is to show how to convert an AC voltage, for instance fr
 \includegraphics[width=1.3in]{appendices/pinouts/TO-92_package_pinout.eps}
 \end{center}
  
-\item What happens when you replace the capacitor with $C = 10$~$\mu$F?  Why this huge change?  (Hint: measure the input voltage to the 7809, and look up the ``dropout voltage'' on its data sheet.  Be sure you're using the data sheet for the small MC78L09, in the TO-92 package.)
+\item Using the two channels of your oscilloscope to simultaneously measure the input and output voltages of the MC78L09, what happens to both of those when you change the capacitor to $C = 10$~$\mu$F?  Why this huge change in the output?  (Hint: Look up the ``dropout voltage'' on its data sheet.  Be sure you're using the data sheet for the small MC78L09, in the TO-92 package.)
 
-\item What capacitance $C$ would you need if your load resistance were small enough to draw 100~mA?   
+\item Because of the dropout voltage of your MC78L09, you need to maintain an input voltage of at least 10.7 volts for the regulator to function properly.  With that in mind, what capacitance $C$ would you need to use if your load resistance were small enough to draw 100~mA?   (Hint: Rewrite your expression for ripple voltage from part~\ref{part_symbolic_derivation_2f} in terms of the load current.)
 
-\item Using $R_{LOAD} = 2.2$~k$\Omega$ and $C = 22$~$\mu$F, measure the ripple voltage across $R_{LOAD}$, and compare that to the ripple voltage at the input of the 7809.  By what factor has this ripple voltage been reduced?  How does that compare to the value stated on the data sheet, which is given in dB?
+\item Using $R_{LOAD} = 2.2$~k$\Omega$ and $C = 22$~$\mu$F, measure the ripple voltage across $R_{LOAD}$, and compare that to the ripple voltage at the input of the MC78L09.  By what factor has this ripple voltage been reduced?  How does that compare to the value stated on the data sheet, which is given in dB?
 
 \item You also have in your kits an MC7805, in a larger TO-220 package.  How much output current are these capable of?  What is their ``ripple rejection'' ratio, in dB?  How big would $V_{RIPPLE}$ be if you used this in your circuit above?  (No need to build this one.)
 
@@ -83,7 +83,7 @@ The purpose of this lab is to show how to convert an AC voltage, for instance fr
 
 \item Draw a half wave rectifier and a full wave rectifier.  Which requires a larger capacitor to yield the same ripple voltage?  Which has a slightly larger voltage drop across it, thus dissipating slightly more power and lowering its efficiency?
 
-\item What does the ``dropout voltage'' of a voltage regulator mean?  What is the ``ripple rejection'' ratio of a regulator?
+\item What does the ``dropout voltage'' of a voltage regulator mean?  What does the ``ripple rejection'' ratio of a regulator mean?  What are typical values of these quantities? 
 
 \end{itemize}
 
