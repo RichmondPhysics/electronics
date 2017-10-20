@@ -1,0 +1,29 @@
+\section{An Oscilloscope Checklist}
+\label{oscilloscope_checklist}
+
+This appendix is intended as a helpful reminder of things to consider when your oscilloscope isn't giving you the measurement you want.  It's not intended to be an exhaustive manual.
+
+\begin{itemize}
+
+\item \textbf{Probe setting:} Use $1\times$ for most measurements, especially small voltages.  Use $10\times$ for very large voltages or when probe capacitance might matter ($f > 20$~MHz, or circuits with inductors).  Make sure the switch on your probe matches Ch1 or Ch2 menu.
+
+\item \textbf{Vertical and horizontal scales:} Are volts/div and time/div set to reasonable ranges for the signal you expect?
+
+\item \textbf{Horizontal position:} The white arrow at the top of the screen marking $t=0$ should generally be in the center. Hit \button{set to zero} to reset it. 
+
+\item \textbf{Averaging:} Under \button{acquire}, select 64 or 128 averages to reduce noise for small voltages.  Your default setting should be \button{sample} to avoid slow refresh of traces, for instance a DC level that appears to drift gradually higher over time.
+
+\item \textbf{Triggering:}
+
+\begin{itemize}
+
+\item \textbf{Source:} Are you triggering appropriately off of Channel 1, Channel 2, or AC line?
+
+\item \textbf{Auto/Normal:} Use \button{Auto} as your default.  Use \button{Normal} only to hold in place a single scan line.  If your scope is frozen and you can't see any trace at all, switch from \button{Normal}  to \button{Auto} so you at least get \textit{something} to look at, then switch to \button{Normal} if needed after fixing everything else that needs fixing.
+
+\item \textbf{Level:} Be sure the arrow on the right side of your screen is set to a reasonable trigger level that you expect your source to rise or fall through.
+
+\end{itemize}
+
+\item \textbf{Coupling:} Select DC coupling as your default.  Choose AC coupling only if you specifically want to remove the DC component of your signal.
+\end{itemize}
