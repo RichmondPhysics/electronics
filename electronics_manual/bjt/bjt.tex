@@ -7,7 +7,7 @@
 
 \begin{enumerate}[wide]
 
-\item Build the circuit drawn below, which includes a 2N3904 npn bipolar junction transistor.  Measure the DC current through the base, collector, and emitter leads of the transistor.  (To minimize the effect of your DMM on the circuit, use the ``mA'' scale where possible.)  What is the ratio of $I_E/I_B$?  Where is all the current in the emitter coming from?
+\item Build the circuit drawn below, which includes a 2N3904 npn bipolar junction transistor.  Measure the DC current through the base, collector, and emitter leads of the transistor.  (To minimize the effect of your DMM on the circuit, use the ``mA'' scale where possible.)  What is the ratio of $I_E/I_B$?  (You should get a ratio of about 100.)  Where is all the current in the emitter coming from?
 \begin{center}
 \includegraphics{bjt/first_bjt_test_circuit.eps}
 \includegraphics{appendices/pinouts/2N3904_pinout.eps}
@@ -20,7 +20,7 @@
 
 \item How does the size of the current $I_B$ compare to the current in the coil of the relay switch from the Lab~\ref{lab_relays}?
 
-\item In the circuit below, the output of an op-amp is being used to light an LED.  (Perhaps this is the last stage of some other more complicated project.)  This circuit should work just fine. Build it and verify that $V_{out}$ and $I_{out}$ are what they should be. 
+\item In the circuit below, the output of an op-amp is being used to light a red LED.  (Perhaps this is the last stage of some other more complicated project.)  This circuit should work just fine. Build it and verify that the output voltage of the op-amp and the current through the LED are what they should be. 
 \begin{center}
 \includegraphics{bjt/buffer_one_led.eps}
 \end{center}
@@ -31,7 +31,7 @@
 \includegraphics{bjt/buffer_four_leds.eps}
 \end{center}
 
-\item The circuit below shows one way to fix the problem you just found, using a transistor as an ``emitter follower amplifier.''  Now what is the current through each LED?  What is the voltage at the emitter, $V_E$?  What is the current $I_B$?
+\item The circuit below shows one way to fix the problem you just found, using a transistor as an ``emitter follower amplifier.''  Now what is the current through each LED?  What is the voltage at the emitter, $V_E$?  What is the current $I_B$?  (BTW: No worries, the LM324 will be perfectly happy with 10~V for its positive power supply.)
 \begin{center}
 \includegraphics{bjt/emitter_follower1.eps}
 \end{center}
@@ -51,18 +51,18 @@
 \includegraphics{bjt/ac_with_emit_follower.eps}
 \end{center}
 
-\item The circuit above is a lousy amplifier for AC signals, because it cuts off the bottom half of the input signal.  The circuit below shows how to ``bias'' the input signal with a DC voltage so that the base of the transformer is always positive.  What is the voltage at the base of the transistor in the circuit below (AC and DC components)?  What must be the value of the capacitor for the cutoff frequency to be 100~Hz?  (That is, at 1~kHz, you want the AC amplitude at the base to be the same as the AC amplitude of the source.)
+\item The circuit above is a lousy amplifier for AC signals, because it cuts off the bottom half of the input signal.  The circuit below shows how to ``bias'' the input signal with a DC voltage so that the base of the transformer is always positive.  What is the voltage at the base of the transistor in the circuit below (AC and DC components)?  What must be the value of the capacitor for the cutoff frequency $f_C$ to be 100~Hz?  (We're picking $f_C=100$~Hz because we want to be sure that the AC amplitude $V_{OUT}$ is the same as the AC amplitude $V_{IN}$ at 1~kHz.)
 \begin{center}
 \includegraphics{bjt/emit_follower_biased_input.eps}
 \end{center}
 
 \pagebreak[3]
-\item To eliminate the DC offset on the output, your first instinct should be to use a high pass filter, as shown below.  Measure the signal across the load resistor.  Is it consistent with what you expect?    
+\item Great!  You now have a sinusoidal output that looks like the input.  The only problem is that the output has an additional DC offset you don't especially want.  To eliminate the DC offset from $V_{OUT}$, your first instinct should be to use a high pass filter on the output, as shown below.  Theoretically, what is the cutoff frequency of the output filter shown in the diagram?  Now measure the signal across the load resistor.  Is it consistent with what you expect?  (It might not be....)
 \begin{center}
 \includegraphics{bjt/biased_output_and_input_incorrect.eps}
 \end{center}
 
-\item From the measurements you have just made, you have probably found that the circuit above is totally useless.  It doesn't work, because current can never flow backwards across the transistor; the junction between the base and emitter is a diode, and current only flows across it forwards. Once the capacitor charges up to a maximum voltage, there is no way for it to discharge.  To provide a path for it to discharge, you will need to use a second resistor in parallel with the load resistor, as shown below.  The value of the discharge resistor has to be less than half of the load resistance for this to work properly.  What values of $C_1$ and $C_2$ are required to make this amplifier work well over the entire frequency range of human hearing, from 20~Hz to 20~kHz?  (Be careful: is each of these a high-pass or a low-pass filter?)
+\item From the measurements you have just made, you have probably found that the circuit above is totally useless.  It doesn't work, because current can never flow backwards across the transistor; the junction between the base and emitter is a diode, and current only flows across it forwards. Once the capacitor charges up to a maximum voltage, there is no way for it to discharge.  To provide a path for it to discharge, you will need to use a second resistor in parallel with $C_2$ and $R_{LOAD}$, as shown below.  The value of this discharge resistor has to be less than half of the load resistance for this to work properly.  What values of $C_1$ and $C_2$ are required to make this amplifier work well over the entire frequency range of human hearing, from 20~Hz to 20~kHz?  (Be careful: is each of these a high-pass or a low-pass filter?)
 \begin{center}
 \includegraphics{bjt/biased_output_and_input_correct.eps}
 \end{center}
@@ -73,9 +73,11 @@
 
 \begin{itemize}
 
-\item In the drawing in the very last part of this lab, the upper 10~k$\Omega$ resistor is changed to 30~k$\Omega$, and the capacitor is 100~nF.  What is the cutoff frequency of this amplifier?
+\item If you want to use a control voltage to turn the current in another circuit on or off, is it better to use a relay or a bipolar junction transistor?  Discuss the advantages and disadvantages of each.  Topics should include the size of the switching current required (into the transistor base or through the coil of the relay), the size of the load currents that can be controlled, whether you can control both AC and DC load currents, the size of the voltage drop across the relay contacts or between the emitter and collector, switching speed, size, cost, and reliability.  (A bulleted list would be fine.)
 
-\item If you want to use a voltage to turn the current in another circuit on or off, is it better to use a relay or a transistor?  Discuss the advantages and disadvantages of each. 
+\item The circuit you built in the final part of this lab is called an ``emitter-follower amplifier'' or ``common collector amplifier.''  Design an emitter-follower amplifier (from scratch and from memory) with an input impedance of $\ge 10$~k$\Omega$ suitable for $R_{LOAD}=1$~k$\Omega$ and $f=10$~Hz.
+
+\item In the drawing in the final part of this lab, the upper 10~k$\Omega$ resistor is changed to 30~k$\Omega$, and the capacitor is 100~nF.  What is the cutoff frequency of this amplifier?
 
 \end{itemize}
 
