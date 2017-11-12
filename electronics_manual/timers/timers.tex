@@ -6,13 +6,18 @@
 \bigskip
 
 If you were trapped on a desert island and could have only a single integrated circuit with you, what would you choose?  One good answer is the 555 timer, which consists of two comparators and one flip-flop, plus a few extra internal resistors and an output stage to increase its utility.  As the block diagram below suggests, 555 timers can do anything that flip-flops or comparators can do alone, but they often simplify your circuit by requiring fewer external components. 
-\begin{center}
-\vspace{-0.05in}
-\includegraphics[width=3.25in]{timers/555_block_diagram.eps}
-\hspace{-0.2in}\includegraphics[scale=0.75]{appendices/pinouts/lm555_simple.eps}
-\hspace{-0.2in}\includegraphics[scale=0.75]{appendices/pinouts/ne556_abrev.eps}
-\vspace{-0.05in}
-\end{center}
+
+%\begin{center}
+%\vspace{-0.05in}
+%\includegraphics[width=3.25in]{timers/555_block_diagram.eps}
+\includegraphics[scale=0.96]{timers/555_block_diagram_multisim.eps}
+\hspace{-0.7in}
+\hfill
+\includegraphics[scale=0.72]{timers/lm555_simple_2line.eps}
+\hspace{-0.2in}\includegraphics[scale=0.72]{timers/ne556_abrev_2line.eps}
+\hspace{-0.1in}
+%\vspace{-0.05in}
+%\end{center}
 
 The 555 timer was first developed in 1971, and is still selling over a billion chips per year.  The original was the NE555 made by Signetics, but it is now made by many  manufacturers and in countless variations (for high speed, low power, low voltages, extreme temperatures, etc.).  It also comes in versions with two or even four devices on one chip.  The pinouts for two common versions are shown above.  In this lab, we'll consider three common uses for this best-selling chip of all time. 
 
@@ -24,7 +29,7 @@ What happens when the reset is momentarily brought to ground?
 (Although the CONTROL input is not specifically used in this application, it is common nevertheless to place a 10~nF capacitor between CONTROL and ground, to reduce unwanted interference.)  
 %[Test this to see what happens when inputs are held open...]  
 \begin{center}
-\vspace{-0.05in}
+\vspace{-0.15in}
 \includegraphics{timers/bistable_555.eps}
 \vspace{-0.05in}
 \end{center}
