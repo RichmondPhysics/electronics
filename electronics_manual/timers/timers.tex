@@ -55,7 +55,7 @@ $\Delta t_{HIGH} / \Delta t_{LOW} =2$, and a frequency of $f \approx 10$~kHz. \l
 \includegraphics{timers/astable_555.eps}
 \end{center}
 
-\item The ``duty cycle'' of a square wave is the percentage of each cycle that the output is at a high voltage.  If you want to make a square wave with a duty cycle of less than 50\%, there's a neat trick you can use to make the capacitor charge faster than it discharges: place a diode in parallel with $R_2$, oriented so that $R_2$ is effectively shorted out during the charging phase.  Modify your previous circuit so that the output pulse has a duty cycle of about 20\%.  (Don't worry about its frequency, just get the duty cycle close.)
+\item The ``duty cycle'' of a square wave is the percentage of each cycle that the output is at a high voltage.  If you want to make a square wave with a duty cycle of less than 50\%, there's a neat trick you can use to make the capacitor charge faster than it discharges: place a diode in parallel with $R_2$, oriented so that $R_2$ is effectively shorted out during the charging phase.  Modify your previous circuit by adding a diode and changing one or both of the resistors so that the output pulse has a duty cycle of about 20\%.  (Don't worry about its frequency, just get the duty cycle close.)
 
 \item Use a single 556 timer chip (two timers on the same IC) to build a beeper that beeps a warning at about 1~kHz.  The beeper should sound on and off about once per second.  For this, you'll want to have one 1~Hz oscillator that effectively turns a second 1~kHz oscillator on and off every second.  Looking at the circuit diagram in part~\ref{part_astable}, what's a good way to turn your oscillator on and off without cutting power to the entire chip?
 
