@@ -14,12 +14,13 @@
 \hspace{0.2in}
 \includegraphics[scale=0.8]{appendices/pinouts/lm324.eps}
 \end{center}
-
+\label{part_non-inverting_amplifier}
 
 \item The circuit below is an inverting amplifier with a gain of $-1$.  (The power supplies $V_{CC}$ and $V_{EE}$ have been omitted from the diagram for clarity, as they often are, but they still have to be connected or it won't work.)  If $V_{in}$ is 2 volts, what is $V_-$ (at the negative terminal), and what should be the current through $R_4$?  Modify the circuit to have a gain of $-5$, and test it out.  
 \begin{center}
 \includegraphics{op-amps/inverting.eps}
 \end{center}
+\label{part_inverting_amplifier}
 
 \item Set your function generator to output a 1~kHz sine wave with an (open circuit) RMS voltage of about 100~mV.  (Measure it with your oscilloscope.)  What happens to that RMS voltage when you connect the function generator to your speaker?  The new RMS voltage will be quite small.  To measure it accurately, you will need to have your probe on 1x, trigger off of your TTL signal, and also use the ``Average'' function on your oscilloscope, under the ``Acquire'' menu.  What is this ``averaging,'' and how does it help you?  Set it back to ``Sample'' when you're done, or you'll get weird results later.
 
@@ -36,7 +37,7 @@
 \bigskip
 
 \begin{minipage}{.50\textwidth}
-\item The circuit to the right is a variation on the inverting amplifier called a summing amplifier, where the output is given by 
+\item The circuit to the right is a variation on the inverting amplifier called a summing amplifier, where the output is given by \label{part_summer}
 \begin{equation*}
 V_{out} = -R_F \left( \frac{V_1}{R_1} + \frac{V_2}{R_2} +\frac{V_3}{R_3} \dots \right).
 \end{equation*}
@@ -48,7 +49,7 @@ One place where such a circuit is useful is as a digital to analog (``D-to-A'') 
 \vspace*{0.2in}
 \end{flushright}
 \end{minipage}
-you have four digital inputs, whose voltages are all either +5 volts (for a logical ``1'') or 0 volts (for a logical ``0'').  These inputs represent the ``ones place,'' the ``twos place,'' the ``fours place,'' and the ``eights place'' of a single number expressed in base two, so that ``0001'' is 1, ``0010'' is 2, ``0011'' is 3, and so on.  Show how to use a summing amplifier as part of a 4-bit D/A converter, where the analog output ranges from 0 to +15 volts, corresponding to the numbers 0 through 15.  Note that the output of your summing amplifier will be a negative voltage; how can you make it positive?  (Also: you'll use this circuit again in part~\ref{part_proportional_controller} of this lab, so don't destroy it when you're done.) \label{part_summer}
+you have four digital inputs, whose voltages are all either +5 volts (for a logical ``1'') or 0 volts (for a logical ``0'').  These inputs represent the ``ones place,'' the ``twos place,'' the ``fours place,'' and the ``eights place'' of a single number expressed in base two, so that ``0001'' is 1, ``0010'' is 2, ``0011'' is 3, and so on.  Show how to use a summing amplifier as part of a 4-bit D/A converter, where the analog output ranges from 0 to +15 volts, corresponding to the numbers 0 through 15.  Note that the output of your summing amplifier will be a negative voltage; how can you make it positive?  (Also: you'll use this circuit again in part~\ref{part_proportional_controller} of this lab, so don't destroy it when you're done.) 
 %\begin{center}
 %\includegraphics{op-amps/summing_amp.eps}
 %\end{center}
