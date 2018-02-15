@@ -36,7 +36,7 @@
 \includegraphics{bjt/emitter_follower1.eps}
 \end{center}
 
-\item The circuit above has a problem, that the emitter of the transistor is always about 0.7 volts lower than the base, so that the voltage across the load is always 0.7 volts lower than you really want it to be.  The circuit below shows an improved version of what you just built.  In the circuit below, what is $V_E$, and what is the $V_{OUT}$ of the op-amp?  And finally, what is the current through each LED?  (Clever, eh?)  
+\item The circuit above has a problem, that the emitter of the transistor is always about 0.7 volts lower than the base, so that the voltage across the load is always 0.7 volts lower than you really want it to be.  The circuit below shows an improved version of what you just built.  In the circuit below, what is $V_E$, and what is the $V_{OUT}$ of the op-amp?  And finally, what is the current through each LED?  (Clever, eh?)  \label{part_buffer_op-amp_emitter_follower}
 \begin{center}
 \includegraphics{bjt/emitter_follower2.eps}
 \end{center}
@@ -62,7 +62,7 @@
 \includegraphics{bjt/biased_output_and_input_incorrect.eps}
 \end{center}
 
-\item From the measurements you have just made, you have probably found that the circuit above is totally useless.  It doesn't work, because current can never flow backwards across the transistor; the junction between the base and emitter is a diode, and current only flows across it forwards. Once the capacitor charges up to a maximum voltage, there is no way for it to discharge.  To provide a path for it to discharge, you will need to use a second resistor in parallel with $C_2$ and $R_{LOAD}$, as shown below.  The value of this discharge resistor has to be less than half of the load resistance for this to work properly.  What values of $C_1$ and $C_2$ are required to make this amplifier work well over the entire frequency range of human hearing, from 20~Hz to 20~kHz?  (Be careful, that's a trick question.  Is each of these a high-pass or a low-pass filter?)
+\item From the measurements you have just made, you have probably found that the circuit above is totally useless.  It doesn't work, because current can never flow backwards across the transistor; the junction between the base and emitter is a diode, and current only flows across it forwards. Once the capacitor charges up to a maximum voltage, there is no way for it to discharge.  To provide a path for it to discharge, you will need to use a second resistor in parallel with $C_2$ and $R_{LOAD}$, as shown below.  The value of this discharge resistor has to be less than half of the load resistance for this to work properly.  What values of $C_1$ and $C_2$ are required to make this amplifier work well over the entire frequency range of human hearing, from 20~Hz to 20~kHz?  (Be careful, that's a trick question.  Is each of these a high-pass or a low-pass filter?) \label{part_biased_output_and_input_correct}
 \begin{center}
 \includegraphics{bjt/biased_output_and_input_correct.eps}
 \end{center}

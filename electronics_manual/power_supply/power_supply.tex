@@ -34,7 +34,7 @@ The purpose of this lab is to show how to convert an AC voltage, for instance fr
 
 \item Calculate the size of capacitor required to lower the ripple voltage to 100~mV for a load of 100~k$\Omega$.  Test your calculation.  (As we continue to decrease the ripple voltage, you may find it handy to use the average function on your scope, under the acquire menu, to improve your measurements.)
 
-\item Replace the half-wave rectifier with a full-wave bridge rectifier, shown below, using the 1N4001 for all the diodes.  As before, sketch the waveform of $V_{LOAD}$ both with and without the capacitor.
+\item Replace the half-wave rectifier with a full-wave bridge rectifier, shown below, using the 1N4001 for all the diodes.  As before, sketch the waveform of $V_{LOAD}$ both with and without the capacitor. \label{part_full_wave_bridge_rectifier}
 \begin{center}
 \includegraphics{power_supply/full_wave_bridge_rectifier.eps}
 \end{center}
@@ -56,7 +56,7 @@ The purpose of this lab is to show how to convert an AC voltage, for instance fr
 
 \item Why is the output ripple voltage you found in part~\ref{part_small_rlim} larger than you found in part~\ref{part_zener_regulator}?  (Hint: draw a graph of the $IV$ curve for a Zener diode.  Are the vertical parts really exactly vertical?)
 
-\item You have now seen the limitation of using a Zener shunt clipper for a DC power supply: for loads that draw large output currents, you need to lower $R_{LIM}$ so that the output voltage never falls below $V_R$ of the diode.  But small values of $R_{LIM}$ draw more current, which leads to larger ripple voltages, and would eventually lead to currents that would damage the diode.  And fundamentally, the output ripple voltage is \textit{always} going to be a problem for large currents, because the voltage across the diode isn't exactly 9.00000 volts---it always depends a little on the current in the diode.  So you can't win!  Fortunately, there's a terrific solution to all of these problems, and it comes in a little chip that costs just pennies and can happily output 100 mA.  Build the circuit shown below, and verify that it produces a smooth 9 V output.
+\item You have now seen the limitation of using a Zener shunt clipper for a DC power supply: for loads that draw large output currents, you need to lower $R_{LIM}$ so that the output voltage never falls below $V_R$ of the diode.  But small values of $R_{LIM}$ draw more current, which leads to larger ripple voltages, and would eventually lead to currents that would damage the diode.  And fundamentally, the output ripple voltage is \textit{always} going to be a problem for large currents, because the voltage across the diode isn't exactly 9.00000 volts---it always depends a little on the current in the diode.  So you can't win!  Fortunately, there's a terrific solution to all of these problems, and it comes in a little chip that costs just pennies and can happily output 100 mA.  Build the circuit shown below, and verify that it produces a smooth 9 V output. \label{part_linear_power_supply_78xx}
 \begin{center}
 \includegraphics{power_supply/7809_regulator.eps}
 \includegraphics[width=1.3in]{appendices/pinouts/TO-92_package_pinout.eps}

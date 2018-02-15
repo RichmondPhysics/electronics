@@ -18,29 +18,30 @@
 
 \item Measure the phase shift $\phi$ in degrees between $V_{OUT}$ and $V_{IN}$ as a function of $f$, and make a rough plot of it.  You don't need many data points for this, just enough to give some idea of what $\phi$ does for $f \ll f_C$, $f = f_C$, and $f \gg f_C$.  Be careful with your signs: if $V_{OUT}$ \textit{lags} $V_{IN}$, the phase shift is \textit{negative}.  Check that your result is consistent with the expression you derived for $\phi$ in your homework.
 
-\item Design and build a \textit{high pass} filter by switching the positions of the capacitor and the resistor in your previous circuit.  Change the value of the capacitor so that the cutoff frequency is 100~Hz.  Test your filter by recording $V_{OUT}/V_{IN}$ vs. $f$ and making a Bode plot as you did in part~\ref{part_low_pass_log_plot}.  
+\item Design and build a \textit{high pass} filter by switching the positions of the capacitor and the resistor in your previous circuit.  Change the value of the capacitor so that the cutoff frequency is 100~Hz.  Test your filter by recording $V_{OUT}/V_{IN}$ vs. $f$ and making a Bode plot as you did in part~\ref{part_low_pass_log_plot}.  \label{part_high_pass_RC}
 
-\item You can also build filters using resistors and inductors.  Is the filter pictured below a high pass or a low pass filter?  Predict its cutoff frequency, and then test your prediction with a measurement.
+\item You can also build filters using resistors and inductors.  Is the filter pictured below a high pass or a low pass filter?  Predict its cutoff frequency, and then test your prediction with a measurement. \label{part_high_pass_RL}
 \begin{center}
 \includegraphics{filters/high_pass_filter_LR.eps}
 \end{center}
 
-\item Sketch how you would build a low pass filter using an inductor.  If you wanted your filter to use a 10~k$\Omega$ resistor, what value of $L$ would be required for a cutoff frequency of 10~Hz?  What would be the physical size of such an inductor?  By contrast, how big a capacitor would you need to make it work?  (This is why in real life most filters are made using capacitors instead of inductors.  Filters made using inductors are good for blocking very high radio frequencies called RF; for this reason inductors are sometimes called ``RF chokes.'')  
+\item Sketch how you would build a low pass filter using an inductor.  If you wanted your filter to use a 10~k$\Omega$ resistor, what value of $L$ would be required for a cutoff frequency of 10~Hz?  What would be the physical size of such an inductor?  By contrast, how big a capacitor would you need to make it work?  (This is why in real life most filters are made using capacitors instead of inductors.  Filters made using inductors are good for blocking very high radio frequencies called RF; for this reason inductors are sometimes called ``RF chokes.'')  \label{part_low_pass_RL}
 
 \item In this part, instead of building and testing your own filter, you will use the output of your function generator to test an existing filter inside your oscilloscope.  When you set the ``coupling'' on channel 1 or channel 2 of your oscilloscope to ``AC'' instead of ``DC,'' you are actually filtering the input.  Does ``AC coupling'' apply a low-pass filter or a high-pass filter?  (Hint: DC basically means $\omega=0$, the ultimate low frequency you can get.) Take some measurements comparing DC-coupled and AC-coupled inputs on your scope to determine the exact cutoff frequency of this filter.  You should find that it's somewhere in the neighborhood of about 1~Hz.
 
-\item Design a ``band pass filter'' that passes frequencies between 20 Hz and 20 kHz (roughly the audio range of human hearing).  Do this by building a high-pass RC filter and a low pass RC filter and hooking the output of one to the input of the other.  (Hint: you will want your first resistor to be about 10~k$\Omega$, and your second resistor to be about 100~k$\Omega$.  Why?)   Test your filter by making a Bode plot of $V_{OUT}/V_{IN}$.
+\item Design a ``band pass filter'' that passes frequencies between 20 Hz and 20 kHz (roughly the audio range of human hearing).  Do this by building a high-pass RC filter and a low pass RC filter and hooking the output of one to the input of the other.  (Hint: you will want your first resistor to be about 10~k$\Omega$, and your second resistor to be about 100~k$\Omega$.  Why?)   Test your filter by making a Bode plot of $V_{OUT}/V_{IN}$.\label{part_band_pass_filter}
 
 %\item Use your scope to look carefully at the output of your DC 5 volt power supply.  In particular, switch to ``AC coupling'' and crank up the scale to look at small deviations of the voltage.  What does it look like?  Is there a single dominant frequency in this ``noise''?  What else do you see in the signal?  (You did this before, in Lab~\ref{lab_oscilloscope}.  This is just a reminder.)
 
 %\item Design a low-pass filter that will effectively filter out as much of this unwanted ``noise'' and interference as possible, to produce something closer to a clean DC output.  Build it and test it, and draw what the output looks like.  What should be the cutoff frequency of this filter?  \textit{Important note:} for this exercise, you will need to ground the end of your filter to a CLEAN grounding point.  It turns out that the ``ground'' on your circuit boards is probably noisy as hell.  (Measure it with the scope, in fact.  How noisy is it?)  Use a ground on your oscilloscope instead.
 
-\item The circuit below shows an easy way to add a DC offset (Also called a ``DC bias'') to an AC signal.  Use the principle of superposition to analyze this circuit, shorting out $V_{IN}$ and $V_{DD}$.  In each case, what is $V_{OUT}$ for both very high and very low frequencies?  Build it and test your predictions.
+\item The circuit below shows an easy way to add a DC offset (Also called a ``DC bias'') to an AC signal.  Use the principle of superposition to analyze this circuit, shorting out $V_{IN}$ and $V_{DD}$.  In each case, what is $V_{OUT}$ for both very high and very low frequencies?  Build it and test your predictions. \label{part_DC_bias}
 \begin{center}
 \includegraphics{filters/DC_biasing.eps}
 \end{center}
 
 \item The circuit below is called a resonance filter.  Make a Bode plot of $V_{OUT}/V_{IN}$, paying close attention to the response at $f \approx 2.5$~kHz.  Also plot the phase shift $\phi$ between $V_{OUT}$ and $V_{IN}$ as a function of $f$. 
+\label{part_resonance_filter}
 \begin{center}
 \includegraphics{filters/LC_resonance_filter.eps}
 \end{center}
