@@ -46,20 +46,27 @@
 \includegraphics{bjt/unamplified_ac.eps}
 \end{center}
 
+\pagebreak[4]
 \item We've solved the impedance mismatch of the previous part once before, using a op-amp buffer.  Let's see if we can do it with just a transistor!  Connect your signal generator up to the base of the transistor, and connect the load resistor to the emitter.  Sketch the waveform across the load resistor.  Is this a good way to get a 4-volt peak sine wave across the load resistor?
 \begin{center}
+\vspace{-0.08in}
 \includegraphics{bjt/ac_with_emit_follower.eps}
+\vspace{-0.08in}
 \end{center}
 
 \item The circuit above is a lousy amplifier for AC signals, because it cuts off the bottom half of the input signal.  The circuit below shows how to ``bias'' the input signal with a DC voltage so that the base of the transformer is always positive.  What is the voltage at the base of the transistor in the circuit below (AC and DC components)?  Given the values of $R_1$ and $R_2$ shown below, what must be the value of the capacitor for the cutoff frequency $f_C$ to be 100~Hz?  (We're picking $f_C=100$~Hz because we want to be sure that the AC amplitude $V_{OUT}$ is the same as the AC amplitude $V_{IN}$ at 1~kHz.)
 \begin{center}
+\vspace{-0.08in}
 \includegraphics{bjt/emit_follower_biased_input.eps}
+\vspace{-0.08in}
 \end{center}
 
 \pagebreak[3]
 \item Great!  You now have a sinusoidal output that looks like the input.  The only problem is that the output has an additional DC offset you don't especially want.  To eliminate the DC offset from $V_{OUT}$, your first instinct should be to use a high pass filter on the output, as shown below.  Theoretically, what is the cutoff frequency of the output filter shown in the diagram?  Now measure the signal across the load resistor.  Is it consistent with what you expect?  (It might not be....)
 \begin{center}
+\vspace{-0.08in}
 \includegraphics{bjt/biased_output_and_input_incorrect.eps}
+\vspace{-0.08in}
 \end{center}
 
 \item From the measurements you have just made, you have probably found that the circuit above is totally useless.  It doesn't work, because current can never flow backwards across the transistor; the junction between the base and emitter is a diode, and current only flows across it forwards. Once the capacitor charges up to a maximum voltage, there is no way for it to discharge.  To provide a path for it to discharge, you will need to use a second resistor in parallel with $C_2$ and $R_{LOAD}$, as shown below.  The value of this discharge resistor has to be less than half of the load resistance for this to work properly.  What values of $C_1$ and $C_2$ are required to make this amplifier work well over the entire frequency range of human hearing, from 20~Hz to 20~kHz?  (Be careful, that's a trick question.  Is each of these a high-pass or a low-pass filter?) \label{part_biased_output_and_input_correct}

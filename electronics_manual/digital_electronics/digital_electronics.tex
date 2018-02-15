@@ -17,15 +17,18 @@
 
 \item Logic circuits can be used to do arithmetic on binary (base two) numbers.  Design and build a circuit that can add two 2-bit numbers.  Each of the inputs can be either 0, 1, 2, or 3, represented by two input bits as 00, 01, 10, or 11.  The output will be the binary representation from 0 to 6, using three output bits.  Test your circuit, using the logic switches on your board to control the inputs, and the logic indicators to view the outputs.  Keep good notes on how you build this circuit; you will use it again in a future lab.
 
-\vspace{0.2in}
-\begin{minipage}{.58\textwidth} %was .60
+%\vspace{0.2in}
+%\begin{minipage}{.58\textwidth} %was .60
 
-\item Sometimes you want to create a digital signal based on whether one voltage is larger than another.  For example, you may want an alarm to be switched from OFF to ON if some temperature, represented by a voltage, rises above some predetermined limit. The drawing to the right shows how to use an LM311 comparator to do this.  In the circuit below, if $V_+<V_-$, then pin 7 gets connected to pin 1 inside the chip, so that $V_{OUT}=0$.  Otherwise, $V_{OUT}=5$~volts.  Use your LM311 comparator to build a circuit whose output is 5 volts if an input voltage is less than 2.5 volts, and the output 0 volts if the input voltage is greater than 2.5 volts.  As a test input for your circuit, use a 1~kHz sine-wave from your function generator with an amplitude of 4 volts.
-\end{minipage}
-\begin{minipage}{.39\textwidth}
+\item Sometimes you want to create a digital signal based on whether one voltage is larger than another.  For example, you may want an alarm to be switched from OFF to ON if some temperature, represented by a voltage, rises above some predetermined limit. The drawing below shows how to use an LM311 comparator to do this.  In the circuit below, if $V_+<V_-$, then pin 7 gets connected to pin 1 inside the chip, so that $V_{OUT}=0$.  Otherwise, $V_{OUT}=5$~volts.  Use your LM311 comparator to build a circuit whose output is 5 volts if an input voltage is less than 2.5 volts, and the output 0 volts if the input voltage is greater than 2.5 volts.  As a test input for your circuit, use a 1~kHz sine-wave from your function generator with an amplitude of 4 volts.
+%\end{minipage}
+%\begin{minipage}{.39\textwidth}
 
-\hspace{0.25in}\includegraphics{digital_electronics/basic_lm311.eps}
-\end{minipage}
+%\hspace{0.25in}
+\begin{center}
+\includegraphics{digital_electronics/basic_lm311.eps}
+\end{center}
+%\end{minipage}
 
 \pagebreak[2]
 

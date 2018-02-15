@@ -37,7 +37,7 @@
 \index{color_page}
 \end{center}
 
-\pagebreak[2]
+\pagebreak[4]
 \item Connect your circuit together.  If you simply click on a terminal of one of the components, Multisim will automatically connect a wire to it.  (Be sure you get a red dot at the four way junction, showing that all four wires are connected there.)  When you finish, your drawing should look like the figure below.  You can always move stuff around after wiring it if you need more room.  Now would be a good time to save your work to your Box account or some other place you can get to later.  Continue to save your work often throughout this lab.
 %, and make printouts as needed for your lab notebook (not for this step!).
 \begin{center}
@@ -45,6 +45,7 @@
 \index{color_page}
 \end{center}
 
+\bigskip
 \item Making pretty pictures is all well and good, but Multisim also allows you to simulate the behavior of the circuit.  Remove two connecting wires, and add two multimeters, as shown below.  (Multimeters are the top item on the toolbar on the right edge of the screen.)  Double click each one to set them to \button{Amps} and \button{DC}.  With the pop-up windows for each meter still open, choose \button{Simulate} then \button{Run} from the main menu.  What is the apparent value of $h_{FE}$ for this transistor?  You can also start, pause, and stop the simulation using the icons (\raisebox{-0.3ex}{\includegraphics[height=2ex]{multisim/icons.eps}}) \index{color_page} in the top toolbar.
 \begin{center}
 \includegraphics{multisim/multimeters.eps}
@@ -53,6 +54,8 @@
 
 \item Add an oscilloscope to your circuit to measure the voltage across the load resistor, $R_4$ in the picture above. (The scope is the fourth tiny icon down on the toolbar on the right side of the screen).  The positive lead to input A of the scope will go to your circuit; for the negative lead, you can place another ``ground'' symbol and connect it to your scope.  Before you start simulating, make a prediction of what you should see (both AC and DC parts!).  Is your prediction correct?  Eyeballing values from the graph is fine here; the oscilloscope tool doesn't give you a great way to measure exact values.
 
+\bigskip
+\pagebreak[4]
 \item One of the coolest things Multisim can do is to show you the behavior of your circuit at different frequencies.  Add a ``bode plotter'' to your circuit as shown below.  (It's the sixth icon down on the right-hand toolbar.)  This tool gives you a graph of   as a function of frequency.  Zoom in on the graph by changing the maximum and minimum frequencies, and find the cutoff frequency for this circuit (the $-3$~dB point) using the little slider on the display. \label{part_bode_plotter}
 \begin{center}
 \includegraphics{multisim/bode_plotter.eps}
