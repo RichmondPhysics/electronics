@@ -22,7 +22,6 @@
 
 \tableofcontents{}
 \cleardoublepage
-\renewcommand{\headersupplementmark}{Lab }
 
 %--------------------------------------------
 \part{The Basics}
@@ -71,14 +70,7 @@
 \includelab{1}{lab_99/lab_99}
 
 %--------------------------------------------
-%\part{Appendices}
-\immediateaddcontentsline{toc}{part}{Appendices} %Avoids a Roman part number for the Appendices in the toc
-\appendix
-\renewcommand{\headersupplementmark}{Appendix }
-\titleformat{\section}{\normalfont\large\bfseries}{\headersupplementmark \thesection :}{1ex}{}
-
-%\cleardoublepage
-%\NoForceSectionOddPage
+\startappendix
 
 \includelab{1}{appendices/pinouts/pinouts}
 \includelab{1}{appendices/one_page_uncertainty/one_page_uncertainty_electronics}
