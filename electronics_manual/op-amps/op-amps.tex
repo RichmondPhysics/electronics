@@ -7,7 +7,7 @@
 
 \begin{enumerate}[wide]
 
-\item The circuit below on the left shows a non-inverting amplifier with a gain of 2.  If $V_{in} = 2$~volts, what are $V_+$, $V_-$, and $V_{out}$?  Modify this circuit to have a gain of 5, and test it out. (Note: The diagram on the right shows the ``pin-out'' for the LM324 op-amp chip; other pin-out diagrams are in Appendix \ref{appendix_pinouts}.  Place the LM324 on your breadboard straddling the center line so that you have four additional holes connected to each pin.)
+\item The circuit below on the left shows a non-inverting amplifier with a gain of 2.  If $V_{\rm in} = 2$~volts, what are $V_+$, $V_-$, and $V_{\rm out}$?  Modify this circuit to have a gain of 5, and test it out. (Note: The diagram on the right shows the ``pin-out'' for the LM324 op-amp chip; other pin-out diagrams are in Appendix \ref{appendix_pinouts}.  Place the LM324 on your breadboard straddling the center line so that you have four additional holes connected to each pin.)
 %\vspace{-0.1in}
 \begin{center}
 \includegraphics{op-amps/noninverting.eps}
@@ -16,7 +16,7 @@
 \end{center}
 \label{part_non-inverting_amplifier}
 
-\item The circuit below is an inverting amplifier with a gain of $-1$.  (The power supplies $V_{CC}$ and $V_{EE}$ have been omitted from the diagram for clarity, as they often are, but they still have to be connected or it won't work.)  If $V_{in}$ is 2 volts, what is $V_-$ (at the negative terminal), and what should be the current through $R_4$?  Modify the circuit to have a gain of $-5$, and test it out.  
+\item The circuit below is an inverting amplifier with a gain of $-1$.  (The power supplies $V_{\rm CC}$ and $V_{\rm EE}$ have been omitted from the diagram for clarity, as they often are, but they still have to be connected or it won't work.)  If $V_{\rm in}$ is 2 volts, what is $V_-$ (at the negative terminal), and what should be the current through $R_4$?  Modify the circuit to have a gain of $-5$, and test it out.  
 \begin{center}
 \includegraphics{op-amps/inverting.eps}
 \end{center}
@@ -26,20 +26,20 @@
 
 \item From your measurement above and the known output impedance of your function generator, calculate the input impedance of the speaker.  (This is similar to what you did in Lab~\ref{lab_input_output_impedance}, part~\ref{part_func_gen_impedance}.)  What is the average power being dissipated in the speaker?  Is it audible? \label{part_nobuffer}
 
-\item The circuit below is called a ``buffer.'' What is its output, and why the heck would you ever want to build such a thing?  Insert this buffer into your circuit for part~\ref{part_nobuffer}, with the output of the function generator as $V_{in}$, and the $V_{out}$ connected to the speaker.  Now what is the RMS voltage across the speaker?  And the average power dissipated in the speaker?  What are the apparent input and output impedances of this amplifier?  On a scale of 1 to 10, how cool is this? \label{part_buffer}
+\item The circuit below is called a ``buffer.'' What is its output, and why the heck would you ever want to build such a thing?  Insert this buffer into your circuit for part~\ref{part_nobuffer}, with the output of the function generator as $V_{\rm in}$, and the $V_{\rm out}$ connected to the speaker.  Now what is the RMS voltage across the speaker?  And the average power dissipated in the speaker?  What are the apparent input and output impedances of this amplifier?  On a scale of 1 to 10, how cool is this? \label{part_buffer}
 \begin{center}
 \includegraphics{op-amps/buffer.eps}
 \end{center}
 
 
-\item While monitoring both the $V_{in}$ and $V_{out}$ on your oscilloscope for the circuit in part~\ref{part_buffer}, gradually increase the amplitude of the signal generator.  How do $V_{in}$ and $V_{out}$ change?  What is the maximum current through the speaker?  Is this consistent with the value listed on the data sheet of the LM324? 
+\item While monitoring both the $V_{\rm in}$ and $V_{\rm out}$ on your oscilloscope for the circuit in part~\ref{part_buffer}, gradually increase the amplitude of the signal generator.  How do $V_{\rm in}$ and $V_{\rm out}$ change?  What is the maximum current through the speaker?  Is this consistent with the value listed on the data sheet of the LM324? 
 
 \bigskip
 
 \begin{minipage}{.50\textwidth}
 \item The circuit to the right is a variation on the inverting amplifier called a summing amplifier, where the output is given by \label{part_summer}
 \begin{equation*}
-V_{out} = -R_F \left( \frac{V_1}{R_1} + \frac{V_2}{R_2} +\frac{V_3}{R_3} \dots \right).
+V_{\rm out} = -R_F \left( \frac{V_1}{R_1} + \frac{V_2}{R_2} +\frac{V_3}{R_3} \dots \right).
 \end{equation*}
 \startsquarepar 
 One place where such a circuit is useful is as a digital to analog (``D-to-A'') converter.  Suppose you have four  
@@ -61,7 +61,7 @@ digital inputs, whose voltages are all either +5 volts
 \begin{minipage}{.53\textwidth}
 \item The circuit to the right shows an example of a differential amplifier; for the case where both $R_1$'s and $R_2$'s are the same, the output is given by  \label{part_differential}
 \begin{equation*}
-V_{out} = \frac{R_2}{R_1} \left( V_2 - V_1 \right).
+V_{\rm out} = \frac{R_2}{R_1} \left( V_2 - V_1 \right).
 \end{equation*}
 Use a differential amplifier like the one shown to create a triangle wave that sweeps between $-8$ and
 0 volts.  You can use the output of your function generator (set to whatever amplitude you want) 
