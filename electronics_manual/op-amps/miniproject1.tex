@@ -1,0 +1,30 @@
+\section*{Mini-Project 1: A Proportional Temperature Controller}
+\label{lab_proportional_controller}
+
+\fancypagestyle{interlude}[fancy]{%
+	\fancyhead[LO,RE]{}
+	\fancyhead[LE,RO]{\slshape \MakeUppercase{Mini-Project 1: A Proportional Temperature Controller}}
+}
+\addcontentsline{toc}{section}{\hspace{0.35in} \textbullet~Mini-Project 1: A Proportional Temperature Controller}
+\pagestyle{interlude}
+
+
+%\makelabheader %(Space for student name, etc., defined in master.tex)
+
+\bigskip
+
+In this Mini-project, you will combine several ideas from previous labs to make a circuit that is significantly more complex than anything you've built so far.  It will take some time, and you can continue moving forward with the next lab as you work on this in the background.  
+
+\medskip
+
+A ``proportional controller'' controls the the input to some device in response to the output from a sensor.  For instance, the power to a motor could be increased or decreased in response to the output of a speed sensor, or the amount of heating or cooling could be adjusted in response to a measured temperature.  
+In a proportional controller, the power (or voltage) sent to a device is \textit{proportional} to the difference between the actual reading of the sensor and the ``setpoint'' value that is desired.  As one example, the cruise control in a car maintains a constant speed by pressing the gas pedal down by an amount that is proportional to the difference between the desired speed and the car's actual speed.
+
+Your task is to design, build and test a ``proportional controller,'' which could in principle be used to maintain a hotplate or oven at a constant temperature.
+\begin{itemize}[nosep]
+\item The temperature desired by the user (the ``setpoint temperature'') will be represented by an adjustable voltage which varies between 0 and 1.5 volts, set by a D-to-A converter like you already made in part~\ref{part_summer} of Lab~\ref{lab_op-amps}.  (You can imagine that in a more sophisticated implementation, those four bits might actually be set by some kind of digital keypad or something.)
+\item The actual temperature will be read by a bridge circuit such as you built in Lab~\ref{lab_bridge}.  The difference $\Delta V_{AB}$ from the bridge should be amplified to a level that also ranges between roughly 0 and 1.5 volts as you warm one of the resistors with your fingers.
+\item The output of your circuit should be proportional to the difference between those two voltages representing the setpoint temperature and the actual temperature.  (A proportionality constant of 1 is fine.)  Though you won't do it here, this output could be sent to a heater to maintain a constant, desired temperture.  
+\end{itemize}
+\textit{Hint: you'll be in trouble if you hook up $V_A$ or $V_B$ from the bridge circuit directly to the differential amplifier you made in part \ref{part_differential} because the amplifier's input impedance is too low.  How can you correct this?} 
+
