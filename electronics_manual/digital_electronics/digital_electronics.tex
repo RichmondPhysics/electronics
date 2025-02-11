@@ -21,7 +21,7 @@
 \item \label{part_comparator} Sometimes you want to create a digital signal based on whether one voltage is larger than another.  For example, you may want an alarm to be switched from OFF to ON if some temperature, represented by a voltage, rises above some predetermined limit. The drawing below shows how to use an LM311 comparator as the basis for such a circuit.  
 In the circuit above, if $V_+<V_-$, then pin 7 gets connected to pin 1 inside the chip\footnote{What's really happening inside the chip is that pins~7 and 1 are connected to the collector and emitter (respectively) of a bipolar junction transistor, a scheme known as an \textit{open collector output.}  Pin~7 gets ``connected to'' ground by driving the transistor into \textit{saturation mode,} which you'll learn about in Lab~\ref{lab_bjt_saturation}.  For now, you can simply view this ``connection'' as a handy bit of magic you don't need to worry out.}, so that $V_{\rm out}=0$.  Otherwise, $V_{\rm out} \approx 5$~volts.  Use your LM311 comparator to build a circuit with the following output: 
 \begin{center}
-\includegraphics{digital_electronics/basic_lm311.eps}
+\includegraphics{digital_electronics/basic_lm311.pdf}
 \end{center}
 
 
@@ -39,7 +39,7 @@ As a test input for your circuit, use a 1~kHz sine wave from your function gener
 \item To get only a single clean transition, you can make the modification of your circuit, shown below.  What is the voltage $V_+$ at the positive input if $V_{\rm out}=0$ volts?  What is $V_+$ if $V_{\rm out}=5$~volts?   Predict the values of the $V_+$ in each case, and test your prediction by measuring it with your friend, the oscilloscope.  How does the resistor $R_3$ prevent the multiple transitions you observed in the previous part?  (This clever little trick is called a ``Schmitt trigger.'') \label{part_schmitt_trigger}
 
 \begin{center}
-\includegraphics{digital_electronics/schmitt_trigger.eps}
+\includegraphics{digital_electronics/schmitt_trigger.pdf}
 \end{center}
 
 %\item In the previous lab, you built a D/A converter.  Here, you will build a 2-bit A/D converter, to convert a variable input voltage of 0 to 3 volts to a set of two digital signals representing the numbers 00, 01, 10, and 11.  (0.00--0.99 volts gives digital 00; 1.00--1.99 volts gives digital 01, etc.)  The way it works is this: start by comparing the input signal to a 2 volt reference, and set the twos bit accordingly.  If $V_{IN}<2$, then compare it two a 1-volt reference, and set the ones bit.  If $V_{IN}>2$, then subtract off 2 volts from $V_{IN}$, and then set the ones bit by comparing $ V_{IN}-2$ volts to the 1-volt reference.  Build and test your circuit, and sketch another circuit showing how you would extend this idea to build a 4-bit A/D converter.
