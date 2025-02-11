@@ -19,12 +19,12 @@
 %\begin{minipage}{.58\textwidth} %was .60
 
 \item \label{part_comparator} Sometimes you want to create a digital signal based on whether one voltage is larger than another.  For example, you may want an alarm to be switched from OFF to ON if some temperature, represented by a voltage, rises above some predetermined limit. The drawing below shows how to use an LM311 comparator as the basis for such a circuit.  
-
+In the circuit above, if $V_+<V_-$, then pin 7 gets connected to pin 1 inside the chip\footnote{What's really happening inside the chip is that pins~7 and 1 are connected to the collector and emitter (respectively) of a bipolar junction transistor, a scheme known as an \textit{open collector output.}  Pin~7 gets ``connected to'' ground by driving the transistor into \textit{saturation mode,} which you'll learn about in Lab~\ref{lab_bjt_saturation}.  For now, you can simply view this ``connection'' as a handy bit of magic you don't need to worry out.}, so that $V_{\rm out}=0$.  Otherwise, $V_{\rm out} \approx 5$~volts.  Use your LM311 comparator to build a circuit with the following output: 
 \begin{center}
 \includegraphics{digital_electronics/basic_lm311.eps}
 \end{center}
 
-In the circuit above, if $V_+<V_-$, then pin 7 gets connected to pin 1 inside the chip\footnote{What's really happening inside the chip is that pins~7 and 1 are connected to the collector and emitter (respectively) of a bipolar junction transistor, a scheme known as an \textit{open collector output.}  Pin~7 gets ``connected to'' ground by driving the transistor into \textit{saturation mode,} which you'll learn about in Lab~\ref{lab_bjt_saturation}.  For now, you can simply view this ``connection'' as a handy bit of magic you don't need to worry out.}, so that $V_{\rm out}=0$.  Otherwise, $V_{\rm out}=5$~volts.  Use your LM311 comparator to build a circuit with the following output: 
+
 \begin{itemize}[nosep]
 \item If $V_{\rm in}$ is \textit{greater than} 2.5~volts, then $V_{\rm out}=0$.
 \item If $V_{\rm in}$ is \textit{less than} 2.5~volts, then $V_{\rm out}=5$~V.
@@ -36,7 +36,7 @@ As a test input for your circuit, use a 1~kHz sine wave from your function gener
 
 \item If you look carefully at the output of your circuit in part \ref{part_comparator} on a very fast time scale, you will see that each time the output switches, it actually makes multiple transitions, switching back and forth several times before settling down.  Why would it do this?  
 
-\item To get only a single clean transition, you can make the modification of your circuit, shown below.  What is the voltage $V_+$ at the positive input if $V_{\rm out}=0$ volts?  What is $V_+$ if $V_{\rm out}=5$~volts?   Predict the values of the $V_+$ in each case, and test your prediction by measuring it with your friend, the oscilloscope.  How does the resistor $R_3$ prevent the multiple transitions you observed in the previous part?  (This clever little trick is called a ``Schmitt Trigger.'') \label{part_schmitt_trigger}
+\item To get only a single clean transition, you can make the modification of your circuit, shown below.  What is the voltage $V_+$ at the positive input if $V_{\rm out}=0$ volts?  What is $V_+$ if $V_{\rm out}=5$~volts?   Predict the values of the $V_+$ in each case, and test your prediction by measuring it with your friend, the oscilloscope.  How does the resistor $R_3$ prevent the multiple transitions you observed in the previous part?  (This clever little trick is called a ``Schmitt trigger.'') \label{part_schmitt_trigger}
 
 \begin{center}
 \includegraphics{digital_electronics/schmitt_trigger.eps}

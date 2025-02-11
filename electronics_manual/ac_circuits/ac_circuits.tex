@@ -32,6 +32,7 @@
 \item Adjust the \textit{frequency} of the generator so that the RMS value of $V_{AB}$ is about 30\% of $V_{AC}$, which should be somewhere in the neighborhood of around $f \approx 1$~kHz.  Predict what will happen to $V_{AB}$ if the 33~mH inductor is replaced by 10~mH.  Test your prediction.
 
 \item Based on your previous answer, how does the inductor's ``resistance'' (actually its ``impedance,''  $Z_L$) depend on its inductance $L$?  Take a stab at writing a single equation relating $Z_L$ to both $\omega$ and $L$.
+\label{part_guess_Z_L}
 
 \item (Today's shocker!) With the 33~mH inductor back in place, adjust the frequency of the generator so that the RMS value of $V_{AB} = V_{BC}$, which should be around $f \approx 2$~kHz.   Is it still the case that $V_{AB} + V_{BC} = V_{AC}$?  How can this be?  Use your oscilloscope to measure all three voltages versus time, and demonstrate that Kirchoff's loop rule is not being violated here.  (Use channel 1 for $V_B$, channel 2 for $V_C$, and the difference Ch$2- $Ch1 for $V_{BC}$.)
 
@@ -63,6 +64,7 @@
 \item Adjust the \textit{frequency} of the generator so that the RMS value of $V_{AB}$ is about 0.1 volts.  Predict what will happen to $V_{AB}$ if the 330~nF capacitor is replaced by 100~nF.  Test your prediction.  
 
 \item Based on your previous answer, how does the capacitor's ``resistance'' (actually its ``impedance,'' $Z_C$) depend on its capacitance $C$?  Take a stab at writing a single equation relating $Z_C$ to both $\omega$ and $C$.
+\label{part_guess_Z_C}
 
 \item Adjust the frequency of the generator so that the RMS value of $V_{AB} = V_{BC}$.   Again, is it the case that $V_{AB} + V_{BC} = V_{AC}$?  Again, use your oscilloscope to measure all three voltages versus time, and demonstrate that Kirchoff's loop rule is not being violated here.  
 
@@ -70,7 +72,9 @@
 
 \vfill
 
-\item You probably came up with laws for $Z_L = \omega L$ and $Z_C = 1/ \omega C$, which is close to being correct.  We'd like for those impedances to follow something like Ohm's law, where $V_L = I Z_L$, and $V_C = I Z_C$.  If  $I(t) = I_0 \cos(\omega t)$, do the equations $Z_L = \omega L$ and $Z_C = 1/ \omega C$ really give the correct voltages for the inductor and the capacitor?  Why not?  Think about your graphs for part~\ref{part_RL_graphs} and part~\ref{part_RC_graphs}, and think carefully which graphs represent $I(t)$.
+\item In parts \ref{part_guess_Z_L} and \ref{part_guess_Z_C}, you probably came up with the relationships $Z_L = \omega L$ and $Z_C = 1/ \omega C$.  Those are \textit{close} to being correct, but they don't quite capture everything we want.  Ideally, we'd like for those impedances to follow something like Ohm's law, where $V_L = I Z_L$, and $V_C = I Z_C$.  But if  $I(t) = I_0 \cos(\omega t)$, do the equations $Z_L = \omega L$ and $Z_C = 1/ \omega C$ really give the correct voltages for the inductor and the capacitor?  Why not?  Think about your graphs for parts~\ref{part_RL_graphs} and \ref{part_RC_graphs}, and think carefully about whether the current and voltage are really proportional to each other in each case.
+
+\vfill
 
 \end{enumerate}
 

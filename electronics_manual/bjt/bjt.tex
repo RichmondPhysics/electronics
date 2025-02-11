@@ -36,7 +36,7 @@
 \includegraphics{bjt/emitter_follower1.eps}
 \end{center}
 
-\item The circuit above has a problem, that the emitter of the transistor is always about 0.7 volts lower than the base, so that the voltage across the load is always 0.7 volts lower than you really want it to be.  The circuit below shows an improved version of what you just built.  In the circuit below, what is $V_E$, and what is the $V_{OUT}$ of the op-amp?  And finally, what is the current through each LED?  (Clever, eh?)  \label{part_buffer_op-amp_emitter_follower}
+\item The circuit above has a problem, that the emitter of the transistor is always about 0.7 volts lower than the base, so that the voltage across the load is always 0.7 volts lower than you really want it to be.  The circuit below shows an improved version of what you just built.  In the circuit below, what is $V_E$, and what is the $V_{\rm out}$ of the op-amp?  And finally, what is the current through each LED?  (Clever, eh?)  \label{part_buffer_op-amp_emitter_follower}
 \begin{center}
 \includegraphics{bjt/emitter_follower2.eps}
 \end{center}
@@ -54,7 +54,7 @@
 \vspace{-0.08in}
 \end{center}
 
-\item The circuit above is a lousy amplifier for AC signals, because it cuts off the bottom half of the input signal.  The circuit below shows how to ``bias'' the input signal with a DC voltage so that the base of the transformer is always positive.  What is the voltage at the base of the transistor in the circuit below (AC and DC components)?  Given the values of $R_1$ and $R_2$ shown below, what must be the value of the capacitor for the cutoff frequency $f_C$ to be 100~Hz?  (We're picking $f_C=100$~Hz because we want to be sure that the AC amplitude $V_{OUT}$ is the same as the AC amplitude $V_{IN}$ at 1~kHz.)
+\item The circuit above is a lousy amplifier for AC signals, because it cuts off the bottom half of the input signal.  The circuit below shows how to ``bias'' the input signal with a DC voltage so that the base of the transformer is always positive.  What is the voltage at the base of the transistor in the circuit below (AC and DC components)?  Given the values of $R_1$ and $R_2$ shown below, what must be the value of the capacitor for the cutoff frequency $f_C$ to be 100~Hz?  (We're picking $f_C=100$~Hz because we want to be sure that the AC amplitude $V_{\rm out}$ is the same as the AC amplitude $V_{\rm in}$ at 1~kHz.)
 \begin{center}
 \vspace{-0.08in}
 \includegraphics{bjt/emit_follower_biased_input.eps}
@@ -62,14 +62,14 @@
 \end{center}
 
 \pagebreak[3]
-\item Great!  You now have a sinusoidal output that looks like the input.  The only problem is that the output has an additional DC offset you don't especially want.  To eliminate the DC offset from $V_{OUT}$, your first instinct should be to use a high pass filter on the output, as shown below.  Theoretically, what is the cutoff frequency of the output filter shown in the diagram?  Now measure the signal across the load resistor.  Is it consistent with what you expect?  (It might not be....)
+\item Great!  You now have a sinusoidal output that looks like the input.  The only problem is that the output has an additional DC offset you don't especially want.  To eliminate the DC offset from $V_{\rm out}$, your first instinct should be to use a high pass filter on the output, as shown below.  Theoretically, what is the cutoff frequency of the output filter shown in the diagram?  Now measure the signal across the load resistor.  Is it consistent with what you expect?  (It might not be....)
 \begin{center}
 \vspace{-0.08in}
 \includegraphics{bjt/biased_output_and_input_incorrect.eps}
 \vspace{-0.08in}
 \end{center}
 
-\item From the measurements you have just made, you have probably found that the circuit above is totally useless.  It doesn't work, because current can never flow backwards across the transistor; the junction between the base and emitter is a diode, and current only flows across it forwards. Once the capacitor charges up to a maximum voltage, there is no way for it to discharge.  To provide a path for it to discharge, you will need to use a second resistor in parallel with $C_2$ and $R_{LOAD}$, as shown below.  The value of this discharge resistor has to be less than half of the load resistance for this to work properly.  What values of $C_1$ and $C_2$ are required to make this amplifier work well over the entire frequency range of human hearing, from 20~Hz to 20~kHz?  (Be careful, that's a trick question.  Is each of these a high-pass or a low-pass filter?) \label{part_biased_output_and_input_correct}
+\item From the measurements you have just made, you have probably found that the circuit above is totally useless.  It doesn't work, because current can never flow backwards across the transistor; the junction between the base and emitter is a diode, and current only flows across it forwards. Once the capacitor charges up to a maximum voltage, there is no way for it to discharge.  To provide a path for it to discharge, you will need to use a second resistor in parallel with $C_2$ and $R_{\rm load}$, as shown below.  The value of this discharge resistor has to be less than half of the load resistance for this to work properly.  What values of $C_1$ and $C_2$ are required to make this amplifier work well over the entire frequency range of human hearing, from 20~Hz to 20~kHz?  (Be careful, that's a trick question.  Is each of these a high-pass or a low-pass filter?) \label{part_biased_output_and_input_correct}
 \begin{center}
 \includegraphics{bjt/biased_output_and_input_correct.eps}
 \end{center}
@@ -82,7 +82,7 @@
 
 \item If you want to use a control voltage to turn the current in another circuit on or off, is it better to use a relay or a bipolar junction transistor?  Discuss the advantages and disadvantages of each.  Topics should include the size of the switching current required (into the transistor base or through the coil of the relay), the size of the load currents that can be controlled, whether you can control both AC and DC load currents, the size of the voltage drop across the relay contacts or between the emitter and collector, switching speed, size, cost, and reliability.  (A bulleted list would be fine.)
 
-\item The circuit you built in the final part of this lab is called an ``emitter-follower amplifier'' or ``common collector amplifier.''  Design an emitter-follower amplifier (from scratch and from memory) with an input impedance of $\ge 10$~k$\Omega$ suitable for $R_{LOAD}=1$~k$\Omega$ and $f=10$~Hz.
+\item The circuit you built in the final part of this lab is called an ``emitter-follower amplifier'' or ``common collector amplifier.''  Design an emitter-follower amplifier (from scratch and from memory) with an input impedance of $\ge 10$~k$\Omega$ suitable for $R_{\rm load}=1$~k$\Omega$ and $f=10$~Hz.
 
 \item In the drawing in the final part of this lab, the resistor $R_1$ is changed to 30~k$\Omega$, and the capacitor $C_1$ is 100~nF.  What is the cutoff frequency of this amplifier?
 

@@ -30,16 +30,16 @@
 \includegraphics{diodes/series_clipper.eps}
 \end{center}
 
-\item Build the ``shunt clipper'' circuit picture below, using a 1N4001 diode.  Use a 1~k$\Omega$ resistor for $R_1$ and a load resistance of 100~k$\Omega$.  Again, make a sketch of the input waveform and output waveform, and carefully measure the peak positive and negative input and output voltages.  What is the maximum instantaneous current through the diode?  \label{part_shunt_clipper}
+\item Build the ``shunt clipper'' circuit picture below, using a 1N4001 diode.  Use a 1~k$\Omega$ resistor for $R_{\rm lim}$ and a load resistance of 100~k$\Omega$.  Again, make a sketch of the input waveform and output waveform, and carefully measure the peak positive and negative input and output voltages.  What is the maximum instantaneous current through the diode?  \label{part_shunt_clipper}
 \begin{center}
 \includegraphics{diodes/shunt_clipper.eps}
 \end{center} 
-\item Think carefully about the role of $R_{LIM}$.  Your transformer has a very low output impedance of about 2~$\Omega$.  If the 1~k$\Omega$ resistor were removed from the circuit, it would be as if you set $R_{LIM} = 2$~$\Omega$.  In that case, what would be the maximum instantaneous current through the diode?  (Hint: consider both extremes, $V_{IN} = \pm V_{MAX}$.) What would be the maximum instantaneous power dissipated in the diode?  What would be the effect of all of that current and power on the diode?  The job of $R_{LIM}$ is to limit the power and current in the diode.
+\item Think carefully about the role of $R_{\rm lim}$.  Your transformer has a very low output impedance of about 2~$\Omega$.  If the 1~k$\Omega$ resistor were removed from the circuit, it would be as if you set $R_{\rm lim} = 2$~$\Omega$.  In that case, what would be the maximum instantaneous current through the diode?  (Hint: consider both extremes, $V_{\rm in} = \pm V_{\rm max}$.) What would be the maximum instantaneous power dissipated in the diode?  What would be the effect of all of that current and power on the diode?  The job of $R_{\rm lim}$ is to limit the power and current in the diode.
 
-\item Predict how the output voltages of the ``series clipper'' and the ``shunt clipper'' would be affected if the load resistance $R_{LOAD}$  were changed to 1~k$\Omega$.  Check your predictions by building the circuits and testing them. What can you conclude about which design is better for delivering high currents to small load resistances?  
+\item Predict how the output voltages of the ``series clipper'' and the ``shunt clipper'' would be affected if the load resistance $R_{\rm load}$  were changed to 1~k$\Omega$.  Check your predictions by building the circuits and testing them. What can you conclude about which design is better for delivering high currents to small load resistances?  
 
 %\pagebreak
-\item The circuit below is called the ``biased shunt clipper.''  The diode's polarity has been reversed (just for variety), but more importantly it is now connected to a non-zero reference voltage (the ``bias'' voltage) instead of ground.  Build the circuit and sketch the resulting output waveform for $V_{OUT}$.  What is the relationship between $V_{OUT}$ and the voltage at the junction between $R_3$ and $R_4$?  
+\item The circuit below is called the ``biased shunt clipper.''  The diode's polarity has been reversed (just for variety), but more importantly it is now connected to a non-zero reference voltage (the ``bias'' voltage) instead of ground.  Build the circuit and sketch the resulting output waveform for $V_{\rm out}$.  What is the relationship between $V_{\rm out}$ and the voltage at the junction between $R_3$ and $R_4$?  
 \label{part_biased_shunt_clipper}
 %\vspace{-0.1in}
 \begin{center}
@@ -49,16 +49,16 @@
 
 \item Why is it necessary to use an op-amp in the biased shunt clipper above, rather than connecting the diode to $R_3$ and $R_4$ directly?  If you did omit the op-amp, how would you have to adjust the values of your resistors? (No need to build this.)
 
-\item The unbiased shunt clipper you built in part~\ref{part_shunt_clipper} actually gives a minimum $V_{OUT}$ of $-0.7$~volts.  Design and build a biased version of that circuit with a minimum output of exactly $0.0$~volts.  (Incidentally, there's a very slick way to guarantee exactly the voltage you need at the op-amp input $V_+$ without having to calculate precise resistor values or mess with a trimpot.  Can you find it?)  \label{part_biased_clipper_zero}
+\item The unbiased shunt clipper you built in part~\ref{part_shunt_clipper} actually gives a minimum $V_{\rm out}$ of $-0.7$~volts.  Design and build a biased version of that circuit with a minimum output of exactly $0.0$~volts.  (Incidentally, there's a very slick way to guarantee exactly the voltage you need at the op-amp input $V_+$ without having to calculate precise resistor values or mess with a trimpot.  Can you find it?)  \label{part_biased_clipper_zero}
 
-\item Another way to build clippers that work at a variety of voltages is to use Zener diodes with specific values of $V_R$.  Predict the maximum and minimum output voltages of the circuit below, which uses a 1N4733 Zener diode.  Build the circuit, and test your predictions.  What is the maximum instantaneous power dissipated by the diode?  (Consider both $V_{Diode}=V_F$ and $V_{Diode}=V_R$.)  \label{part_zener_shunt_clipper}
+\item Another way to build clippers that work at a variety of voltages is to use Zener diodes with specific values of $V_R$.  Predict the maximum and minimum output voltages of the circuit below, which uses a 1N4733 Zener diode.  Build the circuit, and test your predictions.  What is the maximum instantaneous power dissipated by the diode?  (Consider both $V_{\rm diode}=V_F$ and $V_{\rm diode}=V_R$.)  \label{part_zener_shunt_clipper}
 %\vspace{-0.1in}
 \begin{center}
 \includegraphics{diodes/zener_shunt_clipper.eps}
 \end{center} 
 %\vspace{-0.1in}
  
-\item The circuit below uses two Zener diodes in series.  Again, predict the output of this circuit, then test your prediction.  How would you modify this circuit to make a shunt clipper that gives $V_{-PEAK} = -9.7$~V and $V_{+PEAK} = +5.7$~V.   (Hint: You don't need a biased clipper for this, because you can replace the 1N4733 with any kind of diode you want.  In fact, if you look back at your measurements from part~\ref{part_diode_measurements}, you'll find one kind of diode that's just \textit{perfect} for what you need to do here.)  As usual, build and test your circuit. \label{part_double_zener_shunt_clipper}
+\item The circuit below uses two Zener diodes in series.  Again, predict the output of this circuit, then test your prediction.  How would you modify this circuit to make a shunt clipper that gives $V_{-{\rm peak}} = -9.7$~V and $V_{+{\rm peak}} = +5.7$~V.   (Hint: You don't need a biased clipper for this, because you can replace the 1N4733 with any kind of diode you want.  In fact, if you look back at your measurements from part~\ref{part_diode_measurements}, you'll find one kind of diode that's just \textit{perfect} for what you need to do here.)  As usual, build and test your circuit. \label{part_double_zener_shunt_clipper}
 %\vspace{-0.1in}
 \begin{center}
 \includegraphics{diodes/double_zener_shunt_clipper.eps}
@@ -78,7 +78,7 @@
 
 \item Design a biased shunt clipper that limits the output voltage to a maximum of 4.5 volts, regardless of the input voltage.
 
-\item For the circuit drawn in part~\ref{part_zener_shunt_clipper}, calculate the maximum instantaneous power dissipated in the resistor $R_{LIM}$. 
+\item For the circuit drawn in part~\ref{part_zener_shunt_clipper}, calculate the maximum instantaneous power dissipated in the resistor $R_{\rm lim}$. 
 
 \item What are the relative advantages and disadvantages of a series clipper vs. a  shunt clipper?
 
