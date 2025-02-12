@@ -9,7 +9,7 @@
 
 \item The circuit below is called a filter, because it ``filters out'' some frequencies but not others.  Connect $V_{\rm in}$ to your function generator, and measure $V_{\rm out}/V_{\rm in}$ for different frequencies.  (Use 10~Hz, 30~Hz, 100~Hz, etc., up to 100~kHz.)  Plot $V_{\rm out}/V_{\rm in}$ vs. the frequency $f$ using Excel, and include a printout of the graph taped into your notebook.  \label{part_low_pass_RC}
 \begin{center}
-\includegraphics{filters/low_pass_filter_RC.eps}
+\includegraphics{filters/low_pass_filter_RC.pdf}
 \end{center}
 
 \item A low pass filter filters out high frequencies, allowing low frequencies to ``pass through.''  A high pass filter filters out low frequencies, allowing high frequencies to pass through.  Which kind of filter did you just build?  
@@ -22,7 +22,7 @@
 
 \item You can also build filters using resistors and inductors.  Is the filter pictured below a high pass or a low pass filter?  Predict its cutoff frequency, and then test your prediction with a measurement. \label{part_high_pass_RL}
 \begin{center}
-\includegraphics{filters/high_pass_filter_LR.eps}
+\includegraphics{filters/high_pass_filter_LR.pdf}
 \end{center}
 
 \item Sketch how you would build a low pass filter using an inductor.  If you wanted your filter to use a 10~k$\Omega$ resistor, what value of $L$ would be required for a cutoff frequency of 10~Hz?  What would be the physical size of such an inductor?  By contrast, how big a capacitor would you need to make it work?  (This is why in real life most filters are made using capacitors instead of inductors.  Filters made using inductors are good for blocking very high radio frequencies called RF; for this reason inductors are sometimes called ``RF chokes.'')  \label{part_low_pass_RL}
@@ -37,13 +37,13 @@
 
 \item The circuit below shows an easy way to add a DC offset (Also called a ``DC bias'') to an AC signal.  Use the principle of superposition to analyze this circuit, shorting out $V_{\rm in}$ and $V_{DD}$.  In each case, what is $V_{\rm out}$ for both very high and very low frequencies?  Build it and test your predictions. \label{part_DC_bias}
 \begin{center}
-\includegraphics{filters/DC_biasing.eps}
+\includegraphics{filters/DC_biasing.pdf}
 \end{center}
 
 \item The circuit below is called a resonance filter.  Make a Bode plot of $V_{\rm out}/V_{\rm in}$, paying close attention to the response at $f \approx 2.5$~kHz.  Also plot the phase shift $\phi$ between $V_{\rm out}$ and $V_{\rm in}$ as a function of $f$. 
 \label{part_resonance_filter}
 \begin{center}
-\includegraphics{filters/LC_resonance_filter.eps}
+\includegraphics{filters/LC_resonance_filter.pdf}
 \end{center}
 
 \item How would you modify this circuit to give a resonance frequency of 5~kHz?   Build it and test your prediction.

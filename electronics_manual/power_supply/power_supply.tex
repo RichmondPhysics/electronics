@@ -11,7 +11,7 @@ The purpose of this lab is to show how to convert an AC voltage, for instance fr
 
 \item The circuit below shows the basic first steps.  You use a transformer to step down the voltage somewhat, and then use a diode as a series clipper, which is also known as a ``half wave rectifier.''  Make a sketch showing how the voltage waveform across the load resistance  changes when the capacitor is connected or disconnected from the circuit.  With the capacitor connected as shown, what are the minimum and maximum voltages across $R_{\rm load}$?  How long is the rise time?  How long is the fall time?
 \begin{center}
-\includegraphics{power_supply/half_wave_rectifier.eps}
+\includegraphics{power_supply/half_wave_rectifier.pdf}
 \end{center}
 
 \item Predict qualitatively what will happen to the minimum and maximum voltages across $R_{\rm load}$ if you double the value of $C$.  Test your prediction with a quantitative measurement.  
@@ -36,7 +36,7 @@ The purpose of this lab is to show how to convert an AC voltage, for instance fr
 
 \item Replace the half-wave rectifier with a full-wave bridge rectifier, shown below, using the 1N4001 for all the diodes.  As before, sketch the waveform of $V_{\rm load}$ both with and without the capacitor. \label{part_full_wave_bridge_rectifier}
 \begin{center}
-\includegraphics{power_supply/full_wave_bridge_rectifier.eps}
+\includegraphics{power_supply/full_wave_bridge_rectifier.pdf}
 \end{center}
 
 \item With the capacitor in place, you can measure that the maximum voltage across $R_{\rm load}$ is slightly less than with the half wave rectifier.  How much less?  And why is that?
@@ -47,7 +47,7 @@ The purpose of this lab is to show how to convert an AC voltage, for instance fr
 
 \item To cut down the ripple voltage, you could of course make the capacitor much bigger, but that gets too large and too expensive pretty quickly.  A better way is to use a Zener shunt clipper, as shown below.  (The 1N4739 shown has a reverse breakdown voltage of $V_R=9$ volts.)  What value resistor is required for $R_{\rm lim}$ if we want to protect the diode by limiting the reverse current in the diode to about 4~mA?  (You should calculate that it's around 1~k$\Omega$.) Build the circuit and measure $V_{\rm ripple}$ and $V_{\rm DC}$ across the load, as well as the maximum and minimum of the voltage $V_C$ across the capacitor.  \label{part_zener_regulator}
 \begin{center}
-\includegraphics{power_supply/zener_regulator.eps}
+\includegraphics{power_supply/zener_regulator.pdf}
 \end{center}
 
 \item The circuit you just built should work fine as long as the value of $R_{\rm load}$ isn't too small.  But now what happens to your output when you change the load to $R_{\rm load} = 2.2$~k$\Omega$?  Why is your output no longer a steady 9 volts?
@@ -58,8 +58,8 @@ The purpose of this lab is to show how to convert an AC voltage, for instance fr
 
 \item You have now seen the limitation of using a Zener shunt clipper for a DC power supply: for loads that draw large output currents, you need to lower $R_{\rm lim}$ so that the output voltage never falls below $V_R$ of the diode.  But small values of $R_{\rm lim}$ draw more current, which leads to larger ripple voltages, and would eventually lead to currents that would damage the diode.  And fundamentally, the output ripple voltage is \textit{always} going to be a problem for large currents, because the voltage across the diode isn't exactly 9.00000 volts---it always depends a little on the current in the diode.  So you can't win!  Fortunately, there's a terrific solution to all of these problems, and it comes in a little chip that costs just pennies and can happily output 100 mA.  Build the circuit shown below, and verify that it produces a smooth 9 V output. \label{part_linear_power_supply_78xx}
 \begin{center}
-\includegraphics{power_supply/7809_regulator.eps}
-\includegraphics[width=1.3in]{appendices/pinouts/TO-92_package_pinout.eps}
+\includegraphics{power_supply/7809_regulator.pdf}
+\includegraphics[width=1.3in]{appendices/pinouts/TO-92_package_pinout.pdf}
 \end{center}
  
 \item Using the two channels of your oscilloscope to simultaneously measure the input and output voltages of the MC78L09, what happens to those voltages when you change the capacitor to $C = 10$~$\mu$F?  Why this huge change in the output?  (Hint: Look up the ``dropout voltage'' on its data sheet.  Be sure you're using the data sheet for the small MC78L09, in the TO-92 package.)
