@@ -7,66 +7,71 @@
 
 \begin{enumerate}[wide]
 
-\item Construct the circuit below.  Use your DMM (not your oscilloscope) to measure all three RMS voltages $V_{AB}$,  $V_{BC}$, and $V_{AC}$.  Do it for frequencies of 20~Hz and 20~kHz.  Is there more current in this circuit at high frequencies, or low frequencies? 
+\item Construct the circuit below.\footnote{The purpose of the buffer amplifier is to provide a voltage source for $R$ and $L$ with a low output impedance, as opposed to your function generator's $R_{\rm int} \approx 600~\Omega$.  But you'll notice a curious addition: a 2.2~k$\Omega$ ``pulldown'' resistor between the op-amp's output and $V_{\rm EE}$ that would seem to have no effect whatsoever.  In fact, the pulldown resistor greatly reduces output noise at high frequencies, eliminating a large spike as the output crosses zero volts.  The reason for the spike is that the LM324 op-amp uses different parts of its internal circuitry for positive and negative output current (i.e., acting as a current ``source'' or current ``sink''); the spike happens during the switch-over between them. The pulldown resistor ensures that the output current from the LM324 is always positive, avoiding both the spike at the crossover as well as any subsequent ringing.}
+Use your DMM (not your oscilloscope) to measure all three RMS voltages $V_{\rm AB}$,  $V_{\rm BC}$, and $V_{\rm AC}$.  Do it for frequencies of 20~Hz and 20~kHz.  Is there more current in $R$ and $L$ at high frequencies or at low frequencies? 
 
 \begin{minipage}{.55\textwidth}
 \begin{center}
-\includegraphics{ac_circuits/RandL.pdf}
+\includegraphics{ac_circuits/RandL_with_pulldown.pdf}
 \end{center}
 \end{minipage}
 \begin{minipage}{.4\textwidth}
 \begin{center} 
-\begin{tabular}{|l|c|c|} 
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|l|c|c|}
 \hline & 20 Hz & 20 kHz \\ 
-\hline $\Delta V_{BC}$ ($V_R$) & & \\ 
-\hline $\Delta V_{AB}$ ($V_L$) & & \\ 
-\hline $\Delta V_{AC}$ & & \\ 
+\hline $\Delta V_{\rm BC}$ ($V_R$) & & \\ 
+\hline $\Delta V_{\rm AB}$ ($V_L$) & & \\ 
+\hline $\Delta V_{\rm AC}$ & & \\ 
 \hline 
 \end{tabular} 
+}
 \end{center}
 \end{minipage}
 
 
-\item Think of the inductor as part of a voltage divider circuit.  How does the inductor's ``resistance'' (actually its ``impedance,'' $Z_L$) depend on the angular frequency $\omega$, where $\omega = 2 \pi f$?
+\item Think of the inductor as part of a voltage divider circuit.  How does the inductor's ``resistance'' (actually its \textit{impedance} $Z_L$) depend on the angular frequency $\omega$, where $\omega = 2 \pi f$?
 
-\item Adjust the \textit{frequency} of the generator so that the RMS value of $V_{AB}$ is about 30\% of $V_{AC}$, which should be somewhere in the neighborhood of around $f \approx 1$~kHz.  Predict what will happen to $V_{AB}$ if the 33~mH inductor is replaced by 10~mH.  Test your prediction.
+\item Adjust the \textit{frequency} of the generator so that the RMS value of $V_{\rm AB}$ is about 30\% of $V_{\rm AC}$, which should be somewhere in the neighborhood of around $f \approx 1$~kHz.  Predict what will happen to $V_{\rm AB}$ if the 33~mH inductor is replaced by 10~mH.  Test your prediction.
 
-\item Based on your previous answer, how does the inductor's ``resistance'' (actually its ``impedance,''  $Z_L$) depend on its inductance $L$?  Take a stab at writing a single equation relating $Z_L$ to both $\omega$ and $L$.
+\item Based on your previous answer, how does the inductor's ``resistance'' (actually its \textit{impedance} $Z_L$) depend on its inductance $L$?  Take a stab at writing a single equation relating $Z_L$ to both $\omega$ and $L$.
 \label{part_guess_Z_L}
 
-\item (Today's shocker!) With the 33~mH inductor back in place, adjust the frequency of the generator so that the RMS value of $V_{AB} = V_{BC}$, which should be around $f \approx 2$~kHz.   Is it still the case that $V_{AB} + V_{BC} = V_{AC}$?  How can this be?  Use your oscilloscope to measure all three voltages versus time, and demonstrate that Kirchoff's loop rule is not being violated here.  (Use channel 1 for $V_B$, channel 2 for $V_C$, and the difference Ch$2- $Ch1 for $V_{BC}$.)
+\item (Today's shocker!) With the 33~mH inductor back in place, adjust the frequency of the generator so that the RMS value of $V_{\rm AB} = V_{\rm BC}$, which should be around $f \approx 2$~kHz.   Is it still the case that $V_{\rm AB} + V_{\rm BC} = V_{\rm AC}$?  How can this be?  Use your oscilloscope to measure all three voltages versus time, and demonstrate that Kirchoff's loop rule is not being violated here.  (Use channel 1 for $V_B$, channel 2 for $V_C$, and the difference Ch$2- $Ch1 for $V_{\rm BC}$.)
 
-\item Graph the voltage across the inductor and the current as a function of time.  What is the relative phase shift between them?  Does the current ``lead'' the voltage, or does the voltage ``lead'' the current? (Which one reaches its maximum value first?) \label{part_RL_graphs}
+\item Graph the voltage across the inductor and the current as a function of time.  What is the relative phase shift between them, in both radians and degrees?  Does the current ``lead'' the voltage, or does the voltage ``lead'' the current? (Which one reaches its maximum value first?) \label{part_RL_graphs}
 
 \newpage
 
-\item Now construct the circuit below. Again, use either the DMM or your oscilloscope to measure all three RMS voltages  $V_{AB}$,  $V_{BC}$, and $V_{AC}$.   Do it for frequencies of 20~Hz and 20~kHz.\footnote{If you measure the voltages on your oscilloscope, you may notice that the waveform looks somewhat distorted at high frequencies.  If so, you can use a slightly lower frequency, say 10~kHz.  Alternatively, you can insert a 1~k$\Omega$ resistor between the output of the op-amp ($V_C$) and the +15~volt power supply, which interestingly doesn't change the level of the output, but completely eliminates the distortion!}  Is there more current in this circuit at high frequencies or low frequencies?
+\item Now construct the circuit below. Again, use either the DMM or your oscilloscope to measure all three RMS voltages  $V_{\rm AB}$,  $V_{\rm BC}$, and $V_{\rm AC}$.   Do it for frequencies of 20~Hz and 20~kHz.  Is there more current in this circuit at high frequencies or low frequencies?
 
 \begin{minipage}{.55\textwidth}
 \begin{center}
-\includegraphics{ac_circuits/RandC.pdf}
+\includegraphics{ac_circuits/RandC_with_pulldown.pdf}
 \end{center}
 \end{minipage}
 \begin{minipage}{.4\textwidth}
 \begin{center} 
+{\renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|l|c|c|} 
 \hline & 20 Hz & 20 kHz \\ 
-\hline $\Delta V_{BC}$ ($V_R$) & & \\ 
-\hline $\Delta V_{AB}$ ($V_{cap}$) & & \\ 
-\hline $\Delta V_{AC}$ & & \\ 
+\hline $\Delta V_{\rm BC}$ ($V_R$) & & \\ 
+\hline $\Delta V_{\rm AB}$ ($V_{\rm cap}$) & & \\ 
+\hline $\Delta V_{\rm AC}$ & & \\ 
 \hline 
 \end{tabular} 
+}
 \end{center}
 \end{minipage}
 
-\item Think of the capacitor as a resistor in a voltage divider circuit: how does its ``resistance'' (actually its ``impedance,'' $Z_C$) depend on the angular frequency $\omega$, where $\omega$, where $\omega = 2 \pi f$?
+\item Think of the capacitor as a resistor in a voltage divider circuit: how does its ``resistance'' (actually its \textit{impedance}~$Z_C$) depend on the angular frequency $\omega$, where $\omega$, where $\omega = 2 \pi f$?
 
-\item Adjust the \textit{frequency} of the generator so that the RMS value of $V_{AB}$ is about 0.1 volts.  Predict what will happen to $V_{AB}$ if the 330~nF capacitor is replaced by 100~nF.  Test your prediction.  
+\item Adjust the \textit{frequency} of the generator so that the RMS value of $V_{\rm AB}$ is about 0.1 volts.  Predict what will happen to $V_{\rm AB}$ if the 330~nF capacitor is replaced by 100~nF.  Test your prediction.  
 
-\item Based on your previous answer, how does the capacitor's ``resistance'' (actually its ``impedance,'' $Z_C$) depend on its capacitance $C$?  Take a stab at writing a single equation relating $Z_C$ to both $\omega$ and $C$.
+\item Based on your previous answer, how does the capacitor's ``resistance'' (actually its \textit{impedance} $Z_C$) depend on its capacitance $C$?  Take a stab at writing a single equation relating $Z_C$ to both $\omega$ and $C$.
 \label{part_guess_Z_C}
 
-\item Adjust the frequency of the generator so that the RMS value of $V_{AB} = V_{BC}$.   Again, is it the case that $V_{AB} + V_{BC} = V_{AC}$?  Again, use your oscilloscope to measure all three voltages versus time, and demonstrate that Kirchoff's loop rule is not being violated here.  
+\item Adjust the frequency of the generator so that the RMS value of $V_{\rm AB} = V_{\rm BC}$.   Again, is it the case that $V_{\rm AB} + V_{\rm BC} = V_{\rm AC}$?  Again, use your oscilloscope to measure all three voltages versus time, and demonstrate that Kirchoff's loop rule is not being violated here.  
 
 \item Graph the voltage across the capacitor and the current through the capacitor as a function of time.  What is the relative phase shift between them?  Does the current ``lead'' the voltage, or does the voltage ``lead'' the current? \label{part_RC_graphs}
 

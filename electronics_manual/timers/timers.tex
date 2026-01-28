@@ -45,12 +45,12 @@ The output then resets to zero and waits for another trigger event.  The trigger
 \item \textbf{Astable mode}: In this mode, the 555 acts as a square wave generator, much like the one you built using a single comparator in Lab~\ref{lab_capacitors}, part \ref{part_square_generator}.  In the circuit shown below, when the output swings high to $V_{CC}$, the capacitor $C$ charges through $R_1$ and $R_2$.  When the output swings low, the discharge lead (pin 7) is pulled to 0~V, and the capacitor discharges through $R_2$ only.  Because of this, the square wave produced by this circuit is asymmetric, with the dwell times given by
 %$$
 \begin{align*}
-\Delta t_{HIGH} &= \ln (2) C(R_1 + R_2) \textrm{, and} \\
-\Delta t_{LOW} &=\ln (2) CR_2.
+\Delta t_{\rm high} &= \ln (2) C(R_1 + R_2) \textrm{, and} \\
+\Delta t_{\rm low} &=\ln (2) CR_2.
 \end{align*}
 %$$
 Build the circuit below, choosing values for $R_1$, $R_2$, and $C$ that will yield a square wave with a ratio of 
-$\Delta t_{HIGH} / \Delta t_{LOW} =2$, and a frequency of $f \approx 10$~kHz. \label{part_astable}
+$\Delta t_{\rm high} / \Delta t_{\rm low} =2$, and a frequency of $f \approx 10$~kHz. \label{part_astable}
 \begin{center}
 \includegraphics{timers/astable_555.eps}
 \end{center}

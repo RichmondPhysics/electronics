@@ -5,36 +5,58 @@
 
 \bigskip
 
+\textbf{Inverting and Non-Inverting Amplifiers}
+
 \begin{enumerate}[wide]
 
-\item The circuit below on the left shows a non-inverting amplifier with a gain of 2.  If $V_{\rm in} = 2$~volts, what are $V_+$, $V_-$, and $V_{\rm out}$?  Modify this circuit to have a gain of 5, and test it out. (Note: The diagram on the right shows the ``pin-out'' for the LM324 op-amp chip; other pin-out diagrams are in Appendix \ref{appendix_pinouts}.  Place the LM324 on your breadboard straddling the center line so that you have four additional holes connected to each pin.)
-%\vspace{-0.1in}
+\item The circuit below on the left shows a non-inverting amplifier with a gain of 2.  
+If $V_{\rm in} = 2$~volts, what are $V_+$, $V_-$, and $V_{\rm out}$?  
+Modify this circuit to have a gain of 5, and test it out. (Note: The diagram on the right shows the ``pin-out'' for the LM324 op-amp chip; other pin-out diagrams are in Appendix \ref{appendix_pinouts}.  
+Place the LM324 on your breadboard straddling the center line so that you have four additional holes connected to each pin.)
+\label{part_non-inverting_amplifier}
+
+\vspace{-0.1in}
 \begin{center}
 \includegraphics{op-amps/noninverting.pdf}
 \hspace{0.2in}
 \includegraphics[scale=0.8]{appendices/pinouts/lm324.pdf}
 \end{center}
-\label{part_non-inverting_amplifier}
+\vspace{-0.1in}
 
 \item The circuit below is an inverting amplifier with a gain of $-1$.  (The power supplies $V_{\rm CC}$ and $V_{\rm EE}$ have been omitted from the diagram for clarity, as they often are, but they still have to be connected or it won't work.)  If $V_{\rm in}$ is 2 volts, what is $V_-$ (at the negative terminal), and what should be the current through $R_4$?  Modify the circuit to have a gain of $-5$, and test it out.  
+\label{part_inverting_amplifier}
+
+\vspace{-0.1in}
 \begin{center}
 \includegraphics{op-amps/inverting.pdf}
 \end{center}
-\label{part_inverting_amplifier}
 
-\item Set your function generator to output a 1~kHz sine wave with an (open circuit) RMS voltage of about 100~mV.  (Measure it with your oscilloscope.)  What happens to that RMS voltage when you connect the function generator to your speaker?  The new RMS voltage will be quite small.  To measure it accurately, you will need to have your probe on 1x, trigger off of your TTL signal, and also use the ``Average'' function on your oscilloscope, under the ``Acquire'' menu.  What is this ``averaging,'' and how does it help you?  Set it back to ``Sample'' when you're done, or you'll get weird results later.
 
-\item From your measurement above and the known output impedance of your function generator, calculate the input impedance of the speaker.  (This is similar to what you did in Lab~\ref{lab_input_output_impedance}, part~\ref{part_func_gen_impedance}.)  What is the average power being dissipated in the speaker?  Is it audible? \label{part_nobuffer}
 
-\item The circuit below is called a ``buffer.'' What is its output, and why the heck would you ever want to build such a thing?  Insert this buffer into your circuit for part~\ref{part_nobuffer}, with the output of the function generator as $V_{\rm in}$, and the $V_{\rm out}$ connected to the speaker.  Now what is the RMS voltage across the speaker?  And the average power dissipated in the speaker?  What are the apparent input and output impedances of this amplifier?  On a scale of 1 to 10, how cool is this? \label{part_buffer}
+\textbf{Input impedance, output impedance, and buffers}
+
+\item Set your function generator to a 500~Hz sine wave at maximum amplitude, and connect it to the speaker at the bottom right of your PB-505.  The speaker has two leads, connected to the left and right sides of the 40-hole breadboard block.  If one speaker lead is connected to the function generator's output, where should the other speaker lead be connected to?  What are the highest and lowest frequencies that you are able to hear?  How does your highest audible frequency compare to the highest audible frequency of your instructor, who may have spent way too much time in college playing in very loud, bad rock bands?
+
+\item Disconnect your function generator from the speaker, and use your friend the oscilloscope to measure both its \textit{open-circuit} voltage%
+\footnote{An \textbf{open-circuit} voltage is the output of a source that is not connected to any load---or is connected to a load with a very high input impedance like a voltmeter or an oscilloscope. That is, it's the output voltage in the limit of zero output current.}
+and its output voltage when connected to a load resistance of $1\kohm$.  Use these measurements to calculate your function generator's output impedance. \label{part_func_gen_impedance}
+
+\item Set your function generator to a 1~kHz sine wave with an open-circuit RMS voltage of about 100~mV, measured by your oscilloscope.  What happens to that RMS voltage when you connect the function generator to your speaker?  The new RMS voltage will be quite small.  To measure it accurately, you will need to have your probe on 1x, trigger off of your TTL signal, and also use the ``Average'' function on your oscilloscope, which is found within the ``Math'' menu.  What is this ``averaging,'' and how does it help you? 
+
+\item From your measurement above and the known output impedance of your function generator from part~\ref{part_func_gen_impedance}, calculate the input impedance of the speaker.  What is the average power being dissipated in the speaker?  Is it audible? \label{part_nobuffer}
+
+\item The circuit below is a \textit{buffer amplifier} or ``buffer.'' Use the ``golden rules'' of op-amps to determine the voltages $V_+$, $V_-$, and $V_{\rm out}$.  What is the apparent gain of this amplifier?  Can you think of why the heck would you ever want to build such a thing?  (The answer to the last question may be ``no,'' but at least give it a think.)
 \begin{center}
 \includegraphics{op-amps/buffer.pdf}
 \end{center}
 
+\item Build the buffer amplifier (not like there's that much to build, really) and insert the buffer into your circuit for part~\ref{part_nobuffer}; the output of the function generator will be the amplifier's $V_{\rm in}$, and the speaker will be connected to the amplifier's $V_{\rm out}$.  Now what is the RMS voltage across the speaker?  And what is the average power dissipated in the speaker?  What are the apparent input and output impedances of this amplifier?  On a scale of 1 to 10, how cool is this? \label{part_buffer}
 
 \item While monitoring both the $V_{\rm in}$ and $V_{\rm out}$ on your oscilloscope for the circuit in part~\ref{part_buffer}, gradually increase the amplitude of the signal generator.  How do $V_{\rm in}$ and $V_{\rm out}$ change?  What is the maximum current through the speaker?  Is this consistent with the value listed on the data sheet of the LM324? 
 
 \bigskip
+
+\textbf{Input impedance, output impedance, and buffers}
 
 \begin{minipage}{.50\textwidth}
 \item The circuit to the right is a variation on the inverting amplifier called a summing amplifier, where the output is given by \label{part_summer}

@@ -8,7 +8,7 @@
 
 \begin{enumerate}[wide]
 
-\item Identify a range of different capacitors in your kits.  What are the largest and smallest values that you have? How do you read the value of the capacitance on the small ones?  Use your DMM to measure some of their values, noting the uncertainty. 
+\item Identify a range of different capacitors in your kits.  What are the largest and smallest values that you have? How do you read the value of the capacitance on the small ones?  Use your DMM to measure some of their values, noting both the uncertainty in your DMM's measurement and how close the capacitors are to their stated values.
 
 \item Build the circuit shown below.  (\textit{Be sure to connect the positive and negative ends of the capacitor as shown.  If you reverse the polarity of the capacitor, it can blow up in your face and hurt you.})  Use your oscilloscope to measure the voltage across the capacitor $V_C$ as you move the switch back and forth.  You will want your scope to be scanning slowly at about 1 second per division.  Sketch what you see.  Show on your graph where your capacitor is fully charged, and where it is fully discharged.  (Note: Use switch S9 or S10 on your protoboard, looking back at Lab \ref{lab_equipment}, part \ref{part_switches} if you need to remember how those are wired.) \label{part_rc_circuit}
 \begin{center}
@@ -27,7 +27,7 @@
 
 \item Now that you have several values of $R$, $C$, and $\tau$, care to hazard a guess about an equation relating those three?
 
-\item Make a circuit like the one above with a time constant of 100 microseconds.   To verify the time constant with your oscilloscope, you will need to mess with the triggering for your scopes, so that the scope triggers only once as soon as you throw the switch, and doesn't trigger again.  You will need to change the trigger mode from ``auto'' to ``normal.''  (Look in your manuals.  What do these two modes mean?)
+\item Make a circuit like the one above with a time constant of $\tau=10^{-4}~{\rm s} = 100~\mu {\rm s}$.   To verify the time constant with your oscilloscope, you will need to mess with the triggering for your scopes, so that the scope triggers only once as soon as you throw the switch, and doesn't trigger again.  You will need to change the trigger mode from ``auto'' to ``normal.''  (Look in your manuals.  What do these two modes mean?)
 
 \item You have now seen the behavior of $V_C$ as a function of time for a discharging and charging capacitor.  Can you guess the functional form of $V_C(t)$ in each case?
 
@@ -47,7 +47,7 @@ If the switch is moved from $V_{\rm CC}$ to ground, how long should it take $V_{
 \includegraphics{capacitors/comparator_square_generator.pdf}\hspace*{0.9in}
 \end{flushright}
 
-\item What capacitors and resistors can you change in order to increase the frequency of the output of the oscillator above?  What's the fastest output you can reasonably produce with this circuit?  Does it still look like a pretty square wave?  Which component of your circuit is the limiting factor in the speed of the output?
+\item Which components can you change in the circuit above to increase the frequency of its output?  (There are two resistors and a capacitor that will make a significant impact.)  At some point, however, you will run up against the limitations of the LM311 itself.  What's the fastest output you can reasonably produce with this circuit?  Does it still look like a pretty square wave?  
 \end{enumerate}
 
 \textbf{Possible Exam Questions:}
