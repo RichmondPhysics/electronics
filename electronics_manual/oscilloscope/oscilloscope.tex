@@ -1,41 +1,82 @@
-\section{The Oscilloscope is Our Friend!}
+\section{The Oscilloscope is \textit{Our Friend!}}
 \label{lab_oscilloscope}
 
 %\makelabheader %(Space for student name, etc., defined in master.tex)
 
 \bigskip
 
+
+So far we have measured only voltages and currents that remain constant with time---what we call DC voltages and DC currents.  In this lab, we will be measuring \textit{AC} voltages, which vary over time periodically.%
+\footnote{AC stands for \textit{alternating current} and DC stands for \textit{direct current.} But we also use AC and DC as adjectives to describe both voltages and currents, as in ``an AC voltage'' or ``a DC current,'' even though the latter technically means a ``direct current current.''  While illogical, that is nevertheless how the terms are used, just as people will forever use their ``PIN numbers'' to withdraw cash from ``ATM machines.''}
+
+\textbf{Generating an AC voltage}
+
+
+The function generator on the PB-505A is located at the upper left corner. It includes a keypad to type in a frequency and select a waveform (sine, triangle, or square), and a knob labeled ``AMP'' to set the amplitude of the AC voltage.  
+
+The output of the function generator is an $8 \times 5$ breadboard block.  The upper two rows are for a special kind of output labeled \textit{TTL}, which we'll explore in a bit.  The regular output is in the lower six rows; all $6 \times 5$ holes are connected together.  Like your 5~VDC supply, the output of the function generator is a voltage relative to ground.
+
 \begin{enumerate}[wide]
 
-\item Turn on your oscilloscope, and hook a probe into the BNC connector of the scope marked ``CH 1'' (Channel~1).  Use it to measure the output of a 1 kHz sine wave from your function generator, with the amplitude cranked up high (a maximum amplitude of about 10 or 12 volts).  What does the VOLTS/DIV knob do?  What does the ``Div'' mean?
+\item Set the frequency of your generator to 0.1~Hz and turn the amplitude up to its maximum output voltage,  then use your DMM \textbf{on the DC voltage setting ($\boldmath{\overline{\rm- - -}}$}) to measure the function generator's instantaneous output voltage.  Are you able to get an accurate voltage reading this way? 
 
-\item Your probe has a little alligator clip at the end of it, which you probably connected to ground.  Try disconnecting it.  Why does it not matter here?
+\item Increase the frequency to something around 100~Hz.  Are you able to get an accurate DMM reading using the DC voltage setting now? 
 
-\item There's a tiny little switch on your probes, marked ``1X'' and ``10X.'' (I'm \emph{not} talking about the menu item on the scope screen, but the physical switch at the end of the actual probes.)  What does this switch do?
+\item Switching to AC voltage mode ($\overset{\sim}{\rm V}$), you should now be able to get a stable voltage reading.  What are the minimum and maximum voltages you can get by adjusting the amplitude of your generator output?
 
-\item The menu on your scope's screen should show various options, including ``coupling,'' ``BW Limit,'' ``Volts/Div,'' and ``Probe.''  (If it doesn't show that, probably because you were already playing with other buttons, hit the ``Ch1 Menu'' button.)  What does hitting the button next to ``Probe'' do?  How is this related to the switch on the side of your probes?
+\item Your DMM can also measure frequency (labeled \text{Hz} on the dial).  From your DMM's manual, what is the accuracy of the frequency reading?
 
-\item What does the SEC/DIV knob do?  Measure the period of the sine wave by counting divisions on the screen.  Is it consistent with a 1 kHz sine wave?
+\item Back to AC voltage mode, your DMM claims to be able to measure AC voltage in a range between 45~Hz and 2~kHz.  In fact, it has a much wider workable frequency range.  Over what frequency range can you get (reasonably?) accurate voltage readings? 
 
-\item Sketch the shape of the waveform from your function generators for a triangle wave and a square wave.  For a square wave, use your scope to measure about how long it takes for the voltage to rise from its negative value to its peak positive value.  (Is it really instantaneous?)
+\bigskip
 
-\item Go back to a sine wave, and hit the ``measure'' button.  Hit the first menu button (to the right of the screen), and then under ``Type'' have it measure ``Mean.''  Hit the ``Back'' option, and set up the second menu button to measure peak-to-peak voltage.  Set up the third measurement for ``RMS,'' a fourth one for ``MAX,'' and a fifth one for ``MIN.'' Show in a sketch which parts of the sine wave these are measuring.  Which of these correspond to the measurements your DMM makes when it measures AC voltage?
+\textbf{Getting started with your oscilloscope}
 
-\item How do the values of those measurements change for triangle and square waves?  What the heck is RMS, anyway?
+Although your DMM can give you single numbers for voltage and frequency, it won't truly show you how a voltage is changing with time.  For instance, your DMM can't show you whether your signal is a sine wave or triangle wave.  To do that--and much more---we will use are new friend, the oscilloscope.
 
-\item What do the knobs marked ``position'' do?  (Vertical and Horizontal.)  Notice on screen how you can tell when they're back to zero. 
+\item Turn on your Siglent model SDS814X-HD oscilloscope and connect a \textit{probe} (you should have four of them in plastic bags) to the BNC jack on the oscilloscope labeled ``1'' for channel~1).  Use the tiny clip on the long pointy end of the probe to connect to the output of your function generator.  The wire coming out of the side of the probe with the stumpy aligator clip is the scope's negative input terminal, analagous to the ``COM'' jack on your DMM; connect it to your PB-505's ground.   Set your function generator to a large amplitude 2~kHz sine wave, and try to measure the amplitude and frequency on your oscilloscope.
 
-\item Use your second probe to measure the function generator output marked ``TTL.'' Plug it into channel 2, and hit the blue ``Ch 2 menu'' button to turn on the second display.  How is the TTL output affected when you adjust the amplitude and frequency of the sine wave (or triangle or square wave)?
+\begin{newboxed}
+The oscilloscope is very versitile and has many settings---which are probably set incorrectly for what you want it to do right now.  Call to your instructor for help so that you are at least able to see \textit{something} useful.
+\end{newboxed}
+\pagebreak[3]
 
-\item Set your function generator back to a nice big 1 kHz sine wave, and hit the ``Trig menu'' button.  (``Trig'' stands for ``Trigger.'')  Cycle through all of the options under ``Source'' and describe what you see.  What the heck does ``triggering'' mean?  Back on ``Ch1'' for source, play with the ``level'' knob, and describe what happens.
+\item The two largest knobs on your scope's front panel are labeled \textit{Vertical} and \textit{Horizontal}.  Try turning each of these, and report what they do.  Also try turning the two smaller knobs marked \textit{Position}; what do they do?  Finally, all four of these knobs can also be pushed in.  Describe what happens when they are pushed.
 
-\item With the level adjustment back on zero, adjust the amplitude of your function generator down to a point where the triggering really flips out and can't give you a decent looking clean sine wave.   At this point, when you would normally despair of ever being able to get a clean measurement, go to the trigger menu, and select ``Ch2'' under source.  You may also need to adjust the trigger level slightly.  Why is it better to trigger off of the TTL output than a sine wave?
+\item Along the very bottom of your screen, you will find a box labeled C1 and another area labeled ``Timebase''.  These areas will say something like ``5.00V/'' and ``500us/div'', which refer to the vertical and horizontal scale of the screen, in volts or seconds per division.  (The divisions are the visible rectangular grid marks roughly a centimeter apart.)  Use these markings to estimate the amplitude and period of the signal from the function generator.   Are your estimates consistent with your earlier DMM measurements?
 
-\item Under trigger sources, after ``Ch1'' and ``Ch2,'' what does ``Ext'' mean?  (Hint: unplug the probe from channel~2, and plug it into the jack marked ``Ext Trig.'')  
+\item Also along the bottom of the screen are a series of numerical measurements based on the input signal.  Your scope's screen is a touchscreen; use it to change these measurements so that you can record precise values for the amplitude, peak-to-peak voltage, and RMS voltages.  (Be sure you are measuring channel 1 for all of these.)  Also record these values for the triangle and square waves produced by your generator.
 
-\item Plug the 2nd probe (measuring the TTL output) back into channel two, and go back to using channel 1 as a trigger.  Crank up the amplitude to get a clean signal.  Now hit the ``Ch~2'' menu, and start playing with the on-screen options.   What does ``Invert'' do?  What does ``Coupling'' do? 
+\item Which of the voltages measured above (amplitude, $V_{\rm Pk-Pk}$, or $V_{\rm rms}$ corresponds to the AC voltage measurement from your DMM?  What exactly does that voltage tell you?
 
-\item While you have pretty traces of Ch1 and Ch2 on your screens, hit the Cursor button, select ``Voltage'' under Type, and be sure the ``Source'' is set to either Ch1 or Ch2, whatever you have on your screen.  Try twiddling the vertical position knobs.  Cool, eh?  What do the various other options do?
+\item Use your scope to measure the time it takes for the square wave to from your function generator to switch between its minimum and maximum values, zooming in the horizontal scale for a precise measurement.  Is it really instantaneous?
+
+
+\bigskip
+\textbf{Probe and channel settings}
+
+\item There's a small orange switch on your probe, marked ``$1\times$'' and ``$10\times$.'' What does this switch do when you move it back and forth?
+
+\item The menu for configuring channel 1 is accessible by either touching the box on the lower left of the screen or pussing the yellow ``1'' button on the panel.  On that menu, under ``probe'', you'll see that you can select 1:1, 10:1, or several other options.  Does changing this setting affect either the trace on the screen or the screen's vertical scale?  How is this related to the orange switch on your probe, and what setting should you use?
+
+\item Turn the amplitude of your generator all the way down.  Ideally, the voltage should be a constant zero volts.  Is it? If you turn the amplitude up just a bit, you should be able to get a very small amplitude signal, but which will still have a small DC offset.  How small an amplitude can you get that is still visibly greater than zero?
+
+\item The DC offset may make it hard to zoom into the time-varying signal as much as you want, because on too low a scale the trace goes off screen.  You can use the Position knob to adjust the vertical offset, but that's a little clumsy and only works up to a point.  A better option, under the channel 1 menu, is to change the \textit{coupling} of the channel from DC to AC.  What effect does this have on the DC offset?
+
+\bigskip
+\textbf{Triggering and TTL output}
+
+\item Turn on channel 2, which for now will add an additional not-very-interesting pink line to your screen.  Under the ``Trigger'' area of the panel, hit the setup button, and under \textit{Source}, you'll see that you can select either channel 1 or channel 2.  (You can't select a channel that is off.)  What is the effect of toggling between channel 1 and 2?
+
+\item With the triggering ource back to channel 1, you can also select the slope to be rising or falling.  What effect does this have?  Finally, what is the affect of either turning or pushing the ``Level'' knob?  What happens if you set the level to above the maximum voltage of the input signal?
+
+\item In your own words, what does ``Triggering'' mean?
+
+\item Now is a good time to explore the TTL output of your generator.  Use a second probe in the channel 2 input jack to measure the TTL output along with the regular generator output on channel 1.  How does the frequency and amplitude of the TTL output change when you adjust the frequency and amplitude of the generator output?
+
+\item Reduce the amplitude of the generator amplitude all the way down, and zoom into that small signal by adjusting the scale of channel 1and switching to AC coupling.  At this point, the scope can't trigger well on channel 1, because its signal is too small relative to the noise.  To fix this, change the triggering source from channel 1 to channel 2.  Is it improved?  (You may want to check with your instructor here.)
+
+\item To reduce the effect of noise in channel 1, we can average several traces.  Go to Math and select Function -> arithmetic -> average, and select a number of averages of 64 or 128.  The average of channel 1 should appear as a relatively smooth sine wave, synchronized with the TTL signal.
 
 \item Use AC coupling to take a careful look at the output of your 5 Volt DC power supply.  If you crank up the sensitivity of the scope using the volts/div knob, you should be able to see in great detail the small AC part that lies on top of the 5 volt DC signal.  Adjust the time scale to get a good picture of what the AC part is really doing.  What is the characteristic frequency (or frequencies) of this AC part?  Where might they be coming from?
 
@@ -45,6 +86,7 @@
 
 \end{enumerate}
 
+\vfill
 
 \textbf{Possible Exam Questions:}
 

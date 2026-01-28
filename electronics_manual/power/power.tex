@@ -4,13 +4,10 @@
 
 \bigskip
 
-\textbf{Extra Apparatus}
-\begin{itemize}[nosep]
-\item digital multimeters (2)
-\item DC power supply 
-\item various resistors
-\item banana cables and alligator clips
-\end{itemize}
+%\textbf{Extra Apparatus}
+%\begin{itemize}[nosep]
+%\item DC power supply 
+%\end{itemize}
 
 \bigskip
 
@@ -18,24 +15,99 @@
 
 \item Your DMM has three different ranges for DC current measurement, and two different input jacks to plug in the leads for these measurements.  How do you know which input jack and which ranges to use?  What happens if you get it wrong?
 
-\item Get several extra resistors (of different sizes) from the front of the room.  All of these should have a resistance of about 100 $\Omega$.  Measure their resistances precisely.  For each resistor, make a table in your lab notebook like the one below.   Now hook each one up to the big DC power supply with alligator clips (NOT using your breadboards), and slowly increase the voltage of the power supply.  At each voltage setting, measure the current through the resistor and the voltage across the resistor precisely, using two separate DMMs.  Your actual voltage values will be slightly different from 1.0, 3.0, etc.  From your measurements, calculate the actual resistance, and the power dissipated in the resistor at each setting.  Also feel the resistor carefully to see if it is getting hot.  When you are done with each resistor, let it cool and measure its resistance one last time with the DMM.  Was there any permanent change?  
-\begin{enumerate}
-\item What is the difference between the physically large and physically small resistors?
-\item How do your observations compare with the nominal power rating for each resistor?
-\item Is the temperature coefficient of each of these resistors positive or negative?  (That is, does the resistance increase or decrease as a function of temperature?)
-\end{enumerate}
+\item In your kits you have three different kinds of $100\ohm$ fixed resistors of various physical sizes.  (For now we won't use the blue, boxy, adjustable resistor called a \textit{trimpot}.)  Measure their resistances precisely and record them in your lab notebook.
 
+\begin{comment}
 \begin{center}
-\includegraphics[width=1.0\textwidth]{power/iv_table.eps}
+{\renewcommand{\arraystretch}{2.0}
+\begin{tabular}{|C{3.8in}|c|c|c|} \hline 
+Physical description, size, and colors of bands (if applicable) & Nominal $R$ & Measured $R$ & Rated Power \\ 
+\hhline{|=|=|=|=|}
+& $100\ohm$ & & \\ \hline 
+& $100\ohm$ & & \\ \hline 
+& $100\ohm$ & & \\ \hline 
+\end{tabular} }
 \end{center}
+\end{comment}
 
-Be sure to check in with the instructor after completing the table for your first resistor, to catch any misunderstandings before doing all of them!
+\smallskip
+\begin{minipage}{.75\textwidth}
+\item The ``rated power'' of a resistor is the maximum power it can dissipate while still maintaining its characteristics.  The physically largest $100\ohm$ resistor in your kit (about the size of one of your toes) has its rated power printed directly on it.  For smaller-sized resistors, you would need to look at the label on the box they came in to know for sure, but you can generally estimate the rated power from the size of the resistor, based on the life-sized drawing to the right. Record the rated power of each of your three resistors in your notebook.
+\end{minipage}
+\begin{minipage}{0.20\textwidth}
+\hfill\includegraphics{power/resistor_sizes.pdf}
+\end{minipage}
+
+%\begin{enumerate}[wide,resume]
+\item Make a table in your lab notebook like the one below:
+
+\newcommand{\maketableforivmeasurements}{
+\begin{center}
+{\renewcommand{\arraystretch}{2.0}
+\begin{tabular}{|l|c|C{0.6in}|C{0.6in}|c|C{2.0in}|} \hline 
+\multicolumn{6}{|l|}{Resistor (physical size, appearance, and value):} \\
+\hline
+$\Delta V$ (nominal) & $\Delta V$ (measured) & $I$ & $P$ & $\Delta V / I$ ($\Omega$) & How hot?\\ 
+\hhline{|=|=|=|=|=|=|}
+0.3 volts & & & & & \\ \hline 
+1 volt & & & & & \\ \hline 
+3 volts & & & & & \\ \hline 
+10 volts & & & & & \\ \hline 
+30 volts & & & & & \\ \hline 
+\end{tabular} }
+\end{center}
+}
+\maketableforivmeasurements
+
+\pagebreak[3]
+
+Measure the current vs. voltage for one of your resistors, using the circuit below.  Use the big DC power supply with banana cables and alligator clips. (Do NOT use your PB-505 trainer and breadboard.)
+
+\begin{minipage}{.75\textwidth}
+
+\begin{itemize}
+\item For each voltage setting, measure the current through the resistor and the voltage across the resistor as precisely as possible, using two separate DMMs.  
+\item At each setting, feel the resistor (\textit{carefully, so you don't burn your fingers!}) to see if it is getting hot.  
+\item From your measurements, calculate the actual resistance and the power dissipated in the resistor at each setting.  
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.24\textwidth}
+\hfill\includegraphics[scale=1.1]{power/I_V_measurement.pdf}
+\end{minipage}
+
+\begin{itemize}
+\item When you are done with each resistor, let it cool if necessary and measure its resistance one last time with the DMM.  Was there any permanent change in its resistance?  
+\end{itemize}
+
+\begin{newboxed}
+\textit{Check with your instructor after completing your measurments on your first resistor, to be sure that you are on the right track.  Then repeat your measurments in a new table for each of the remaining two resistors.}
+\end{newboxed}
+
+\textbf{Power dissipation in your DMM}
+
+\item In Lab~\ref{lab_input_output_impedance}, you measured that your DMM's internal resistance on the mA~scale is $10\ohm$.  What this means is that the input current literally goes through a $10\ohm$ resistor inside your DMM, and your DMM measures the voltage across that resistor to determine the current.  How much power would be dissipated in that $10\ohm$ resistor if you used it to measure a current of 0.5~amps?  How about 1~amp?
+
+\item To protect your DMM from damage, the mA input jack is protected by a fuse.  Connect your current meter directly to the power supply, with the voltage knobs all the way up, and the current knobs all the way down.  Gradually increase the current of the supply from 0 amps to the maximum possible supply current, reporting your observations in your lab notebook.
+
+\item Your lab station is equipped with a screwdriver and a pair of needle-nose pliers. Use these tools to open the back of your DMM and replace its fuse, which is now blown out.  Spare fuses are next to the $1\ohm$ resistors in your kit.  While your DMM is open, turn it on to check whether the battery icon 
+( \raisebox{-0.8ex}{\includegraphics[height=2.8ex]{power/battery_icon.pdf}} )
+is displayed on the screen and replace the 9~V battery if needed.
+
+\bigskip
+
+\textbf{Summary Questions:}
+
+\item What is the main difference between the physically large and physically small resistors, and how do you explain why that is?
+
+\item How do your observations compare with the nominal power rating for each resistor?
+
+\item Is the temperature coefficient of each of your resistors positive or negative?  (That is, does the resistance increase or decrease as a function of temperature?) The temperature coefficient may be too small to measure for some of them.  
+
 \end{enumerate}
 
 
+\vfill
 \textbf{Possible Exam Questions:}
-
-[These questions are optional things for you to think about; you don't need to put them in your lab notebook, and I won't be checking them.]
 
 \begin{itemize}
 \item Describe a specific set of current and voltage measurements you could make of a resistor to determine whether it had a positive or negative coefficient.  Give an example of numbers for a set of current and voltage measurements that would be consistent with a negative temperature coefficient.

@@ -7,30 +7,32 @@
 
 \begin{enumerate}[wide]
 
-\item Measure the resistance of a 27~k$\Omega$ resistor, and see if you can detect any change in its value if you heat it up between your fingers, being careful not to short circuit the two leads through your own skin.  (You probably can't see any change.)  What is the smallest change in resistance that you could detect in principle, given the precision of your multimeter?
+\item Measure the resistance of a $33\kohm$ resistor from your kits.  If you make a good contact to the resistor leads with aligator clips, you should be able to obtain a very stable reading.  Although the absolute ``accuracy'' of your DMM is $\pm 0.5\%$, its \textit{precision} and \textit{repeatability} are far better.  For instance, if your nominally $33\kohm$ resistor suddenly increased by $0.01\kohm$, would you be able to detect that change. What  if it increased by $0.02$ or $0.03\kohm$?  For resistances of roughly this size measured on this range, estimate the \textit{precision} of your meter, both as a number of ohms and as a percentage of the reading.
 
-\item Now construct the bridge circuit shown below.  For the resistors shown in the diagram ($R_1 = R_2 = 27~$k$\Omega$, $R_3 = 100~$k$\Omega$), what should $R_4$ be so that the measured voltage $\Delta V_{ab}$ is zero?  
+\item  See if you can detect any change in the resistance of your $33\kohm$ resistor if you heat it up by rubbing it between your fingers---honestly, you might or might not be able to detect any change.  (You need to be super careful not to touch both metal leads of the resistor with your fingers, as you would then be measuring the resistance of your  $33\kohm$ resistor in parallel with yourself!)  Do you see any change? What is the smallest change in resistance that you could detect in principle, given the precision of your multimeter at this scale?
+
+\item Now construct the bridge circuit shown below.  For the resistors shown in the diagram ($R_1 = R_2 = 33~$k$\Omega$, $R_3 = 100~$k$\Omega$), what should $R_4$ be so that the measured voltage $\Delta V_{\rm ab}$ is zero?  
 
 \begin{center}
 \vspace{0.1in}
 \includegraphics{bridge_circuit/bridge.pdf}
 \end{center}
 
-\item Draw a circuit showing how how you can insert a trimpot in between $R_3$ and $R_4$, as you did in Lab~\ref{lab_voltage_dividers}, to get $\Delta V_{ab} = 0$ exactly.  Build it, and show that it works as expected.
+\item Draw a circuit showing how how you can insert a trimpot in between $R_3$ and $R_4$, as you did in Lab~\ref{lab_voltage_dividers}, to get $\Delta V_{\rm ab} = 0$ exactly.  Build it, and show that it works as expected.
 	
-\item Now see if you can detect a change in $\Delta V_{ab}$ if you warm up $R_1$ with your fingers.  How much does $\Delta V_{ab}$ change by?
+\item Now see if you can detect a change in $\Delta V_{\rm ab}$ if you warm up $R_1$ with your fingers.  How much does $\Delta V_{\rm ab}$ change by?
 
-\item What is the smallest change in $\Delta V_{ab}$ that you \textit{could} detect, based on the precision of your DMM?  (Note that there's a subtle difference between the ``absolute accuracy'' of your DMM listed in the manual and the actual smallest \textit{change} you can see.  Can your DMM reliably detect a small change in the last decimal place?) \label{part_voltage_measure}
+\item What is the smallest change in $\Delta V_{\rm ab}$ that you \textit{could} detect, based on the precision of your DMM?  (Again, note the distinction between the absolute ``accuracy'' of your DMM listed in the manual and the actual smallest \textit{change} it can detect.  For this measurement, can your DMM reliably detect a small change in the last decimal place?) \label{part_voltage_measure}
 
-\item Based on your answer to part~\ref{part_voltage_measure}, what is the smallest change in the resistance of $R_1$ that you \textit{could} detect using this bridge circuit?  How does this compare to what you found in part 1?  (This bridge circuit is a good example of a fundamental and powerful principle of experimentation: that doing a difference measurement is usually a lot more sensitive than doing a single measurement directly.)
+\item Based on your answer to part~\ref{part_voltage_measure}, what is the smallest change in the resistance of $R_1$ that you \textit{could} detect using this bridge circuit?  How does this compare to what you found in part 1?  Incidentally, this bridge circuit is a good example of a fundamental and powerful principle of experimentation: that measuring a small difference between two values ($V_{\rm b} - V_{\rm a}$) is often more sensitive than tying to make a direct measure measurement of a single value (just $V_{\rm a}$) to a very high precision.
 
-\item A typical temperature coefficient for a regular-old, smelly-old metal film resistor might be about 0.01\% per degree Celsius.  (That is, the resistance changes by 0.01\% of its value for every 1~$^\circ$C change in temperature.)  From your previous answers, what is the smallest change in temperature that you could detect this way?
+\item A typical temperature coefficient for a regular-old, smelly-old metal film resistor might be about 0.01\% per degree Celsius.  (That is, the resistance changes by 0.01\% of its value for every $1~^\circ$C change in temperature.)  From your previous answers, what is the smallest change in temperature that you could detect this way?
 
 \item Suppose you actually wanted to analyze your bridge circuit taking into account the input impedance of the voltmeter.  Is the voltmeter in parallel with another resistor, in series with another resistor, or neither?  Show how you can use a ``Delta to Wye conversion'' (Paynter, pages 170--172) to redraw your bridge circuit as something you could actually analyze.
 
 \end{enumerate}
 
-\textit{Keep your bridge circuit wired up on your breadboards.  We'll be using it again at the end of Lab~\ref{lab_op-amps}.}
+\textit{Keep your bridge circuit wired up on your breadboards.  You'll be using it again soon in Mini-Project 1.}
 
 
 
