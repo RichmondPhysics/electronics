@@ -1,48 +1,45 @@
 \documentclass[english,10pt,twoside]{article}
 
-\input{../../131/StudentGuideModule1/labmanual_formatting_commands} %all general latex packages, commands, and definitions now here.
+\input{../../131/StudentGuideModule1/labmanual_formatting_commands} % all formatting commands 
 
-%The \includeonly line below is a great way to save time so you don't always have to compile the WHOLE latex document, if for instance you've only made changes to a single lab.  If you want to compile more than two labs, the syntax is \includeonly{lab1,lab2,lab3} with no spaces after the commas.
-%The master.pdf produced will have only the title page, TOC, and that single lab, though the other lab names will appear in the TOC.
-%\includeonly{microphone_photocell/microphone_photocell}
-
-%Use the line below to disable hyperlinks, to make sure no markups are visible around references when printing.
-\hypersetup{draft}
-
-%Use the following line to override all of the 1's and 0's in the \includelab statements below
+%------COMPILE OPTIONS---------
 %\includealllabstrue
+		% ^^^ Overrides all 1's and 0's for individual labs to include
+%\includeonlylab{oscilloscope/oscilloscope,M_problems/M_problems_latex} 
+		% ^^^ Compiles only specified part(s) of manual. (For multiple labs, use commas and no spaces.)
+\ForceSectionOddPage      
+		% ^^^ Makes each lab start on right-hand-page
+\hypersetup{draft}
+		% ^^^ Disables hyperlinks for printing clean-looking hardcopy.
+%\includeinstructornotestrue
+		% ^^^ prints instructor notes at the end of the document
 
 \makeindex
 
-\ForceSectionOddPage
-\newcommand{\startsquarepar}{%
-    \par\begingroup \parfillskip 0pt \relax}
-\newcommand{\stopsquarepar}{%
-    \par\endgroup}
 \begin{document}
 
 \input{electronics_front_pages/electronics_title_page}
 
-\tableofcontents{}
-\cleardoublepage
+\tableofcontents{}\thispagestyle{labcontentsfancy}
 
 %--------------------------------------------
 \part{The Basics}
 
 \includelab{1}{equipment/equipment}
+\includelab{1}{input_output_impedance/input_output_impedance}
 \includelab{1}{power/power}
 \includelab{1}{voltage_dividers/voltage_dividers}
-\includelab{1}{input_output_impedance/input_output_impedance}
-\includelab{1}{oscilloscope/oscilloscope}
 \includelab{1}{bridge_circuit/bridge_circuit}
+\includelab{1}{oscilloscope/oscilloscope}
 
 %--------------------------------------------
-\part{Two Very Important Kinds of Integrated Circuits}
+\part{Two Important Kinds of Integrated Circuits}
 
 \includelab{1}{op-amps/op-amps}
 \includelab{1}{op-amps/miniproject1}
-\includelab{1}{digital_electronics/digital_electronics} %ADD pinouts sometime later
+\includelab{1}{digital_electronics/digital_electronics}
 \includelab{1}{digital_electronics/miniproject2}
+
 %--------------------------------------------
 \part{Capacitors, Inductors, and AC circuits}
 
@@ -76,13 +73,20 @@
 %--------------------------------------------
 \startappendix
 
-%\includelab{1}{appendices/one_page_uncertainty/one_page_uncertainty_electronics}
+\setcounter{page}{1}
+\renewcommand{\thepage}{A-\arabic{page}}
+
 \includelab{1}[../../132/StudentGuideModule2/]{appendices/resistor_code/resistor_code}
 \includelab{1}[../../132/StudentGuideModule2/]{appendices/digital_multimeters/digital_multimeters}
 \includelab{1}{appendices/oscilloscope_checklist/oscilloscope_checklist}
 \includelab{1}{appendices/pinouts/pinouts}
 \includelab{1}{appendices/circuits_to_know/circuits_to_know}
 \includelab{1}[../../131/StudentGuideModule1/]{appendices/one_page_uncertainty/one_page_uncertainty}
+\setcounter{section}{12}
+		\renewcommand{\cftsubsecaftersnumb}{~Problems:~}
+\renewcommand{\thesubsection}{\thesection\Alph{subsection}}
+\includelab{1}{M_problems/M_problems_latex}
+
 %\includelab{1}[../../132/StudentGuideModule2/]{electric_circuits/electric_circuits}
 %\includelab{1}[../../132/StudentGuideModule2/]{electric_circuits2/electric_circuits2}
 \end{document}
