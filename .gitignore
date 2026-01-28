@@ -14,6 +14,9 @@
 **/*~
 **/*eps-converted-to.pdf
 
+# Certain specific backup file types
+**/*.ms14 (Security copy)
+
 # Other file types, put there by various operating systems
 **/*.DS_Store
 **/Thumbs.db
