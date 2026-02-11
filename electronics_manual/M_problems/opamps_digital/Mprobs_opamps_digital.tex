@@ -111,7 +111,7 @@ Lab \ref{lab_op-amps},
 
 %--------------------------------------------------------------------------------------------------------------
 \begin{Exercise}
-A source with an output impedance of 50 ohms produces an open-circuit sinusoidal voltage with an amplitude of 300~mV.  The source is connected to an audio amplifier with voltage gain $G=200$, input impedance $R_{\rm in} = 600\ohm$, and output impedance $R_{\rm out} = 2\ohm$.  The output of the amplifier is connected to a speaker with an impedance of $4\ohm$.  (You don't need to worry about the inner workings of the amplifier other than that it produces an internal source emf $\varepsilon$ that is 100 times larger than the voltage across its internal $600\ohm$ resistance; that is, $\varepsilon = 100 \times V_{\rm input}$.
+A source with an output impedance of 50 ohms produces an open-circuit sinusoidal voltage with an amplitude of 300~mV.  The source is connected to an audio amplifier with voltage gain $G=200$, input impedance $R_{\rm in} = 600\ohm$, and output impedance $R_{\rm out} = 2\ohm$.  The output of the amplifier is connected to a speaker with an impedance of $4\ohm$.  (You don't need to worry about the inner workings of the amplifier other than that it produces an internal source emf $\varepsilon$ that is 200 times larger than the voltage across its internal $600\ohm$ resistance; that is, $\varepsilon = 100 \times V_{\rm input}$.
 (a) Find the amplitude of the voltage across the speaker. 
 (b) Suppose the audio amplifier has a maximum current output of 30~A.  What is the maximum amplitude of the input voltage to the amplifier, above which the sinusoidal output to the speaker would be ``clipped'' as you saw in 
 Lab \ref{lab_op-amps}
@@ -187,11 +187,90 @@ with no explanation of where it might come from or why it might be true.  Derive
 \end{Exercise}
 
 
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+Design a circuit using only two op-amps that gives an output voltage $V_{\rm out}$ based on three input voltages $V_1, V_2$ and $V_3$ such that
+$$V_{\rm out} = - \left(  \frac{V_1}{6}+\frac{V_2-V_3}{3} \right).$$
+\end{Exercise}
+
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+Show how you can create an XOR gate using only a combination of NOR and NAND gates.
+\end{Exercise}
+
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+The numbers 0 through 9 are often displayed on clocks or instruments using a familiar \textit{seven segment display} shown below, where the seven individual rectangular LEDs are turned on or off to represent each number.  Design a logic circuit to control just one of the LEDs shown below: the one labeled ``b'' on the upper right side.  Your circuit will have four digital inputs representing the 1's, 2's, 4's, and 8's places of a binary number.  (Binary numbers are explained in Mini-Project 2 on page \pageref{lab_two_bit_adder}.) For this problem, you can assume that these inputs will only represent the numbers 0 through 9 (0000 through 1001), and never anything higher.
+\begin{center}
+\includegraphics[scale=1.1]{M_problems/opamps_digital/seven_seg_display2.pdf}
+\end{center}
+\end{Exercise}
+
+
+\pagebreak[3]%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+\label{prob_schmitt_trigger_with_circuit}
+ For the circuit below, calculate the values of $V_{\rm in}$ at which the output switches from high to low and from low to high.  You can make the approximation that $R_4 \approx 0$.
+\begin{center}
+\includegraphics{M_problems/opamps_digital/schmitt_trigger.pdf}
+\end{center}
+\end{Exercise}
+\begin{Answer}
+1.38 V and 1.10 V
+\end{Answer}
+
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+Design a Schmitt trigger using the LM311 comparator that switches the output from low to high at $V_{\rm in} < 2.6$~volts, and from high to low at $V_{\rm in} > 2.4$~volts.  
+\end{Exercise}
+\begin{Answer}
+Using the diagram in problem \ref{prob_schmitt_trigger_with_circuit}, set $R_1=R_2=R_3/12$
+\end{Answer}
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+Goofus and Gallant are studying comparators, and they both understand that a comparator like the LM311 is really just a slightly specialized op-amp.  They both want to build a circuit that will output $+5$~V or 0~V depending on the relative sizes of the two input voltages. Gallant builds the circuit on the left using an LM311 comparator.  Goofus builds the circuit on the right using an LM324 op-amp.
+\begin{center}
+\includegraphics{M_problems/opamps_digital/gallant_goofus_comparators.pdf}
+\end{center}
+Unfortunately, Goofus did not read the datasheet for the LM324 before building his circuit.  (a)~If $V_B>V_A$, does Goofus's output really equal 5 V, bearing in mind that the correct answer is ``No''?  Based on the LM324's datasheet, what will its actual high output be?  (b) Based on the datasheets for the LM311 and the LM324, roughly how long will it take each of their circuits to swing from low output to high output?  (The datasheet I gave you for the LM324 doesn't list a specific slew rate, but there's a graph on page 6 that gives a rough idea of it.)
+\end{Exercise}
+\begin{Answer}
+(b) Gallant's circuit is more than ten times faster than Goofus's.
+\end{Answer}
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+Draw a Thevenin equivalent circuit for the circuit below, including calculating values for $V_{\rm Th}$ and $R_{\rm Th}$.
+\begin{center}
+\includegraphics{M_problems/opamps_digital/thevenin_harder.pdf}
+\end{center}
+\end{Exercise}
+\begin{Answer}
+$V_{\rm Th}=10$~V, $R_{\rm Th}=1.43\kohm$.
+\end{Answer}
+
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+Examine \textit{at least two} other students' lab notebooks.  
+(Students who would prefer to not have their notebooks looked at can let me know and leave your notebooks on my table at the front of the room for a few days.)  
+Write me a paragraph or so about one or more things you notice about these notebooks that suggest something that you could do differently to improve your own lab notebook.  
+Its up to you whether to name the other students.  
+If you truly believe that your notebook is superior in all aspects to all other notebooks, then you can write about that instead---but be prepared for me to gently rebut your claim.
+\end{Exercise}
+
+
+
+
 %Ideas for additional problems:
 
-\vspace{0.75in plus 0.75in minus 0.2in} 
+\vspace{0.75in plus 0.85in minus 0.2in} 
 
-%\pagebreak[3]
+\pagebreak[3]
 \textbf{Answers to Selected {\thesubsection} Problems:}
 \label{opamps_digital_prob_answers}
 %\shipoutExercise
