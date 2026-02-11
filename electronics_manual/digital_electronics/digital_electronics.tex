@@ -5,56 +5,86 @@
 
 \bigskip
 
-\begin{enumerate}[wide]
+In \textit{digital electronics}, the logical values \textit{true} and \textit{false} (or ``1'' and ``0'')  are represented by discrete voltages, often 5~V and 0~V.  The high voltage value can be labeled either $V_{\rm CC}$ or $V_{\rm DD}$, for \textit{digital}.
 
-\item A 74LS00 chip has four separate NAND gates on it.  (A pinout diagram is included in Appendix~\ref{appendix_pinouts}.) To use this chip, you will need to connect pin 14 ($V_{\rm CC}$) to $+5$ volts, and pin 7 to ground.  Use the logic switches (labeled S1, S2, etc.) on your proto boards as inputs into pins 1 and 2, and connect pin 3 to one of the logic indicator lights.  Does your chip produce the correct ``truth table'' for all four possible combinations of inputs?\label{part_verify_nand_gate}
+\medskip
+\textbf{Generating and measuring digital signals}%
+\begin{enumerate}[wide]%,topsep=0pt]
+\item To easily switch an input between logical 1 and 0, your PB-505 has a series of eight switches along the bottom labeled S$_1$ through S$_8$.  They are connected internally to a voltage source: either your $+5$~volts or your variable $+V$, selectable with an additional switch just above S$_1$. (We will use $+5$~volts throughout this lab.) Measure the output voltage of one of the switches as you toggle it on and off to confirm that its output voltage behaves as you expect. 
 
-\item Predict how you think your NAND chip would behave if one of the inputs were left unconnected.  Would it interpret the open input as a logical 0 or a logical 1?  Now do the experiment, disconnecting one of the inputs entirely, and toggling the other input between a 0 and 1 using a logic switch, as in part~\ref{part_verify_nand_gate}.  Was your prediction correct?  If not, rate your surprise and disappointment with the world on a scale from $-1$ to $-10$. \label{part_open_digital_inputs}
+\item Your PB-505 also has eight ``logic monitors'' on the upper right side, for which a red light indicates a high input (logical 1) and a green light indicates a low input (logical 0).  As with the logic switches, you can select  $+5$~volts or the variable $+V$ for the high voltage value used.  You can also select either \textit{CMOS} or \textit{TTL}, which are two different standards that govern exactly what voltage range should count as high, low, or undetermined.  We'll use TTL. Use the very long wires in your kits to connect one of your indicators to one of your logic switches and confirm that it works as expected.
 
-\textit{Note: Despite what you have just seen, you should \textbf{never} leave a digital input unconnected. The specifications for digital chips generally do not guarantee how the chip should interpret an open input, and their actual behavior is unpredictable---and may be susceptible to interference from elsewhere in your circuit.  Always connect unused inputs to either $V_{\rm DD}$ or ground.}
+\begin{quote}\textit{Pro tip: you have ten long, flexible wires in your kits that are long enough to reach comfortably across the breadboard.  Their colors match the resistor color code, and you should consider using each color wire to represent the corresponding switch or indicator numbered 1, 2, 3, etc.}
+\end{quote}
 
-\item An \textit{inverter} is another name for a ``NOT'' gate, taking an input A and giving an output of NOT A, often denoted as ${\rm \overline{A}}$.  Suppose that you need an inverter for a circuit, but you don't have one in your kit.  Build and test your own inverter using a NAND gate.  (Hint: To output ${\rm \overline{A}}$, one input to the NAND must be A, and the other has to be either A, 1, or 0.  Which of these works?)
+\bigskip
+\textbf{Logic Gates}
 
-\item Look carefully at the pinout diagrams for both the 74LS00 (quad NAND) and 74LS02 (quad NOR) in Appendix~\ref{appendix_pinouts}.  Are their inputs and outputs in the same places?  Again, rate your surprise and disappointment with the world on a scale from $-1$ to $-10$.
+Digital ICs for different tasks often come in families that have common properties and are designed to work together. On example is the 7400 (or \textsl{74xx}) series, where the digits \textsl{xx} indicate the chip's specific function: AND gates, OR gates, counters, and many others.  They are often adorned with additional letters like \textsl{74LSxx}, indicating ``\underline{\textbf{L}}ow power'' or ``high \textbf{\underline{S}}peed.''
+
+\begin{minipage}{0.77\textwidth}
+\item A 74LS00 chip has four separate NAND gates on it.  (A pinout diagram is included in Appendix~\ref{appendix_pinouts}.) To use this chip, you will need to connect pin~14 ($V_{\rm CC}$) to $+5$ volts, and pin~7 to ground.  Use the logic switches S$_1$ and S$_2$ as inputs into pins~1 and~2, and connect pin~3 to one of the logic indicator lights.  Does your chip produce the correct truth table for all four possible combinations of inputs?\label{part_verify_nand_gate}
+
+\item Predict how you think your NAND chip would behave if one of the inputs were left unconnected (``open'').  Would it interpret the open input as a logical 0 or a logical 1?  Now do the experiment, disconnecting one of the inputs entirely, and toggling the other input between a 0 and 1 using a logic switch, as in part~\ref{part_verify_nand_gate}.  Was your prediction correct?  If not, rate your shock and disappointment with the world on a scale from $-1$ to $-10$. 
+\label{part_open_digital_inputs}
+\end{minipage}
+\begin{minipage}{0.22\textwidth}
+\includegraphics[scale=0.8]{appendices/pinouts/74LS00_pinout.pdf}
+\end{minipage}
+
+\begin{quote}
+\textit{Note: Although you now know what an open input does for \textit{this} chip, you should \textbf{never} leave a digital input unconnected. The specifications for digital chips generally do not guarantee how the chip should interpret an open input, and their actual behavior is unpredictable---and may be susceptible to interference from elsewhere in your circuit.  Always connect unused inputs to either $V_{\rm CC}$ or ground.}
+\end{quote}
+
+\item An \textit{inverter} is another name for a NOT gate, taking an input A and giving an output of NOT A, often denoted as ${\rm \overline{A}}$.  Suppose that you need an inverter for a circuit, but you don't have one in your kit.  Build and test your own inverter using a NAND gate.  (Hint: To output ${\rm \overline{A}}$, one input to the NAND must be A, and the other has to be either A, 1, or 0.  Which of these works?)
+
+
+\item Appendix~\ref{appendix_pinouts} on page~\pageref{appendix_pinouts} gives pinout diagrams for many of the chips in your kit. Look carefully at the pinout diagrams for both the 74LS00 (quad NAND) and 74LS02 (quad NOR).   Are their inputs and outputs in the same places?  Again, rate your shock and disappointment with the world on a scale from $-1$ to $-10$.
 
 \item Build and test an OR gate made out of two NOR gates. 
 
-\item Build a simple controller that might control a set of security lights outside a home.  The lights should go on when motion is detected nearby, but they should not come on during daytime hours.  The lights should also go on if the homeowner pushes a ``panic'' button.  If the lights come on due to motion outside, the homeowner should be able to turn them off by pushing a ``clear'' button.  There are four digital inputs: motion, daytime, panic, and clear.  Design and build a logic circuit with a single digital output that is high or low to control the lights based on these four inputs.  Connect the output of your circuit to one of the logic indicators on the right of your circuit boards.
+\item Build a simple controller that might control a set of security lights outside a home, according to these rules:
+\begin{itemize}[nosep]
+\item The lights should go on when motion is detected nearby... 
+\item ...but they should not come on during daylight hours, determined by a light sensor.  
+\item The lights should also go on if the homeowner pushes a ``panic'' button.  
+\item If the lights come on due to motion outside, the homeowner should be able to turn them off by pushing a ``clear'' button.  The clear button should \textit{not} override the panic button.
+\end{itemize}
+Thus there are four digital inputs: motion (1), daylight (2), panic (3), and clear (4).  Design and build a logic circuit with a single digital output that is high or low to control the lights based on these four inputs.  Connect the output of your circuit to one of the logic indicators on the right of your circuit boards.  
+
+Your lab notebook should include a circuit diagram of your logic circuit, using standard symbols for gates and laid out nicely on the page.  Demonstrate your circuit to your instructor before disassembling it.
 
 %\vspace{0.2in}
 %\begin{minipage}{.58\textwidth} %was .60
 
-\item \label{part_comparator} Sometimes you want to create a digital signal based on whether one voltage is larger than another.  For example, you may want an alarm to be switched from OFF to ON if some temperature, represented by a voltage, \phantom{risesabovesome} 
-
-\vspace{-0.48in}
-\begin{minipage}{.68\textwidth}
-rises above some predetermined limit. The drawing to the right shows how to use an LM311 comparator as the basis for such a circuit.  If $V_+<V_-$, then pin 7 gets connected to pin 1 inside the chip\footnotemark, so that $V_{\rm out}=0$.  Otherwise, $V_{\rm out} \approx 5$~volts. 
-
 \bigskip
+\textbf{Comparators}
 
-Use your LM311 comparator to build a circuit with the following output: 
+Sometimes you want to create a digital signal based on whether one voltage is larger than another.  For example, you may want an alarm to be switched from OFF to ON if some temperature, represented by a  
+voltage, rises above some predetermined limit. The drawing to the right shows how to use an LM311 comparator as the basis for such a circuit.  If $V_+<V_-$, then pin 7 gets connected to pin 1 inside the chip\footnotemark, so that $V_{\rm out}=0$.  Otherwise, $V_{\rm out} \approx 5$~volts. 
+
+\begin{center}
+\includegraphics{digital_electronics/basic_lm311.pdf}
+\end{center}
+
+\item Use your LM311 comparator to build a circuit with the following output: 
 
 \smallskip
 \begin{itemize}[nosep]
-\item If $V_{\rm in} < 2.5$~volts, then $V_{\rm out}=5$~V.  (\textit{Output high when input low.})
-\item If $V_{\rm in} > 2.5$~volts, then $V_{\rm out}=0$~V.  (\textit{Output low when input high.})
+\item If $V_{\rm in} < 2.5$~volts, then $V_{\rm out}=5$~V.  (\textit{Output high when input is low.})
+\item If $V_{\rm in} > 2.5$~volts, then $V_{\rm out}=0$~V.  (\textit{Output low when input is high.})
 \end{itemize}
 \smallskip
 
-As a test input for your circuit, use a 1~kHz sine wave from your function generator with an amplitude of about 4~volts.
+As a test input for your circuit, use a 1~kHz sine wave from your function generator with an amplitude of about 4~volts and confirm that it behaves as expected.
+\label{part_comparator} 
 
-\end{minipage}
-\begin{minipage}{.31\textwidth}
-\vspace{0.4in}
-
-\hspace{\fill}\includegraphics{digital_electronics/basic_lm311.pdf}
-\end{minipage}
 \footnotetext{What's really happening inside the chip is that pins~7 and 1 are connected to the collector and emitter (respectively) of a bipolar junction transistor, a scheme known as an \textit{open collector output.}  Pin~7 gets ``connected to'' ground by driving the transistor into \textit{saturation mode,} which you'll learn about in Lab~\ref{lab_bjt_saturation}.  For now, you can simply view this ``connection'' as a handy bit of magic you don't need to worry about.}
 
-\pagebreak[2]
 
-\item What happens to your output when you increase the amplitude of your test input to 10 volts?  What determines the limitation on your input voltage?
+\item What happens to your output when you increase the amplitude of your test input to 10 volts?  What determines the limitation on your input voltage?  (Many but not all LM311 chips show wonky behavior under these conditions.  Talk to your instructor when you get here, regardless of what you see.)
 
+\pagebreak[3]
 \item If you look carefully at the output of your circuit in part \ref{part_comparator} on a very fast time scale, you will see that each time the output switches, it actually makes multiple transitions, switching back and forth several times before settling down.  Why would it do this?  
 
 \item To get only a single clean transition, you can make the modification of your circuit, shown below.  What is the voltage $V_+$ at the positive input if $V_{\rm out}=0$ volts?  What is $V_+$ if $V_{\rm out}=5$~volts?   Predict the values of the $V_+$ in each case, and test your prediction by measuring it with your friend, the oscilloscope.  How does the resistor $R_3$ prevent the multiple transitions you observed in the previous part?  (This clever little trick is called a ``Schmitt trigger.'') \label{part_schmitt_trigger}
@@ -68,6 +98,7 @@ As a test input for your circuit, use a 1~kHz sine wave from your function gener
 \end{enumerate}
 
 
+\vfill
 \textbf{Possible Exam Questions:}
 
 \begin{itemize}
