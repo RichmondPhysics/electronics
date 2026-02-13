@@ -6,16 +6,25 @@
 
 \bigskip
 
+\textbf{Getting acquainted with capacitance} 
+
 \begin{enumerate}[wide]
 
-\item Identify a range of different capacitors in your kits.  What are the largest and smallest values that you have? How do you read the value of the capacitance on the small ones?  Use your DMM to measure some of their values, noting both the uncertainty in your DMM's measurement and how close the capacitors are to their stated values.
+\item Identify a range of different capacitors in your kits.  What are the largest and smallest values that you have? How do you read the value of the capacitance on the various types?  Use your DMM to measure a few of their values, noting both the uncertainty in your DMM's measurement and how close the capacitors are to their stated values.  What range of capacitance can your DMM measure?
 
-\item Build the circuit shown below.  (\textit{Be sure to connect the positive and negative ends of the capacitor as shown.  If you reverse the polarity of the capacitor, it can blow up in your face and hurt you.})  Use your oscilloscope to measure the voltage across the capacitor $V_C$ as you move the switch back and forth.  You will want your scope to be scanning slowly at about 1 second per division.  Sketch what you see.  Show on your graph where your capacitor is fully charged, and where it is fully discharged.  (Note: Use switch S9 or S10 on your protoboard, looking back at Lab \ref{lab_equipment}, part \ref{part_switches} if you need to remember how those are wired.) \label{part_rc_circuit}
+\item Build the circuit shown below.  Two things to note:
+\label{part_rc_circuit}
+\begin{itemize}[nosep]
+\item \textit{Be sure to connect the positive and negative ends of the capacitor correctly as shown}.  If you reverse the polarity of the capacitor, it can theoretically blow up in your face and hurt you (unlikely) or at least have poor capacitance and a large leakage current (much more likely).  
+\item For the switch, use SPDT switch S9 or S10 on your PB-505, just to the left of te speaker.  Before connecting it to your circuit, look carefully at the the small breadboard block to determine which columns of holes are connected to the switche's \textit{common} terminal, and which columns are connected to each of its \textit{throws}.  Use your DMM to confirm your understanding, and make a diagram in your lab notebook showing how these switches are connected.
+\end{itemize}
 \begin{center}
 \includegraphics{capacitors/single_dc_capacitor.pdf}
 \hspace{0.5in}
 \raisebox{0.2in}{\includegraphics[height=1.3in]{capacitors/capacitor2_bw.pdf}}
 \end{center}
+
+\item Use your oscilloscope to measure the voltage across the capacitor $V_C$ as you move the switch back and forth.  (You will want your scope to be scanning slowly at about 1 second per division, and you may want to use its \textsl{Roll} feature in the panel area for horizontal control.)  Sketch what you see, noting on your graph where your capacitor is fully charged and where it is fully discharged.   
 
 \item Examine the graphs you have just drawn, and predict where on the graphs the current is a maximum, and where it is a minimum.  Now insert your DMM as a current meter between $R$ and $C$, and test your prediction.  Were you correct?
 
@@ -27,26 +36,54 @@
 
 \item Now that you have several values of $R$, $C$, and $\tau$, care to hazard a guess about an equation relating those three?
 
-\item Make a circuit like the one above with a time constant of $\tau=10^{-4}~{\rm s} = 100~\mu {\rm s}$.   To verify the time constant with your oscilloscope, you will need to mess with the triggering for your scopes, so that the scope triggers only once as soon as you throw the switch, and doesn't trigger again.  You will need to change the trigger mode from ``auto'' to ``normal.''  (Look in your manuals.  What do these two modes mean?)
-
 \item You have now seen the behavior of $V_C$ as a function of time for a discharging and charging capacitor.  Can you guess the functional form of $V_C(t)$ in each case?
 
-\pagebreak[4]
-\item The circuit below is similar to the Schmitt trigger you made in a previous lab, but instead of an arbitrary $V_{\rm in}$, the negative input of the comparator is connected to $C_1$ and $R_5$.  
+\pagebreak[3]
+\textbf{Speeding Things Up}
+
+\item Make a circuit like the one above with a time constant of $\tau=10^{-4}~{\rm s} = 100~\mu {\rm s}$.   
+To verify the time constant with your oscilloscope, you will need to mess with the triggering for your scopes, so that the scope triggers only once as soon as you throw the switch, and then doesn't write over your trace by triggering again.  To do this, you will need to change the trigger mode from \button{auto} to \button{normal}.  (Look in your manuals to understand what do these two modes mean.)  Note that ``auto'' and ``normal'' are not very descriptive names for these two triggering modes; if instead they were called ``patient'' and ``impatient'' (a much better choice!),%
+\footnote{``Disciplined'' and ``impetuous'' works too.}
+which one would have which name?
+
+\begin{minipage}{0.75\textwidth}
+\item You have probably noticed that it's hard to control this faster circuit with a manual slide switch. Why is that?  To address this issue, you can make use of the \textit{debounced} pushbutton switches on your PB-505 (just below the function generator) by modifying your circuit as shown below.  What does debouncing do?  What difference does it make to your circuit if you use the \button{NC} or \button{NO} terminals?  Why is the additional $1\kohm$ resistor important?
+
+\end{minipage}
+\begin{minipage}{0.24\textwidth}
+\vspace{-0.1in}
+\begin{center}
+\includegraphics{capacitors/rc_circuit_debounced.pdf}
+\end{center}
+\vspace{-0.2in}
+\end{minipage}
+
+\textbf{Delay Tactics}
+
+\item The circuit below is similar to the Schmitt trigger you made in a previous lab, but the input $V_{\rm in}$ is now either 0 or 5 volts, controlled by the debounced switch, and is connected to the $V_-$ input of the comparator via $C_1$ and $R_5$.  
 For the component values shown, what is the voltage at the $V_+$ input if $V_{\rm out}$ is 0 volts?  
 What is the voltage at $V_+$ if $V_{\rm out}$ is 5 volts?  
-If the switch is moved from $V_{\rm CC}$ to ground, how long should it take $V_{\rm out}$ to change?  How about when the switch is moved the other way?  Test this circuit, using your oscilloscope to measure the time delay between changes in $V_{\rm in}$ and $V_{\rm out}$. \label{part_delay_switch}
+\begin{center}
+\includegraphics{capacitors/delay_debounced.pdf}
+\end{center}
 
-\begin{flushright}
-\includegraphics{capacitors/delay.pdf}\hspace*{0.9in}
-\end{flushright}
+\item In the circuit above, when $V_\text{in}$ switches from $V_{\rm CC}$ to ground, how long should it take $V_{\rm out}$ to change from ground to $V_{\rm CC}$?  How about when $V_\text{in}$ changes the other way?  Build and test this circuit, using your oscilloscope to measure the time delay between changes in $V_{\rm in}$ and $V_{\rm out}$. \label{part_delay_switch}
 
-\item Modify the circuit slightly, replacing the switch with feedback from the output as shown below.   Draw three graphs of $V_+$, $V_-$, and $V_{\rm out}$, all versus time, showing how they are synchronized with each other. \label{part_square_generator}
- 
-\begin{flushright}
-\includegraphics{capacitors/comparator_square_generator.pdf}\hspace*{0.9in}
-\end{flushright}
+\begin{minipage}{0.44\textwidth}
+\label{part_square_generator}
+\textbf{A Square Wave Generator}
+\medskip
 
+\item In the drawing to the right, your previous circuit has been modified slightly.  The top end of $R_5$, previously labeled $V_\text{in}$ and connected to the debounced pushbutton switch, is not connected to the output  $V_{\rm out}$.  Make this change and test it out.  Draw three graphs of $V_+$, $V_-$, and $V_{\rm out}$, all versus time, showing how they are synchronized with each other. 
+\end{minipage}
+\begin{minipage}{0.55\textwidth}
+\begin{center}
+\includegraphics{capacitors/comparator_square_generator.pdf}
+\end{center}
+\end{minipage}
+
+
+\pagebreak[3]
 \item Which components can you change in the circuit above to increase the frequency of its output?  (There are two resistors and a capacitor that will make a significant impact.)  At some point, however, you will run up against the limitations of the LM311 itself.  What's the fastest output you can reasonably produce with this circuit?  Does it still look like a pretty square wave?  
 \end{enumerate}
 
