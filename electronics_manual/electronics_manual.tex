@@ -20,6 +20,10 @@
 
 \input{electronics_front_pages/electronics_title_page}
 
+\setcounter{tocdepth}{2}
+		\renewcommand{\cftsubsecaftersnumb}{~Problems:~}
+
+
 \tableofcontents{}\thispagestyle{labcontentsfancy}
 
 %--------------------------------------------
@@ -83,8 +87,10 @@
 \includelab{1}{appendices/circuits_to_know/circuits_to_know}
 \includelab{1}[../../131/StudentGuideModule1/]{appendices/one_page_uncertainty/one_page_uncertainty}
 \includelab{1}{appendices/thevenin_equivalence/thevenin_equivalence}
+\includelab{1}{appendices/extra_mini_projects/extra_mini_projects}
+\includelab{1}{appendices/switches/switches}
+
 \setcounter{section}{12}
-		\renewcommand{\cftsubsecaftersnumb}{~Problems:~}
 \renewcommand{\thesubsection}{\thesection\Alph{subsection}}
 \includelab{1}{M_problems/M_problems}
 

@@ -1,0 +1,40 @@
+\section{Additional Mini-Projects}
+\label{extra_mini_projects}
+
+If you feel like challenging yourself, getting some additional practice, or just feel like tinkering a little more, here are some additional circuit ideas you could pursue.
+
+\bigskip
+\textbf{Mini-Project 3: An Analog-to-Digital Converter}
+
+In Lab~\ref{lab_op-amps}, you built a D-to-A converter.  Here, you will build the opposite: an A-to-D converter, which takes a single, variable voltage input and converts it to a series of discrete digital voltages representing a base-two number.  This would be the kind of circuit you would need to turn a signal from a microphone into a digital sound file, or to turn an oscilloscope's input signal into a value to graph on the display and analyze.
+
+You can choose whether to make a two-bit converter for 0 to 3 volts, or a three-bit converter for 0 to 7 volts.  
+For the two-bit version, your output will be a set of two digital signals representing the numbers 00, 01, 10, and 11.  (0.00--0.99 volts gives digital 00; 1.00--1.99 volts gives digital 01, etc.)  Here's how you'll go about it: start by comparing the input signal to a 2-volt reference and set the twos bit accordingly.  If $V_{\rm in}<2$~volts, then you'll compare the input to a 1-volt reference to set the ones bit.  
+But if $V_{\rm in}>2$, then you'll need to subtract off 2~volts from $V_{\rm in}$ first, and \textit{then} set the ones bit by comparing $V_{\rm in}-2$~volts to the 1-volt reference.  Build and test your circuit and draw a circuit diagram for it in your notebook.
+
+\begin{itemize}
+\item You can see how the scheme used here would become pretty complicated for an 8-bit or 16-bit converter.  Think about how you could design a 4-bit converter to use as few components as possible.  In particular, there are surely smart ways to take advantage of the comparator's flexible open-collector output.
+
+\item Feel free to use a different comparator than the LM311; the LM393 has the advantage of two comparators on a single chip. 
+
+\item This multi-stage compare-and-subtract strategy is only \textit{one} way to build an A-to-D converter, and not necessarily the best way.  You can read more about it in Horowitz and Hill's \textit{Art of Electronics}.
+\end{itemize}
+
+\bigskip
+\textbf{Mini-Project 4: A Constant Current Supply}
+
+Although most power supplies work by supplying a constant voltage, one occasionally needs a power supply to provide a constant current.  Some examples would be:
+\begin{itemize}
+\item To account for line voltage that varies over time, for instance to provide a fixed current to a bank of LED lights to maintain constant brightness and avoid damaging them by an overvoltage.
+\item To account for a varying load resistance, for instance to provide a fixed current to a motor on a model train engine, even when the train is far from the power supply, so that the length of track adds additional resistance to the circuit.
+\item To  guard against an overcurrent in the load due to a short circuit. The big DC power supplies that we used in Lab~\ref{lab_power_dissipation} did this, allowing us to adjust the current knobs to set an effective current limit for the voltage supply.
+\end{itemize}
+
+Build a circuit that provides a fixed current of 10~mA~DC to a load that can vary from $200\ohm$ to $1\kohm$, starting with a voltage source that can vary from $+12$~VDC to $+20$~VDC.  Your basic strategy will be to use an op-amp to supply the output voltage, but to monitor the output current, using the current as the basis for negative feedback to the op-amp.
+
+Modify your circuit so that you can adjust the output current to anywhere from 0 to 20~mA by turning a potentiometer---to make that model train go faster or slower.
+
+If you know how to use bipolar junction transistors (Lab~\ref{lab_bjt}), you can build a higher-current version of your circuit that delivers up to 1~amp to a sufficiently low-impedance load. 
+ 
+
+
