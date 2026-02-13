@@ -9,7 +9,7 @@
 
 \item One place where junction field effect transistors (JFETs) are useful is in electret microphones.  An electret is a material that holds a permanent polarization, something like the electric equivalent of a permanent magnet.  In an electret microphone, the electret material is mounted on a movable diaphragm that vibrates in response to sound, so that its vibration induces a small oscillating voltage in a nearby electrode.  That changing voltage is tiny, so a convenient way to detect it is to apply it to the gate of a field effect transistor, which your microphone already has built into it.  Connecting the microphone to an external power source and resistor and removing the DC bias with a capacitor as shown produces an AC signal that's easier to measure.  How big is the resulting AC output when you whistle into the microphone?   (Note that the leads of your microphone are polarized; the negative terminal is the one that's visibly shorted to the outside of the capsule.)  \label{part_microphone}
 \begin{center}
-\includegraphics{microphone_photocell/microphone_circuit.eps}
+\includegraphics{microphone_photocell/microphone_circuit.pdf}
 \end{center}
 
 \item The resistor value above was chosen to make the DC output of your microphone about $V_{CC}/2$, which maximizes its AC amplitude.  Suppose the channel of the JFET in your microphone is behaving like a simple variable resistor.\footnote{The JFET is \textit{not} a simple variable resistor, because its $IV$ characteristics are highly nonlinear.}  Based on the AC amplitude you measured above, what is the range of its effective resistance when you whistle into it?

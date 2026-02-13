@@ -9,8 +9,8 @@
 
 \item Your kit contains several seven-segment displays for displaying numbers.  Find one of them with the characters ``M72'' on the side; this is the MAN72A, shown below.  Each of the seven LEDs on its face has its cathode (negative terminal) connected to one of the labeled inputs (A, B, C, etc.), and its anode (positive terminal) connected to pin 14 and pin 3.  (Use either 14 or 3 for the connection; one is sufficient.) This configuration is called a ``common anode'' arrangement, since all seven segments share the same positive terminal.  What number would the display show as it is wired below? 
 \begin{center}
-\includegraphics[scale=0.8]{appendices/pinouts/man72.eps}
-\includegraphics{counters/man72_circuit.eps}
+\includegraphics[scale=0.8]{appendices/pinouts/man72.pdf}
+\includegraphics{counters/man72_circuit.pdf}
 \end{center}
   
 \item A current of about 10~mA is required to make each segment light up brightly.  \textit{To limit the current, you will need to connect each cathode to ground through an external resistor as shown in the diagram.  If you hook any of the segments directly between 5 volt supply and ground without a resistor, the display will get blown out.  (They're diodes, after all; each is only supposed to have a forward voltage of about 1.8 volts.)}  What value of resistor do you need to limit the current to 10~mA?)  Draw a circuit showing expressly how to light the ``B'' and ``C'' bars for the number 1.  Test your circuit, and verify that the current is what you think it is.  By the way, which two leads on your chip control the left and right decimal points? \label{part_man72_connections}
@@ -24,7 +24,7 @@
 \item Suppose you have a series of digital signals that represent a binary number, as you did when you made a 2-bit adder.  (Recall that you had three output leads, representing the 1's, 2's, and 4's places.) Hooking up the seven-segment display directly to the output from your adder would be a royal pain; you'd need a LOT of logic gates to control which segments get illuminated for each of the possible combinations of output bits!  Fortunately, you have a chip that does this for you: the 74LS47.  The four binary inputs of the 74LS47 (A,B,C,D) represent the 1's, 2's, 4's, and 8's places, respectively.  Its seven outputs (a,b,c,d,e,f,g) are designed to control the seven LEDs on the MAN72 display; the 74L47 makes and breaks connections between each of those outputs and ground according to what number should be displayed.  Connect the 74LS47 inputs to logic switches, and connect the 74LS47 outputs to your MAN72 using resistors as you did in part~\ref{part_man72_connections}.  Connect pins 8 and 16 to ground and +5~V.  Pins 4, 5, and 6 should also be connected to 5~V for now.   Does the 74LS47 behave as you expect?  What happens when you give it a binary number greater than 9?  (NOTE: Remember what you discovered in Lab~\ref{lab_digital_electronics} part~\ref{part_open_digital_inputs}: any digital input A, B, C, or D that you want to be a logical 0 has to actually be grounded; you can't just leave them hanging open.)  
 \end{minipage}
 \begin{minipage}{.28\textwidth}
-\includegraphics[scale=0.8]{appendices/pinouts/74LS47.eps}
+\includegraphics[scale=0.8]{appendices/pinouts/74LS47.pdf}
 \end{minipage}
 
 
@@ -32,15 +32,15 @@
 
 \item For comparison, the MAN74A, which is a ``common cathode'' configuration, is shown below, as it would be wired to display one possible number.  Could you use the 74LS47 chip with the MAN74A?  (If yes, then build a circuit and show how.  If no, then explain why not.)
 \begin{center}
-\includegraphics[scale=0.8]{appendices/pinouts/man74.eps}
-\includegraphics{counters/man74_circuit.eps}
+\includegraphics[scale=0.8]{appendices/pinouts/man74.pdf}
+\includegraphics{counters/man74_circuit.pdf}
 \end{center}
 
 \item Your kits contain another chip that counts: the CD74HC390E, whose pin-out is shown here.  Connect Vcc to +5 volts, and GND to ground.  Connect pin 4, labeled $1\mathrm{\overline{CP1}}$, to the TTL output of your function generator at 1~Hz.  Connect the outputs 1Q$_1$, 1Q$_2$, and 1Q$_3$ to three logic indicators on your breadboards.  The input 1MR should also be grounded.  How high does this chip count (in binary) when it is wired in this configuration?  
 
 \vspace{-0.2in}
 \begin{center}
-\includegraphics[scale=0.8]{appendices/pinouts/cd74hc390e.eps}
+\includegraphics[scale=0.8]{appendices/pinouts/cd74hc390e.pdf}
 \end{center}
 \vspace{-0.1in}
 

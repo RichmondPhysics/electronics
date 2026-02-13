@@ -10,12 +10,12 @@ If you were trapped on a desert island and could have only a single integrated c
 \medskip
 %\begin{center}
 %\vspace{-0.05in}
-%\includegraphics[width=3.25in]{timers/555_block_diagram.eps}
-\includegraphics[scale=0.96]{timers/555_block_diagram_multisim.eps}
+%\includegraphics[width=3.25in]{timers/555_block_diagram.pdf}
+\includegraphics[scale=0.96]{timers/555_block_diagram_multisim.pdf}
 \hspace{-0.7in}
 \hfill
-\includegraphics[scale=0.72]{timers/lm555_simple_2line.eps}
-\hspace{-0.2in}\includegraphics[scale=0.72]{timers/ne556_abrev_2line.eps}
+\includegraphics[scale=0.72]{timers/lm555_simple_2line.pdf}
+\hspace{-0.2in}\includegraphics[scale=0.72]{timers/ne556_abrev_2line.pdf}
 \hspace{-0.1in}
 %\vspace{-0.05in}
 %\end{center}
@@ -31,7 +31,7 @@ What happens when the reset is momentarily brought to ground?
 (Although the CONTROL input is not specifically used in this application, it is common nevertheless to place a 10~nF capacitor between CONTROL and ground, to reduce unwanted interference.)  
 %[Test this to see what happens when inputs are held open...]  
 \begin{center}
-\includegraphics{timers/bistable_555.eps}
+\includegraphics{timers/bistable_555.pdf}
 \end{center}
 
 \pagebreak[4]
@@ -39,7 +39,7 @@ What happens when the reset is momentarily brought to ground?
 $$\Delta t = \ln (3) RC \approx 1.1 RC.$$
 The output then resets to zero and waits for another trigger event.  The trigger in this case happens when the input signal at the TRIG input falls below a certain fraction of $V_{CC}$.  What fraction would that be, by the way?  You should be able to tell by looking at the block diagram of the chip, especially those three 5~k$\Omega$ resistors in series.  Make a prediction, then build the circuit to test it out.  Aim for a delay time of $\Delta t \approx 3$~seconds. \label{part_one_shot_timer}
 \begin{center}
-\includegraphics{timers/monostable_555.eps}
+\includegraphics{timers/monostable_555.pdf}
 \end{center}
 
 \item \textbf{Astable mode}: In this mode, the 555 acts as a square wave generator, much like the one you built using a single comparator in Lab~\ref{lab_capacitors}, part \ref{part_square_generator}.  In the circuit shown below, when the output swings high to $V_{CC}$, the capacitor $C$ charges through $R_1$ and $R_2$.  When the output swings low, the discharge lead (pin 7) is pulled to 0~V, and the capacitor discharges through $R_2$ only.  Because of this, the square wave produced by this circuit is asymmetric, with the dwell times given by
@@ -52,7 +52,7 @@ The output then resets to zero and waits for another trigger event.  The trigger
 Build the circuit below, choosing values for $R_1$, $R_2$, and $C$ that will yield a square wave with a ratio of 
 $\Delta t_{\rm high} / \Delta t_{\rm low} =2$, and a frequency of $f \approx 10$~kHz. \label{part_astable}
 \begin{center}
-\includegraphics{timers/astable_555.eps}
+\includegraphics{timers/astable_555.pdf}
 \end{center}
 
 \item The ``duty cycle'' of a square wave is the percentage of each cycle that the output is at a high voltage.  If you want to make a square wave with a duty cycle of less than 50\%, there's a neat trick you can use to make the capacitor charge faster than it discharges: place a diode in parallel with $R_2$, oriented so that $R_2$ is effectively shorted out during the charging phase.  Modify your previous circuit by adding a diode and changing one or both of the resistors so that the output pulse has a duty cycle of about 10\%.  (Don't worry about its frequency, just get the duty cycle close.)  Is your measured duty cycle exactly what you predicted?  If not, what might account for any discrepancy? \label{part_square_wave_duty_cycle}
