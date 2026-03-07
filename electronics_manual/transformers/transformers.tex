@@ -5,6 +5,8 @@
 
 \bigskip
 
+\textbf{Primaries and Secondaries in Series and Parallel}
+
 \begin{enumerate}[wide]
 
 \item Your transformer, shown in the circuit diagram below, has two primary coils and two secondary coils that can be wired in a variety of ways to yield different effective turn ratios $N_1/N_2$.  Wire the circuit as shown below, using your oscilloscope to measure the RMS voltages $V_1$ and $V_2$.  (Note: the wires may come out of your transformer in a different order than is shown here; ignore the order and go by the colors.)  Based on your measurements, what is the apparent turns ratio of the transformer as it is connected here?  Is this a ``step down'' or ``step up'' transformer?  
@@ -43,12 +45,20 @@
 
 
 \end{enumerate}
+\bigskip
+\textbf{Impedance Matching}
 
-\textit{If a transformer steps the voltage UP, it has to step the current DOWN and vice-versa.  (If it stepped both of them up, then it would be stepping up the power.  If it could do that, then our nation's energy problems would be solved.)  The way the transformer ``steps up the current'' is by effectively having a lower output impedance than the original source.  Although this can't buy you power for free, you'll see in this next part that transformers can help you match impedances to use the power you have more efficiently.}
+If a transformer steps the voltage UP, it has to step the current DOWN and vice-versa.  (If it stepped both of them up, then it would be stepping up the power, which would violate conservation of energy.)  The way the transformer ``steps up the current'' is by effectively having a lower output impedance than the original source.  Although this can't buy you power for free, you'll see in this next part that transformers can help you match impedances to use the power you have more efficiently.
 
 \begin{enumerate}[wide,resume]
 
-\item Use your transformer to step down the voltage of your signal generator, and put the output from the transformer to the speaker.  (Use a frequency of about 300~Hz, so you get an easily audible tone.)  Does using the transformer make the tone louder or quieter?  Calculate the average power dissipated in the speaker both with and without the transformer.  
+\item Use your transformer to step down the voltage of your signal generator, and put the output from the transformer to the speaker.  (Use a frequency of about 300~Hz, so you get an easily audible tone.)  Does using the transformer make the tone louder or quieter?  Calculate the average power dissipated in the speaker both with and without the transformer.
+\label{part_step_down_speaker}
+
+\item In previous labs, you have found that the output impedance of your function generator is roughly $600\ohm$, and the input impedance of your speaker is roughly $8\ohm$.  
+Based on the turns ratio that you used in part \ref{part_step_down_speaker}, what is the apparent load resistance ``seen'' by the source?  What is the apparent source resistance ``seen'' by the load?
+
+\item What would be the ideal turns ratio for a transformer in order to transfer the maximum power from the function generator to the speaker, given the result you found in Problem \ref{prob_impedance_matching}?
 
 \begin{comment}
 \item Now hook the transformer's primary up to an AC power cord, using two wire nuts, with the two sets of primary leads wired in parallel.  Tie all the wires together in a knot when you are done, to prevent mechanical stress on the wire connections.  FOR SAFETY, YOU MUST HAVE YOUR WIRING INSPECTED BY THE INSTRUCTOR BEFORE PLUGGING IT INTO AN OUTLET.  After plugging it in, measure both the ampltitude and RMS voltage of your transformer's secondary coils, connected in parallel.  Since you already know the turns ratio of the transformer in this configuration, you should be able to estimate the amplitude and RMS value of the voltage at the wall socket.  
@@ -60,6 +70,8 @@
 \end{enumerate}
 
 \bigskip
+\vfill
+\pagebreak
 
 \textbf{Possible Exam Questions:}
 
@@ -73,6 +85,7 @@
 
 \item Show how to correctly wire the transformer above in order to maximize its turns ratio as a step-down transformer.  (That is, in order to step the voltage down as much as possible.)
 
+\item Determine the optimal turns ratio for a transformer in order to optimally match the impedance of a load to the impedance of a source.
 \end{itemize}
 
 

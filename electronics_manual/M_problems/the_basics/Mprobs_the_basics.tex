@@ -71,12 +71,13 @@ $\displaystyle V_{\rm out} = V_{\rm in}\left(\frac{R_2}{R_1+R_2}\right)$.  (Hint
 
 %--------------------------------------------------------------------------------------------------------------
 \begin{Exercise}
+\label{prob_impedance_matching}
 Consider a power supply like the battery depicted in problem MA2, in which the supply has an internal voltage $\varepsilon$ and an internal resistance $R_{\rm int}$, and where the supply will be connected to a load resistance $R_{\rm load}$.  (Feel free to call the resistances ``$R_1$'' and ``$R_2$'' if you prefer.)
 (a)~Write an expression for the power $P_{load}$ dissipated in the load resistor, 
 in terms of only $\varepsilon$, $R_{\rm int}$, and $R_{\rm load}$.  
-(b)~For a supply with a fixed, unchangable $R_{\rm int}$, what value should you choose for $R_{\rm load}$ to \textit{maximize} the power dissipated in the load?
-(c)~For a fixed, unchangeable $R_{\rm load}$ what value would you want to choose for $R_{\rm int}$ to \textit{maximize} the power  dissipated in the load?
-(d)~Based on your answer to part (c), it turns out that some battery types are just better at delivering high load power than others.  Do a little Googling to find how the internal resistance of lithium ion batteries compares to, say, alkaline batteries.  Are any other battery types that stand out as particularly good or particularly bad?
+(b)~Suppose that the internal resistance $R_{\rm int}$ of the source is fixed, and you cannot change it.  Derive an expression for the optimal value you should choose for $R_{\rm load}$ in order to \textit{maximize} the power dissipated in the load.
+(c)~Now suppose instead that it is the load resistance $R_{\rm load}$ that is fixed and unchangeable.  Derive an expression for the optimal value you should choose for $R_{\rm int}$ in order to \textit{maximize} the power dissipated in the load.
+(d)~Based on your answer to part (c), it turns out that some battery types are just better at delivering high load power than others.  Do a little Googling to find how the internal resistance of lithium ion batteries compares to, say, alkaline batteries.  Are there any other battery types that stand out as particularly good or particularly bad?
 \end{Exercise}
 \begin{Answer}
 (b) $R_{\rm load} = R_{\rm int}$ (c) The correct answer is NOT $R_{\rm int} = R_{\rm load}$.
@@ -107,7 +108,7 @@ A student has connected the circuit below to their 5~V power supply, expecting a
 \item The voltmeter reads 2.76 volts. % c,  current meter on microvolts
 \item The voltmeter reads 4.98 volts. % a,d,e,g  not grounded, or R2 shorted to 5V, or R1 leads touching, or blown fuse. 
 \item The voltmeter reads 1.62 volts.  % h, R1 is 10k
-\item The voltmeter reads 0 volts.       % b, R2 shorted 
+\item The voltmeter reads about 0 volts.       % b, R2 shorted 
 \end{enumerate}
 \end{minipage}%
 \begin{minipage}[t]{0.42\textwidth}
