@@ -47,7 +47,7 @@ To verify the time constant with your oscilloscope, you will need to mess with t
 which one would have which name?
 
 \begin{minipage}{0.75\textwidth}
-\item You have probably noticed that it's hard to control this faster circuit with a manual slide switch. Why is that?  To address this issue, you can make use of the \textit{debounced} pushbutton switches on your PB-505 (just below the function generator) by modifying your circuit as shown below.  What does debouncing do?  What difference does it make to your circuit if you use the \button{NC} or \button{NO} terminals?  Why is the additional $1\kohm$ resistor important?
+\item You have probably noticed that it's hard to control this faster circuit with a manual slide switch. Why is that?  To address this issue, you can make use of the \textit{debounced} pushbutton switches on your PB-505 (just below the function generator) by modifying your circuit as shown to the right.  What does debouncing do?  What difference does it make to your circuit if you use the \button{NC} or \button{NO} terminals?  Why is the additional $1\kohm$ resistor $R_\text{prot}$ important?
 
 \end{minipage}
 \begin{minipage}{0.24\textwidth}
@@ -60,31 +60,55 @@ which one would have which name?
 
 \textbf{Delay Tactics}
 
-\item The circuit below is similar to the Schmitt trigger you made in a previous lab, but the input $V_{\rm in}$ is now either 0 or 5 volts, controlled by the debounced switch, and is connected to the $V_-$ input of the comparator via $C_1$ and $R_5$.  
-For the component values shown, what is the voltage at the $V_+$ input if $V_{\rm out}$ is 0 volts?  
-What is the voltage at $V_+$ if $V_{\rm out}$ is 5 volts?  
+RC circuits can be used as simple timers for things like making a turn signal blink once per second or shutting off an alarm after some time has passed.  The example below is essentially the Schmitt trigger you made in Lab~\ref{lab_digital_electronics}, 
+but the $V_-$ input of the comparator is now the same as the voltage across the capacitor $C_1$ as it charges and discharges.  
+
+\item For the component values shown below, what is the voltage at the $V_+$ input when $V_\text{out}$ is low ($\approx 0$~volts)?  
+And what is the voltage at $V_+$ when $V_\text{out}$ is high ($\approx 5$~volts)?  
+\label{part_delay_switch}
 \begin{center}
 \includegraphics{capacitors/delay_debounced.pdf}
 \end{center}
 
-\item In the circuit above, when $V_\text{in}$ switches from $V_{\rm CC}$ to ground, how long should it take $V_{\rm out}$ to change from ground to $V_{\rm CC}$?  How about when $V_\text{in}$ changes the other way?  Build and test this circuit, using your oscilloscope to measure the time delay between changes in $V_{\rm in}$ and $V_{\rm out}$. \label{part_delay_switch}
+\item Suppose that the pushbutton switch above has been open for a long time so that the capacitor $C_1$ is fully charged to 5~volts, $V_\text{out}$ is low, and $V_+$ is at its lower value.  If the switch is then closed, setting the ``input'' voltage $V_\text{in} = 0$, how long should it take for the capacitor to discharge to where $V_- = V_+$, flipping the output to high?  Alternatively, if the capacitor is fully discharged, how long after opening the switch should it take for the capacitor to charge to $V_- = V_+$, flipping the output to low?
+\label{part_time_from_full_charge}
+% The debounced pushbutton switch above sets the ``input'' voltage $V_\text{in}$ to either 0 or 5~volts.
+
+\item Build the delay circuit above, connecting the output $V_\text{out}$ to one of your logic indicators.  Use all four channels of your oscilloscope to monitor the values of $V_\text{in},  V_-, V_+,$ and $V_\text{out}$ as you press and hold the pushbutton or release it.  Were your predictions for the times above correct?
+
+\bigskip
+\pagebreak[3]
+\textbf{A Square Wave Generator}
+
+The circuit above has been acting as a one-time \textit{delay}, with each change in $V_\text{out}$ happening a fixed time after a change in $V_\text{in}$.  But you can use the same principle to make the basic ``tick-tock'' for a repeating, periodic output.  
+
+\item To see how this would work, try pushing the button and then:
+
+\begin{itemize}[nosep]
+\item \textit{As soon as} you see the logic indicator change to high, immediately take your finger off the button, and
+\item \textit{As soon as} you see the logic indicator change to low, immediately push the button again, and repeat.
+\end{itemize}
+Discounting your reaction time, what should you expect for the period of this repeating pattern?  (Hint: the answer is \textit{not} simply twice your answer from Part~\ref{part_time_from_full_charge}, because here the capacitor is never starting from fully charged or fully discharged.)  Make a prediction and test your result.
+\smallskip
 
 \begin{minipage}{0.44\textwidth}
 \label{part_square_generator}
-\textbf{A Square Wave Generator}
-\medskip
-
-\item In the drawing to the right, your previous circuit has been modified slightly.  The top end of $R_5$, previously labeled $V_\text{in}$ and connected to the debounced pushbutton switch, is not connected to the output  $V_{\rm out}$.  Make this change and test it out.  Draw three graphs of $V_+$, $V_-$, and $V_{\rm out}$, all versus time, showing how they are synchronized with each other. 
+\item In the drawing to the right, your previous circuit has been modified slightly.  
+The top end of $R_5$, previously labeled $V_\text{in}$, is no longer connected to the pushbutton switch or $R_\text{prot}$.
+Now, instead of \textit{you} manually setting $V_\text{in}$ to 0 or 5~volts by watching the logic indicator, 
+that task is done automatically by connecting $R_5$ directly to $V_{\rm out}$.  Make this change and measure the period of the resulting square wave.  Draw graphs of $V_+$, $V_-$, and $V_{\rm out}$ versus time, showing how they are synchronized with each other. 
 \end{minipage}
 \begin{minipage}{0.55\textwidth}
 \begin{center}
 \includegraphics{capacitors/comparator_square_generator.pdf}
 \end{center}
 \end{minipage}
+\smallskip
 
+\item Modify your circuit to have a frequency of $f \approx 50$~kHz. Although you can set $C_1$ to be whatever you please, you will need to keep $R_5 > R_4$.  Why is that?
 
 \pagebreak[3]
-\item Which components can you change in the circuit above to increase the frequency of its output?  (There are two resistors and a capacitor that will make a significant impact.)  At some point, however, you will run up against the limitations of the LM311 itself.  What's the fastest output you can reasonably produce with this circuit?  Does it still look like a pretty square wave?  
+\item In addition to $R_5$ and $C_1$, there is one other resistor that can significantly effect the frequency.  Try playing with all of these to find the highest frequency that you can reasonably produce with this circuit.  At some point, you may run up against the limitations of the LM311 itself; how is that reflected in the output waveform? 
 \end{enumerate}
 
 \textbf{Possible Exam Questions:}
