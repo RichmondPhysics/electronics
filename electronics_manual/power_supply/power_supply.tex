@@ -3,81 +3,147 @@
 
 %\makelabheader %(Space for student name, etc., defined in master.tex)
 
-\bigskip
 
-The purpose of this lab is to show how to convert an AC voltage, for instance from a standard wall socket, into a stable DC voltage that you can use as a power supply for all of your circuits.
+This lab will show you  \textit{one} way to convert an AC voltage, for instance from a standard wall outlet, into a smooth and stable DC voltage that you can use as a power supply.  You have already seen the very first two steps shown below: using a transformer to step down the AC voltage, and using a diode as a series clipper to remove the negative phase of the signal.   
+
+\medskip
+\textbf{Capacitor Smoothing}
 
 \begin{enumerate}[wide]
 
-\item The circuit below shows the basic first steps.  You use a transformer to step down the voltage somewhat, and then use a diode as a series clipper, which is also known as a ``half wave rectifier.''  Make a sketch showing how the voltage waveform across the load resistance  changes when the capacitor is connected or disconnected from the circuit.  With the capacitor connected as shown, what are the minimum and maximum voltages across $R_{\rm load}$?  How long is the rise time?  How long is the fall time?
+\item The part of this circuit that is new to you is the role of the capacitor.  Make a sketch showing how the waveform across $R_\text{load}$  changes when the capacitor is connected or disconnected from the circuit.  With the capacitor connected as shown, what are the minimum and maximum voltages across $R_\text{load}$?  How long are the rise time and the fall time, and why are they different?
 \begin{center}
-\includegraphics{power_supply/half_wave_rectifier.pdf}
+\includegraphics[scale=0.8]{power_supply/half_wave_rectifier.pdf}
 \end{center}
 
-\item Predict qualitatively what will happen to the minimum and maximum voltages across $R_{\rm load}$ if you double the value of $C$.  Test your prediction with a quantitative measurement.  
+\item Predict qualitatively what will happen to the minimum and maximum voltages across $R_\text{load}$ if you roughly double the value of the capacitor to $C=2.2~\mu$F.  Test your prediction with a quantitative measurement.  
 
-\item Predict qualitatively what will happen to the minimum and maximum voltages across $R_{\rm load}$ if you increase the load resistance to 100~k$\Omega$.  Test your prediction with a quantitative measurement. \label{part_ripple_measured}
+\item With the $2.2~\mu$F capacitor still in place, predict qualitatively what will happen to the minimum and maximum voltages across $R_\text{load}$ if you increase the load resistance to $33\kohm$.  Test your prediction with a quantitative measurement. \label{part_ripple_measured}
 
-\item The difference between the minimum and maximum voltages across $R_{\rm load}$ is called the ``ripple voltage'' $V_{\rm ripple}$, and generally you'd like it to be small.  In this part, you'll step through how to calculate the expected size of $V_{\rm ripple}$.  Suppose $C = 2~\mu$F, and $R_{\rm load}= 100$~k$\Omega$. \label{part_ripple_defined}
+\item The difference between the minimum and maximum voltages across $R_\text{load}$ is called the \textit{ripple voltage} $V_\text{ripple}$, and in general we want it to be small.  In this part, you'll step through how to calculate the expected size of $V_\text{ripple}$ for the specific circuit you have now with $C = 2.2~\mu$F and $R_\text{load}= 33\kohm$. 
+\label{part_ripple_defined}
 
 \begin{itemize}
 \item Based on the maximum voltage you measured in part \ref{part_ripple_measured}, what is the maximum charge $Q$ on the capacitor?  What is the maximum current $I$ through the load?  \label{part_numerical_derivation}
 
 \item How much charge $\Delta Q$ flows through the load in one cycle, assuming the current $I$ through the load is approximately constant for the whole cycle?  
 
-\item By how much will that change $\Delta Q$ lower the voltage across the capacitor?  
+\item By how much will that difference in charge $\Delta Q$ lower the voltage across the capacitor?  
 
 \item Does your calculation match with the measurement you made part \ref{part_ripple_measured}?  
 \end{itemize}
 
-\item Follow the same steps as in part \ref{part_numerical_derivation} to calculate a general result for $V_{\rm ripple}$ in terms of $R_{\rm load}$, $C$,  $V_{\rm max}$, and the frequency $f$. \label{part_symbolic_derivation}
+\item Follow the same steps as in part \ref{part_numerical_derivation} to calculate a general result for $V_\text{ripple}$ in terms of $R_\text{load}$, $C$,  $V_\text{max}$, and the frequency $f$. \label{part_symbolic_derivation}
 
-\item Calculate the size of capacitor required to lower the ripple voltage to 100~mV for a load of 100~k$\Omega$.  Test your calculation.  (As we continue to decrease the ripple voltage, you may find it handy to use the average function on your scope, under the acquire menu, to improve your measurements.)
+\bigskip
+\textbf{Half-wave and full-wave rectifiers}
 
-\item Replace the half-wave rectifier with a full-wave bridge rectifier, shown below, using the 1N4001 for all the diodes.  As before, sketch the waveform of $V_{\rm load}$ both with and without the capacitor. \label{part_full_wave_bridge_rectifier}
+\item Replace the single diode in your circuit with four 1N4001 diodes as shown below.  Do NOT ground either of the transformer leads, as doing so will short out either $D_3$ or $D_4$.  As before, sketch the waveform of $V_\text{load}$ both with and without the capacitor. \label{part_full_wave_bridge_rectifier}
 \begin{center}
-\includegraphics{power_supply/full_wave_bridge_rectifier.pdf}
+\includegraphics[scale=0.8]{power_supply/full_wave_rectifier.pdf}
 \end{center}
 
-\item With the capacitor in place, you can measure that the maximum voltage across $R_{\rm load}$ is slightly less than with the half wave rectifier.  How much less?  And why is that?
+\item \textit{Rectifying} means turning AC into DC.  When used as a rectifier, the single-diode series clipper is called a \textit{half-wave} rectifier, and the configuration of four diodes is called a \textit{full-wave} rectifier or \textit{full-wave bridge}%
+\footnote{The term \textit{bridge} is used because the four diodes look vaguely like the bridge circuit you built in Lab~\ref{lab_bridge} (which itself bears no resemblance to an actual \textit{bridge}-bridge, but nevermind.)}
+rectifier.  Why are they called this?
 
-\item You should also see that the ripple voltage is about half what it was before.  Why is that?  Which part of your calculation in part \ref{part_symbolic_derivation} has effectively changed by a factor of two?  Rewrite your expression for $V_{\rm ripple}$ from part \ref{part_symbolic_derivation}, showing this tiny change needed for a full wave rectifier.  \label{part_symbolic_derivation_2f}
+\item With the capacitor in place, you should see that $V_\text{ripple}$ with the full-wave rectifier is about half what it was before.  Why is that?  Which part of your calculation in part \ref{part_symbolic_derivation} has effectively changed by a factor of two?  Rewrite your expression for $V_\text{ripple}$ from part \ref{part_symbolic_derivation}, showing this tiny change needed for a full wave rectifier.  \label{part_symbolic_derivation_2f}
 
-\item Replace the four diodes with the integrated bridge rectifier from your kits, and confirm that it works as predicted.  How are the leads labeled to indicate AC input and DC output?
+\item You should also be able to measure that the maximum voltage across $R_\text{load}$ is slightly less with the full-wave rectifier than with the half-wave rectifier.  Exactly how much less is it, and why is that?
 
-\item To cut down the ripple voltage, you could of course make the capacitor much bigger, but that gets too large and too expensive pretty quickly.  A better way is to use a Zener shunt clipper, as shown below.  (The 1N4739 shown has a reverse breakdown voltage of $V_R=9$ volts.)  What value resistor is required for $R_{\rm lim}$ if we want to protect the diode by limiting the reverse current in the diode to about 4~mA?  (You should calculate that it's around 1~k$\Omega$.) Build the circuit and measure $V_{\rm ripple}$ and $V_{\rm DC}$ across the load, as well as the maximum and minimum of the voltage $V_C$ across the capacitor.  \label{part_zener_regulator}
+\item You also have in your kit an integrated bridge rectifier which works exactly the same as the four diodes you are currently using. How are the four leads of the rectifier labeled to indicate AC input and DC output?  (You can replace the four diodes in your circuit with the integrated bridge rectifier from your kits if you want to, but you don't have to.  In fact, getting all four wires into the breadboard is kind of a nuisance.)  
+
+\item Calculate the exact capacitor value required to lower the ripple voltage to $50$~mV for a load of 10~k$\Omega$. Round your calculated capacitance down to $100~\mu$F and test your calculation. 
+
+\bigskip
+
+\textbf{Zener Diode Regulators}
+
+To further reduce the ripple voltage, you could of course make the capacitor much bigger, but that gets too large and too expensive pretty quickly.  A better way is to use a \textit{Zener diode regulator,}, which is just another name for the Zener shunt clipper that you've seen before.  The 1N4734A shown has a reverse breakdown voltage of $V_R=5.6$ volts.  
+
+After building the circuit below, take some time to configure your scope to give a good picture of what's going on:
+\begin{itemize}[nosep]
+\item If you're not doing so already, trigger on the AC line voltage.
+\item Use one channel to monitor the the voltage across the capacitor.
+\item Use two different channels to monitor $V_\text{load}$: one DC-coupled and one AC-coupled.
+\item Use the average function (under \button{Math}) to display a cleaner graph showing the ripple voltage.
+\item Remember that although your scope can measure maximum and minimum values for you, those values are junk if your traces are junk.  Don't believe everything you read.
+\end{itemize}
+
 \begin{center}
-\includegraphics{power_supply/zener_regulator.pdf}
+\includegraphics[scale=0.8]{power_supply/zener_regulator.pdf}
 \end{center}
 
-\item The circuit you just built should work fine as long as the value of $R_{\rm load}$ isn't too small.  But now what happens to your output when you change the load to $R_{\rm load} = 2.2$~k$\Omega$?  Why is your output no longer a steady 9 volts?
+\item Measure both the DC voltage and $V_\text{ripple}$ across the load, as well as the maximum and minimum of the voltage $V_C$ across the capacitor.  Also calculate the maximum instantaneous current $I_D$ through the Zener diode.  Why doesn't the Zener diode reduce $V_\text{ripple}$ to exactly zero?
+\label{part_zener_regulator}
 
-\item You can still make your circuit work with $R_{\rm load} = 2.2$~k$\Omega$ if you lower the value of $R_{\rm lim}$.  What is the largest value of $R_{\rm lim}$ that will make your circuit work?  (To make this problem doable, you can assume that you know that the ripple voltage at the capacitors will be about 2~volts.)  Fix your circuit using an ``extra safe'' value of $R_{\rm lim}=330$~$\Omega$ and redo the measurements you took in part~\ref{part_zener_regulator}.  \label{part_small_rlim}
+\item The circuit you just built should work fine as long as the value of $R_\text{load}$ isn't too small.  But now what happens to your output when you change the load to $R_\text{load} = 1\kohm$?  Why is the Zener diode no longer able to hold the output at a steady 5.6 volts?
 
-\item Why is the output ripple voltage you found in part~\ref{part_small_rlim} larger than you found in part~\ref{part_zener_regulator}?  (Hint: draw a graph of the $IV$ curve for a Zener diode.  Are the vertical parts really exactly vertical?)
+\item You can still make your circuit work with $R_\text{load} = 1\kohm$ if you lower the value of $R_\text{lim}$.  Try $R_\text{lim}=150\ohm$ and redo the measurements you took in part~\ref{part_zener_regulator}.  Why is the ripple voltage here larger than you found in part~\ref{part_zener_regulator}?  (Hint: draw a graph of  $I$ vs. $V$ for a Zener diode and consider the relationship between the theory and reality.)
+\label{part_small_rlim}
 
-\item You have now seen the limitation of using a Zener shunt clipper for a DC power supply: for loads that draw large output currents, you need to lower $R_{\rm lim}$ so that the output voltage never falls below $V_R$ of the diode.  But small values of $R_{\rm lim}$ draw more current, which leads to larger ripple voltages, and would eventually lead to currents that would damage the diode.  And fundamentally, the output ripple voltage is \textit{always} going to be a problem for large currents, because the voltage across the diode isn't exactly 9.00000 volts---it always depends a little on the current in the diode.  So you can't win!  Fortunately, there's a terrific solution to all of these problems, and it comes in a little chip that costs just pennies and can happily output 100 mA.  Build the circuit shown below, and verify that it produces a smooth 9 V output. \label{part_linear_power_supply_78xx}
+
+
+\bigskip
+\pagebreak[3]
+\textbf{An Op-amp Voltage Regulator?}
+
+You have now seen the limitation of a Zener diode voltage regulator: for small values of $R_\text{load}$ that draw large output currents, you need to lower $R_\text{lim}$ so that the $V_\text{load}$ never falls below $V_R$ of the diode.  But small values of $R_\text{lim}$ allow larger currents through the diode, which leads to larger ripple voltages. (At some point, larger currents would even damage the diode.)
+If only there were a way to allow large currents through $R_\text{load}$ while keeping $I_\text{diode}$ small!
+
+\hspace{0.4in}In fact, all we need is a buffer, and the figure below shows how we would accomplish it.  All current to the load now comes from the output of the op-amp, which means we can use a large $R_\text{lim}$ to keep the diode current $I_D$ very small.  With a very small $I_D$, the voltage across the diode remains nearly constant even as the capacitor charges and discharges, ensuring a steady voltage output from the buffer to $R_\text{load}$. 
+ 
 \begin{center}
-\includegraphics{power_supply/7809_regulator.pdf}
-\includegraphics[width=1.3in]{appendices/pinouts/TO-92_package_pinout.pdf}
+\includegraphics[scale=0.8]{power_supply/op-amp_regulator.pdf}
+
+\textit{No need to build this, but do think about how it would work.}
+\end{center}
+
+\hspace{0.4in}The figure above appears to perpetrate a blatant fraud: Our entire goal has been to convert an AC voltage to a smooth and stable DC voltage, and yet the op-amp in our circuit requires both $V_\text{CC}$ and $V_\text{EE}$---so where exactly are \textit{those} DC voltages supposed to come from?  In fact, we can connect $V_\text{CC}$ directly to the capacitor voltage $V_\text{cap}$ because as long as $V_\text{CC}$ remains at least 1 or 2 volts higher than $V_-$ at all times, there is is no requirement for the supply voltages to be perfectly constant.%
+\footnote{Realistically, the large ripple voltage at the supply voltage would cause \textit{some} ripple voltage at the output as well.  Some op-amps are better than others at reducing that kind of interference.}
+And since the op-amp's inputs and output are always positive, it will also be perfectly happy with $V_\text{EE}$ connected to ground.
+
+\medskip
+
+\item If you were to use an LM324 as the op-amp in the circuit above, what is the smallest value of $R_\text{load}$ for which the LM324 could maintain a constant output of 5.6 volts?  
+
+\medskip
+
+%\item Assuming optimal values of the transformer turns ratio, diode voltage, capacitance, and $R_\text{load}$, what is the largest DC output voltage that the LM324 could safely maintain?
+
+\textbf{Voltage Regulator ICs}
+
+Regular op-amps aren't the best tool for this job, in part because of their limited output current.  And besides, the circuit above is starting to look like real work to build. Fortunately, the need for smooth and stable DC voltages is very common, so manufacturers have packaged everything within the dashed rectangle above---including the zener diode---into single \textit{voltage regulator} chips that are optimized for the task. The most common of these are the 78xx series of regulators, as in the 7805 in the circuit below. 
+
+\begin{center}
+\includegraphics[scale=0.8]{power_supply/7805_regulator.pdf}
 \end{center}
  
-\item Using the two channels of your oscilloscope to simultaneously measure the input and output voltages of the MC78L09, what happens to those voltages when you change the capacitor to $C = 10$~$\mu$F?  Why this huge change in the output?  (Hint: Look up the ``dropout voltage'' on its data sheet.  Be sure you're using the data sheet for the small MC78L09, in the TO-92 package.)
+\begin{minipage}{0.7\textwidth}
+\hspace{0.4in}The ``05'' in the 7805 indicates an output of 5 volts; they are also commonly available for 6, 8, 9, 12, and 15-volt outputs.  A corresponding 79xx series (7905, 7912, etc.) provides negative output voltages.  Letters before the number indicate the chip's maker ($L$ for STMicroelectronics, $LM$ for Texas Instruments\slash National Semiconductor,  $MC$ for ON Semiconductor\slash Motorola, etc.).  Letters after the number indicate minor variations in performance or packaging.
+Most 78xx and 79xx chips come in the same shape: the TO-220 package\footnotemark\
+ shown to the right.  Lower power 78Lxx and 79Lxx versions are available in the smaller TO-92 package.  
+\end{minipage}
+\begin{minipage}{0.29\textwidth}
+\hfill\includegraphics[scale=1.0]{power_supply/package_pinouts.pdf}
+\end{minipage}
+\footnotetext{\textit{TO} stands for \textit{Transistor Outline} and is a standardized series of mostly arbitrary numbers indicating specific exterior dimensions and materials.}
 
-\item Because of the dropout voltage of your MC78L09, you need to maintain an input voltage of at least 10.7 volts for the regulator to function properly.  With that in mind, what capacitance $C$ would you need to use if your load resistance were small enough to draw 100~mA?   (Hint: Rewrite your expression for ripple voltage from part~\ref{part_symbolic_derivation_2f} in terms of the load current.)
+\item Build the circuit above using the 7805 regulator, continuing to monitor its input and output using multiple channels of your oscilloscope.  Verify that it produces a DC output of 5 V, and also measure the ripple voltage at $R_\text{load}$.  By what factor has the ripple voltage been reduced from the input to the output?  How does that compare to \textit{ripple rejection} ratio stated on the data sheet, which is given in dB? \label{part_linear_power_supply_78xx}
 
-\item Using $R_{\rm load} = 2.2$~k$\Omega$ and $C = 22$~$\mu$F, measure the ripple voltage across $R_{\rm load}$, and compare that to the ripple voltage at the input of the MC78L09.  By what factor has this ripple voltage been reduced?  How does that compare to the value stated on the data sheet, which is given in dB?
+\item What happens to the input and output voltages of the 7805 when you change the load in your circuit to  $R_\text{load} = 100\ohm$?  Why this huge change in the output?  (Hint: Look up the \textit{dropout voltage} on its data sheet.)  
 
-\item You also have in your kits an MC7805, in a larger TO-220 package.  How much output current are these capable of?  What is their ``ripple rejection'' ratio, in dB?  How big would $V_{\rm ripple}$ be if you used this in your circuit above?  (No need to build this one.)
+\item Based on the dropout voltage specified on the 7805's datasheet, what capacitance $C$ would you need to use if your load resistance were small enough to draw 500~mA?   (Hint: Rewrite your expression for ripple voltage from part~\ref{part_symbolic_derivation_2f} in terms of the load current.)
 
 \end{enumerate}
+\vfill
 
 \textbf{Possible Exam Questions:}
 
 \begin{itemize}
 %\item Use a transformer, four silicon diodes, one capacitor, and a 7805 regulator to design a power supply to design a power supply that delivers 5 volts at 300~mA with 0.1~mV ripple.  The 7805 has ripple rejection of 75~dB and a dropout voltage of 1.7 volts.  Specify the capacitance and transformer turns ratio required.
 
-\item Derive the expression $V_{\rm ripple}=V_{\rm max}/2fR_{\rm load} C$.
+\item Derive the expression $V_\text{ripple}=V_\text{max}/2fR_\text{load} C$.
 
 \item Draw a circuit diagram showing how to use a Zener shunt clipper as a voltage regulator.  Do these work best at high currents or low currents?  What two problems will you face if you push these past their useful current range?
 
