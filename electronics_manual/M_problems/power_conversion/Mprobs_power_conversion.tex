@@ -1,4 +1,4 @@
-\subsection{Capacitors, Inductors, and AC circuits} 
+\subsection{Storing, Converting, and Carrying Power} 
 
 %\DTMnewdatestyle{dateupdated}{〈definition 〉
 \newlength{\figurewidth}
@@ -19,7 +19,7 @@
 	\end{minipage}
 }
 
-Answers to M\Alph{subsection} problems are on page \pageref{C_L_and_AC_prob_answers}.  \textbf{\textcolor{red}{Updated \DTMnow.}}
+Answers to M\Alph{subsection} problems are on page \pageref{power_conversion_prob_answers}.  \textbf{\textcolor{red}{Updated \DTMnow.}}
 
 %--------------------------------------------------------------------------------------------------------------
 \begin{Exercise}
@@ -34,7 +34,7 @@ A 200 nF capacitor is charged by a 5~V supply through a $2\kohm$ resistor, start
 \begin{Exercise}
 In the circuit shown to the right, the capacitor is initially uncharged and both switches are open. 
  
-\figuretoright{0.28}[scale=0.9]{M_problems/C_L_and_AC/charge_and_short_capacitor.pdf} {
+\figuretoright{0.28}[scale=0.9]{M_problems/power_conversion/charge_and_short_capacitor.pdf} {
 \begin{itemize}[nosep]
 	\item At time $t=0$  switch S1 is moved up, connecting its common terminal to $+10$~V. 
 	\item At time $t=15$ seconds, the voltmeter reads 7 volts.  At that time, switch S2 is closed. 
@@ -58,7 +58,7 @@ Note: the separation between the positive and negative plates of a capacitor pre
 \begin{Exercise}
 The circuit to the right is a square wave generator like the one you built in Lab~\ref{lab_capacitors}.
 
-\figuretoright{0.50}{M_problems/C_L_and_AC/comparator_square_generator.pdf} {
+\figuretoright{0.50}{M_problems/power_conversion/comparator_square_generator.pdf} {
 	\begin{enumerate}[label=(\alph*),wide]
 	\item Calculate the two possible values of the input terminal $V_+$, (the upper and lower threshold voltages) depending on the value of $V_\text{out}$.  You can assume $R_4 \approx 0$. 
 	\item Draw graphs of voltage vs. time for $V_\text{out}, V_+$,  $V_-$, showing how they are synchronized.  
@@ -79,7 +79,7 @@ The circuit to the right is a square wave generator like the one you built in La
 \begin{Exercise}
 The circuit to the right shows a voltage source connected to a load via a 3:1 transformer. 
 
-\figuretoright{0.38}{M_problems/C_L_and_AC/transformer_narrow.pdf} {
+\figuretoright{0.38}{M_problems/power_conversion/transformer_narrow.pdf} {
 	\begin{enumerate}[label=(\alph*),wide]
 	\item What is the apparent resistance of the load ``seen'' by the source?
 	\item What is the voltage across the transformer's primary coil?
@@ -105,7 +105,7 @@ Do a little Googling for the 1N4001 diode you've been using in the lab and find 
 \label{prob_first_diode_resistor_with_steps}
 Our goal in this problem is to analyze the circuit below, finding the voltage and current of each component.  We can't tell ahead of time if there is current through the diode or not, so we'll have to try both possibilities.  
 
-\figuretoright{0.30}{M_problems/C_L_and_AC/diode_circuit1.pdf} {
+\figuretoright{0.30}{M_problems/power_conversion/diode_circuit1.pdf} {
 Assume for parts~(a) through~(d) that there is a forward current in the diode.  
 \begin{enumerate}[label=(\alph*),nosep]
 \item Assuming there is a forward current in the diode, what is the voltage $V_D$ across the diode?  
@@ -133,9 +133,9 @@ Now assume instead that there is NO current in the diode.
 For the circuit below on the left, find the voltages and currents for all resistors and for the diode.  (This problem is a lot like \ref{prob_first_diode_resistor_with_steps}, but here you are not being led through it step by step.) 
 
 \hfill
-\includegraphics{M_problems/C_L_and_AC/diode_circuit2.pdf}
+\includegraphics{M_problems/power_conversion/diode_circuit2.pdf}
 \hfill
-\includegraphics{M_problems/C_L_and_AC/diode_circuit3.pdf}
+\includegraphics{M_problems/power_conversion/diode_circuit3.pdf}
 \hfill\vspace*{0pt}
 
 \hfill
@@ -181,7 +181,7 @@ Design two clipper circuits (series or shunt, your choice) for each of the follo
 Find the instantaneous power dissipated in the diode in the circuit below (a)~when $V_\text{in}=+5$~volts, and (b)~when $V_\text{in}=-5$~volts.
 
 \begin{center}
-\includegraphics{M_problems/C_L_and_AC/power_in_shunt_diode.pdf}
+\includegraphics{M_problems/power_conversion/power_in_shunt_diode.pdf}
 \end{center}
 \end{Exercise}
 \begin{Answer}
@@ -194,7 +194,7 @@ Find the instantaneous power dissipated in the diode in the circuit below (a)~wh
 The diagram below shows part of a circuit inside of an actual screw-in LED light bulb.  The AC voltage input $V_\text{in}$ has already been reduced from 120 volts RMS to something smaller.  With the bulb turned on, the voltage across the capacitor is measured to have an average (DC) level of 28.7~volts and a ripple voltage of 3.4~volts.  (a)~Rewrite your expression for ripple voltage you derived in the lab in terms of the maximum current $I_\text{max}$ instead of $V_\text{max}$.  (b)~For small ripple voltages, $I_\text{max} \approx I_\text{avg}$  In fact, in your derivation, you used $\Delta Q = I \Delta t$.  Which $I$ is technically more accurate there, $I_\text{max}$ or $I_\text{avg}$? (c)~Based on the measurements given, find a numerical value for the average current through the LEDs.  (d)~Find the total power dissipated by the LEDs (some of which, presumably, is in the form of visible light).  (e)~Find the peak input voltage $V_\text{in}$ required to make the bulb work as measured above.  
 
 \begin{center}
-\includegraphics{M_problems/C_L_and_AC/led_bulb_prob1.pdf}
+\includegraphics{M_problems/power_conversion/led_bulb_prob1.pdf}
 \end{center}
 
 \end{Exercise}
@@ -209,7 +209,7 @@ In the circuit below, a Zener shunt clipper is being used to regulate the voltag
 (b)~Assuming the value of $R_\text{lim}$ from the last part is chosen, what is the average current through the diode?  
 (c)~What is the maximum instantaneous power in both $R_\text{lim}$ and the diode?
 \begin{center}
-\includegraphics{M_problems/C_L_and_AC/shunt_clipper_dc_prob.pdf}
+\includegraphics{M_problems/power_conversion/shunt_clipper_dc_prob.pdf}
 \end{center}
 \end{Exercise}
 \begin{Answer}
@@ -227,8 +227,26 @@ This problem will step you through process of designing a 5-volt DC power supply
 \end{Exercise}
 \begin{Answer}
 (a) 7 V (b) 2.52 V (c) $3300~\mu$F (d) 10.92 V (e) maximum of 13.6:1 
-
 \end{Answer}
+
+
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+The diagram below shows a clipper circuit with two Zener diodes. 
+\begin{enumerate}[label=(\alph*),nosep,start=5]
+\item Draw a graph of the output voltage vs. time, labeling the minimum and maximum values. 
+\item Calculate the maximum magnitude of the instantaneous current through the diodes. 
+\item Find the maximum instantaneous power dissipated in diode $D_2$ and in the resistor $R_\text{lim}$.
+\end{enumerate}
+\begin{center}
+\includegraphics{M_problems/power_conversion/double_zener_shunt_clipper_prob.pdf}
+\end{center}
+\end{Exercise}
+\begin{Answer}
+(b) 5.6 mA (c) 18.5 mW and 36 mW.
+\end{Answer}
+
 
 %Ideas for additional problems:
 %\vfill
@@ -237,7 +255,7 @@ This problem will step you through process of designing a 5-volt DC power supply
 \vspace{0.7in}
 
 \textbf{Answers to Selected {\thesubsection} Problems:}
-\label{C_L_and_AC_prob_answers}
+\label{power_conversion_prob_answers}
 %\shipoutExercise
 \shipoutAnswer
 
