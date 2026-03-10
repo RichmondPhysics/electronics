@@ -44,7 +44,7 @@ This lab will show you  \textit{one} way to convert an AC voltage, for instance 
 \end{center}
 
 \item \textit{Rectifying} means turning AC into DC.  When used as a rectifier, the single-diode series clipper is called a \textit{half-wave} rectifier, and the configuration of four diodes is called a \textit{full-wave} rectifier or \textit{full-wave bridge}%
-\footnote{The term \textit{bridge} is used because the four diodes look vaguely like the bridge circuit you built in Lab~\ref{lab_bridge} (which itself bears no resemblance to an actual \textit{bridge}-bridge, but nevermind.)}
+\footnote{The term \textit{bridge} is used because the four diodes look vaguely like the bridge circuit you built in Lab~\ref{lab_bridge} (which itself bears no resemblance to an actual \textit{bridge}-bridge, but never mind.)}
 rectifier.  Why are they called this?
 
 \item With the capacitor in place, you should see that $V_\text{ripple}$ with the full-wave rectifier is about half what it was before.  Why is that?  Which part of your calculation in part \ref{part_symbolic_derivation} has effectively changed by a factor of two?  Rewrite your expression for $V_\text{ripple}$ from part \ref{part_symbolic_derivation}, showing this tiny change needed for a full wave rectifier.  \label{part_symbolic_derivation_2f}
@@ -91,7 +91,7 @@ After building the circuit below, take some time to configure your scope to give
 You have now seen the limitation of a Zener diode voltage regulator: for small values of $R_\text{load}$ that draw large output currents, you need to lower $R_\text{lim}$ so that the $V_\text{load}$ never falls below $V_R$ of the diode.  But small values of $R_\text{lim}$ allow larger currents through the diode, which leads to larger ripple voltages. (At some point, larger currents would even damage the diode.)
 If only there were a way to allow large currents through $R_\text{load}$ while keeping $I_\text{diode}$ small!
 
-\hspace{0.4in}In fact, all we need is a buffer, and the figure below shows how we would accomplish it.  All current to the load now comes from the output of the op-amp, which means we can use a large $R_\text{lim}$ to keep the diode current $I_D$ very small.  With a very small $I_D$, the voltage across the diode remains nearly constant even as the capacitor charges and discharges, ensuring a steady voltage output from the buffer to $R_\text{load}$. 
+\hspace{0.4in}In fact, all we need is a buffer, and the figure below shows how we would do it.  All current to the load now comes from the output of the op-amp, which means we can use a large $R_\text{lim}$ to keep the diode current $I_D$ very small.  With a very small $I_D$, the voltage across the diode remains nearly constant even as the capacitor charges and discharges, ensuring a steady voltage output from the buffer to $R_\text{load}$. 
  
 \begin{center}
 \includegraphics[scale=0.8]{power_supply/op-amp_regulator.pdf}
@@ -113,7 +113,7 @@ And since the op-amp's inputs and output are always positive, it will also be pe
 
 \textbf{Voltage Regulator ICs}
 
-Regular op-amps aren't the best tool for this job, in part because of their limited output current.  And besides, the circuit above is starting to look like real work to build. Fortunately, the need for smooth and stable DC voltages is very common, so manufacturers have packaged everything within the dashed rectangle above---including the zener diode---into single \textit{voltage regulator} chips that are optimized for the task. The most common of these are the 78xx series of regulators, as in the 7805 in the circuit below. 
+Regular op-amps aren't the best tool for this job, in part because of their limited output current.  And besides, the circuit above is starting to look like real work to build. Fortunately, the need for smooth and stable DC voltages is very common, so manufacturers have packaged everything within the dashed rectangle above---including the Zener diode---into single \textit{voltage regulator} chips that are optimized for the task. The most common of these are the 78xx series of regulators, as in the 7805 in the circuit below. 
 
 \begin{center}
 \includegraphics[scale=0.8]{power_supply/7805_regulator.pdf}
@@ -129,12 +129,20 @@ Most 78xx and 79xx chips come in the same shape: the TO-220 package\footnotemark
 \end{minipage}
 \footnotetext{\textit{TO} stands for \textit{Transistor Outline} and is a standardized series of mostly arbitrary numbers indicating specific exterior dimensions and materials.}
 
-\item Build the circuit above using the 7805 regulator, continuing to monitor its input and output using multiple channels of your oscilloscope.  Verify that it produces a DC output of 5 V, and also measure the ripple voltage at $R_\text{load}$.  By what factor has the ripple voltage been reduced from the input to the output?  How does that compare to \textit{ripple rejection} ratio stated on the data sheet, which is given in dB? \label{part_linear_power_supply_78xx}
+\item Build the circuit above using the 7805 regulator, continuing to monitor its input and output using multiple channels of your oscilloscope.  Verify that it produces a DC output of 5 V, and also measure the ripple voltage at $R_\text{load}$. 
+\label{part_linear_power_supply_78xx}
 
-\item What happens to the input and output voltages of the 7805 when you change the load in your circuit to  $R_\text{load} = 100\ohm$?  Why this huge change in the output?  (Hint: Look up the \textit{dropout voltage} on its data sheet.)  
 
-\item Based on the dropout voltage specified on the 7805's datasheet, what capacitance $C$ would you need to use if your load resistance were small enough to draw 500~mA?   (Hint: Rewrite your expression for ripple voltage from part~\ref{part_symbolic_derivation_2f} in terms of the load current.)
+\item What happens to the input and output voltages of the 7805 when you change the load in your circuit to  $R_\text{load} = 100\ohm$?  Sketch $V_\text{in}$ and $V_\text{out}$, and measure the new $V_\text{ripple}$. 
 
+The large change you just saw is not surprising when you consider the op-amp regulator circuit pictured on the previous page.  If the op-amp's positive supply voltage were connected to exactly $+15$~V DC, the highest possible value for $V_\text{load}$ would still be somewhat below 15 volts---say 13.5 or 14~V, depending on the op-amp.  If you connected $V_\text{CC}$ to $V_\text{cap}$ instead, you would need to ensure that $V_\text{cap}$ was always at least 1 or 1.5~V above your desired $V_\text{load}$.  
+
+\item Like an op-amp, the 7805 also requires an input voltage that is always a little above the desired output voltage of 5~volts.  What is the \textit{dropout voltage} listed on the 7805's data sheet, and how does that compare to the difference you observe between $V_\text{cap}$ and $V_\text{load}$?
+
+\item Based on the dropout voltage specified on the 7805's datasheet, what capacitance $C$ is needed to guarantee that $V_\text{cap}$ never falls below $5~\text{V} + V_\text{dropout}$? (Hint: Rewrite your expression for ripple voltage from part~\ref{part_symbolic_derivation_2f} in terms of the load current.)  Test it out; with the correct capacitance, you should be able to obtain a ripple voltage of about 2~mV or less. 
+
+
+\item   By what factor is the ripple voltage being reduced from the 7805's input to its output?  How does that compare to \textit{ripple rejection} ratio stated on the data sheet, which is given in dB? 
 \end{enumerate}
 \vfill
 
