@@ -2,13 +2,16 @@
 
 Answers to M\Alph{subsection} problems are on page \pageref{Z_and_AC_prob_answers}.  \textbf{\textcolor{red}{Updated \DTMnow.}}
 
+
 %--------------------------------------------------------------------------------------------------------------
 \begin{Exercise}
-In the circuit to the right, the switch is closed at time $t=0.$  
-(a)~Find the current $I_L$ through the 
+In the circuit to the right, the switch is closed at time $t=0.$  (a)~Find the 
+
 	\begin{wrapfigure}[5]{r}{0.25\textwidth}
-\vspace{-0.2in}\hfill	\includegraphics{M_problems/Z_and_AC/RL_circuit.pdf}
+\vspace{-0.4in}\hfill	\includegraphics{M_problems/Z_and_AC/RL_circuit.pdf}
 	\end{wrapfigure}
+
+\vspace{-1ex}current $I_L$ through the 
 inductor at $t=10$~msec.  
 (b)~Is the current through the resistor $I_R$ the same as through the inductor at that time?  
 (c)~Find the voltage across the inductor $V_L$ at that time.  \textit{Hint: you should have found in Lab~\textsl{\ref{lab_inductors}} that the time constant for an ``LR'' circuit is given by $\tau=L/R$.}
@@ -20,30 +23,169 @@ inductor at $t=10$~msec.
 
 %--------------------------------------------------------------------------------------------------------------
 \begin{Exercise}
+\label{prob_RCcircuit_AC}
 This problem is an exact analog to the example we did in class, and which I have posted as an example problem on Blackboard.  Consider the circuit to the right, with a sinusoidal voltage source $V_S (t)=V_0 e^{i\omega t}.$  
-	\begin{wrapfigure}[7]{r}{0.20\textwidth}
-\vspace{-0.1in}\hfill\includegraphics{M_problems/Z_and_AC/RC_circuit.pdf}
-	\end{wrapfigure}
-(a)~Find the magnitude and phase of the current $I(t)$ in the circuit.  (Both depend on $\omega$.)
-(b)~Are the current $I_R$ through the resistor and the current $I_C$ through the capacitor in phase with each other?
-(b)~Find the magnitude and phase of the voltage $V_C$ across the capacitor.  
-(c) Find the ``cutoff frequency'' $f_c$ at which the ratio of  $\left| V_C \right| / V_0 =1 / \sqrt{2}$, or about 0.707.  
-(d)~At this frequency, what is $ \left| V_C \right| / V_0$ expressed in decibels?  
-(e)~Find expressions for $ \left| V_C \right| / V_0$ in the limit of low frequency and in the limit of high frequency to leading order.%
-\footnote{Finding a limit \textit{to leading order} means that your answer should include one nonzero term.  
-For instance, far away from two point charges $q_1$ and $q_2$, the electric field \textit{to leading order} is 
-${\displaystyle  \lim_{r \to \infty} E(r)=\frac{k_e \left( q_1+q_2 \right) }{r^2} }.$
-While $\displaystyle\lim_{r \to \infty} E(r)=0$ is true, the limit \textit{to leading order} provides the additional information that $E\sim 1/r^2$ at large distances.
+\figuretoright{0.25}{M_problems/Z_and_AC/RC_circuit.pdf}{
+%	\begin{wrapfigure}[7]{r}{0.20\textwidth}
+%\vspace{-0.1in}\hfill\includegraphics{M_problems/Z_and_AC/RC_circuit.pdf}
+%	\end{wrapfigure}
+\begin{enumerate}[label=(\alph*),nosep]
+\item Find the magnitude and phase of the current $I(t)$ in the circuit.  (Both depend on $\omega$.)
+\item Are the current $I_R$ through the resistor and the current $I_C$ through the capacitor in phase with each other?
+\item Find the magnitude and phase of the voltage $V_C$ across the capacitor.  
+\item Find the ``cutoff frequency'' $f_c$ at which the ratio of  $\left| V_C \right| / V_0 =1 / \sqrt{2}$, or about 0.707.  
+\item At this frequency, what is $ \left| V_C \right| / V_0$ expressed in decibels?  
+\end{enumerate}
 }
-(f)~Draw vectors on the complex plane for $V_S, V_R, V_C,$ and $I$ at time $t=0$.
+\begin{enumerate}[label=(\alph*),nosep,start=6]
+\item Find expressions for $ \left| V_C \right| / V_0$ to leading order%
+\footnote{Expressing a quantity \textit{to leading order} means that your answer must include one nonzero term.
+For instance, far away from a collection of charged particles (that is, as $r \to \infty$, or ``in the limit of large $r$'') the electric field \textit{to leading order} is 
+${\displaystyle  E(r)\approx \frac{k_e  Q_\text{total} }{(r_\text{avg})^2} }.$
+This is slightly different from ``taking the limit,'' as in $\displaystyle\lim_{r \to \infty} E(r)=0$ which, while true, does not show that $E\sim 1/r^2$ at large distances.
+}
+in the limit of low frequency and in the limit of high frequency.
+\item Draw vectors on the complex plane for $V_S, V_R, V_C,$ and $I$ at time $t=0$.
+\end{enumerate}
+
 \end{Exercise}
 \begin{Answer}
-(a) $|I|=V_0/\sqrt{R^2+1/(\omega C)^2 };~\phi=\tan^{-1}(1/\omega RC)$  
-(b)~Yes, currents of components in series are \textit{always} in phase.
-(c)~$|V_C |=V_0/\sqrt{(\omega RC)^2+1};~\phi=-\tan^{-1}(\omega RC) $
-(d)~$f_c=\frac{\pi}{2}RC$ (e)~about $-3$~dB 
+(a) $|I|=V_0/\sqrt{R^2+1/(\omega C)^2 };~\phi=\tan^{-1}(1/\omega RC)$  \\
+(b)~Yes, currents of components in series are \textit{always} in phase.\\
+(c)~$|V_C |=V_0/\sqrt{(\omega RC)^2+1};~\phi=-\tan^{-1}(\omega RC) $\\
+(d)~$f_c=\frac{\pi}{2}RC$ \\
+(e)~about $-3$~dB \\
 (f) As $\omega \to 0, V_C/V_0 \to 1$. As $\omega \to \infty, V_C/V_0 \sim (\omega RC)^{-1}.$  
 \end{Answer}
+
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+For the circuit to the right, $V_\text{in}=V_0 e^{i\omega t}$.  
+%\figuretoright{0.25}{M_problems/Z_and_AC/RLC_circuit.pdf}{
+
+\begin{minipage}{0.75\textwidth}
+\begin{enumerate}[label=(\alph*),nosep]
+\item Use the same techniques that you used in problem~\ref{prob_RCcircuit_AC} to derive algebraic expressions for the magnitude and phase of $V_\text{out}$.  
+\item What is the very special value of $\omega$ (in terms of $L$ and $C$) for which $V_\text{out}$ is maximized? 
+\item What are the magnitude and phase of $V_\text{out} / V_\text{in}$ to leading order for the three cases of (i)~very low frequency, (ii)~very high frequency, and (iii)~$\omega =1/\sqrt{LC}$?
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.24\textwidth}
+\vspace{-0.25in}
+\hfill\raisebox{0in}{\includegraphics{M_problems/Z_and_AC/RLC_circuit.pdf}}
+\end{minipage}
+\end{Exercise}
+\begin{Answer}
+(a) ${\displaystyle |V_C |=V_0\left[1+\left(\frac{R}{\omega L}-\omega RC\right)^2 \right]^{-\frac{1}{2}} ; ~~
+\phi =\tan^{-1} \left[\left(\frac{R}{\omega L} -\omega RC\right)\right] }$        
+
+(c) (i): ${\displaystyle \frac{|V_\text{out}|}{V_0}  \to \frac{\omega L}{R};~ \phi \to +90^\circ }$ 
+(ii): ${\displaystyle \frac{|V_\text{out}|}{V_0}  \to \frac{1}{\omega RC};~ \phi \to -90^\circ }$ 
+(iii): ${\displaystyle \frac{|V_\text{out}|}{V_0}  =1;~  \phi = 0^\circ }$ 
+
+\end{Answer}
+
+
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+For the circuit below,%
+\footnote{From Paynter, page 448, problem 38.}
+use Mathematica as a complex-number calculator as we did in class to find the magnitude and phase of the voltage across capacitor $C_2$.  
+\begin{center}
+\vspace{-0.1in}
+\includegraphics{M_problems/Z_and_AC/paynter_p448_prob38.pdf}
+\vspace{-0.1in}
+\end{center}
+\end{Exercise}
+\begin{Answer}
+3.719~V and $-34.32^\circ$.  (If your answer for the magnitude is off by a factor of 
+$\sqrt{2}$, remember that the ``6~volts'' on the source is an RMS value.)
+\end{Answer}
+
+\newpage
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+In problem~\ref{prob_RCcircuit_AC} you found that for a low-pass RC filter,
+$$\frac{V_\text{out} |}{|V_\text{in} |} = \frac{1}{\sqrt{(\omega RC)^2+1}}.$$
+\begin{enumerate}[label=(\alph*),nosep]
+\item Rewrite this expression in terms of the frequency $f$ and the cutoff frequency $f_\text{c}$. 
+
+\item Suppose you have just designed a part of a circuit that gives a sinusoidal output signal at 100~Hz.  Unfortunately, you realize that the output voltage also includes some interference at 25~kHz from a nearby video scanner circuit, which you decide to reduce by applying a low-pass RC filter to your output.  What cutoff frequency $f_\text{c}$ should you choose for your filter to reduce the interference by a factor of about 100, while still allowing at least 90\% of your signal to pass?  
+\end{enumerate}
+\end{Exercise}
+\begin{Answer}
+Anything between $f_\text{c}=206$~Hz and $f_\text{c}=250$~Hz will work fine.
+\end{Answer}
+
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+(True story!) A while ago I found some LED light bulbs for sale online that looked like a real bargain.  They were just the brightness that I needed, and they were super cheap, at a time when most LED bulbs were a lot pricier.  Unfortunately, after buying a bunch of them, I realized I had made a mistake: they were from China and were designed to work with 220~VAC, instead of 120~VAC like in the US---D'oh!!!  I opened one up and found the circuit below, on the left.
+\begin{center}
+\vspace{-0.2in}
+\includegraphics[scale=0.8]{M_problems/Z_and_AC/led_bulb_prob2.pdf}
+\raisebox{0.2in}{\includegraphics[scale=0.8]{M_problems/Z_and_AC/led_bulb_prob3.pdf}}
+\vspace{-0.1in}
+\end{center}
+The bulb uses what's called a \textit{drop cap} design, in which the capacitor $C_1$ acts as a voltage divider with the rest of the circuit, yielding a reduced (``dropped'') voltage across the rectifier.  For this problem, we'll make the gross simplification that the entire rest of the circuit acts like just an equivalent resistor $R_\text{eq}$, as shown in the circuit on the right.  That way, we can easily analyze the circuit using complex numbers, directly using your results from problem~\ref{prob_RCcircuit_AC}.  
+\begin{enumerate}[label=(\alph*),nosep]
+\item As a test, I connected the bulb to an input of $V_1=220$~V~RMS ($V_\text{pk}=311.1$~V) and measured a peak voltage of 31.8~V across the rectifier (or across our imaginary $R_\text{eq}$).  Based on your results from problem~\ref{prob_RCcircuit_AC}, what is the apparent value of $R_\text{eq}$?  
+\item For $V_1=220$~V~RMS, $C_1=820$~nF, and the value of $R_\text{eq}$ you found in part~(a), what is the power dissipated in $R_\text{eq}$?
+\item In theory, a resistor $R$ could be used in place of $C_1$ to lower the voltage across $R_\text{eq}$.  What is the advantage of using a capacitor rather than a resistor for this purpose?  (Hint: what is the average power dissipated in $C_1$?)
+\item Back to my story, I wanted to use the bulb in my American home where its input voltage would be $V_1=120$~V~RMS.  What new value of capacitor $C_1$ would be needed to maintain a peak voltage of 31.8~V across the rectifier? 
+\item In fact, I bought some larger capacitors, soldered them into the bulbs, and those LED bulbs remain in my house to this day, where they still work just great!  Isn't Matt clever for figuring this out?
+\end{enumerate}
+\end{Exercise}
+\begin{Answer}
+(a) $332.4\ohm$ \textit{Hint: use your expression for $|I|$ in \textsl{\ref{prob_RCcircuit_AC}} to find an expression for $|V_R |$.}\\
+(b) \\
+(c) $P_{C1}=0$~W\\
+(d) $1.52~\mu$F  \\
+(e) No, Matt is a dumbass for buying the wrong bulbs in the first place.
+\end{Answer}
+
+\newpage
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+\label{prob_superposition}
+In this problem you will analyze the circuit on the left, below, using the \textit{principle of superposition}, which is also described in Chapter~7 of Paynter.  (a)~Imagine replacing the source $V_2$ with a short, and calculate the voltage across $R_2$.  (b)~With source $V_2$ restored, replace the source $V_1$ with a short and calculate the voltage across $R_2$.  (c)~The actual voltage across $R_2$ for the circuit as drawn below is the superposition of the two cases in (a) and~(b).  So what's $V_{R2}$? 
+\begin{center}
+\vspace{-0.1in}
+\includegraphics{M_problems/Z_and_AC/superposition_prob1.pdf}
+\vspace{-0.1in}
+\end{center}
+\end{Exercise}
+\begin{Answer}
+(a) 3 V (b) 1.5 V (c) 4.5 V
+\end{Answer}
+
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+In this problem you will again analyze a circuit (below) using the \textit{principle of superposition}, and students with a flair for observation will notice a certain similarity with the previous problem.  (a)~Imagine replacing the source $V_2$ with a short, and calculate the voltage $V_\text{out}$, assuming the circuit has been on long enough that the capacitor is fully charged.  (b)~With source $V_2$ restored, replace the source $V_1$ with a short.  What kind of filter is the resulting circuit, and what is its cutoff frequency?  With $V_1$ shorted out, what is $V_\text{out}$ in the limit of both high and low frequencies?  (c)~The actual voltage $V_\text{out}$ for the circuit as drawn below is the superposition of the two cases in (a) and~(b).  So what is $V_\text{out}$, in the limit of both high and low frequencies?  
+\begin{center}
+\vspace{-0.1in}
+\hspace{\fill}\includegraphics{M_problems/Z_and_AC/dc_biasing_problem1a.pdf}
+\hspace{\fill}\includegraphics{M_problems/Z_and_AC/dc_biasing_problem1b.pdf}
+\hspace*{\fill}\\
+\hfill \textit{Circuit drawn as you would usually see it...} 
+\hfill \textit{...and redrawn to look exactly like} \textsl{problem~\ref{prob_superposition}.}
+\vspace{-0.1in}
+\end{center}
+\end{Exercise}
+\begin{Answer}
+(a) 6 V DC 
+(b) High pass, $f_\text{c}=318$~Hz 
+(c)~for $f \gtrsim f_\text{c}:~V_\text{out}=V_2+6$~V; 
+for $f \ll f_\text{c}:~V_\text{out} \approx 6$~V
+\end{Answer}
+
+
+
 
 
 

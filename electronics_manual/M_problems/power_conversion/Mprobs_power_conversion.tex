@@ -1,24 +1,6 @@
 \subsection{Storing, Converting, and Carrying Power} 
 
 %\DTMnewdatestyle{dateupdated}{〈definition 〉
-\newlength{\figurewidth}
-
-\NewDocumentCommand \figuretoright {m O{} m +m} {%
-		% #1 is the picture width
-		% #2 is list of optional parameters to \includegraphics
-
-		% #3 is the picture filename
-		% #4 is the text to the right
-	\setlength{\figurewidth}{#1\textwidth }
-	\begin{minipage}{\textwidth - \figurewidth - 3pt}
-	#4
-	\end{minipage}
-	\begin{minipage}{\figurewidth - 2pt}
-	\medskip
-	\hfill\includegraphics[#2]{#3}
-	\end{minipage}
-}
-
 Answers to M\Alph{subsection} problems are on page \pageref{power_conversion_prob_answers}.  \textbf{\textcolor{red}{Updated \DTMnow.}}
 
 %--------------------------------------------------------------------------------------------------------------
@@ -123,7 +105,12 @@ Now assume instead that there is NO current in the diode.
 \end{enumerate}
 \end{Exercise}
 \begin{Answer}
-(a) 2.2 V (b) 2.8 V and 2.2 V (c) 2.8 mA and 5.5 mA (d) We can't have $I_{R2}>I_{R1}$, because the only way for that to be true would be the current through the diode to be \textit{negative}, that is, flowing in the reverse direction. That would directly contradict the assumption that the diode has a forward current. (e)~open (f)~$V_{R1}=3.57$~V; $V_{R2}=1.43$~V; $I_D=0.$
+(a) 2.2 V \\
+(b) 2.8 V and 2.2 V \\
+(c) 2.8 mA and 5.5 mA \\
+(d) We can't have $I_{R2}>I_{R1}$, because the only way for that to be true would be the current through the diode to be \textit{negative}, that is, flowing in the reverse direction. That would directly contradict the assumption that the diode has a forward current. \\
+(e)~open \\
+(f)~$V_{R1}=3.57$~V; $V_{R2}=1.43$~V; $I_D=0.$
 \end{Answer}
 
 
@@ -234,7 +221,7 @@ This problem will step you through process of designing a 5-volt DC power supply
 %--------------------------------------------------------------------------------------------------------------
 \begin{Exercise}
 The diagram below shows a clipper circuit with two Zener diodes. 
-\begin{enumerate}[label=(\alph*),nosep,start=5]
+\begin{enumerate}[label=(\alph*),nosep]
 \item Draw a graph of the output voltage vs. time, labeling the minimum and maximum values. 
 \item Calculate the maximum magnitude of the instantaneous current through the diodes. 
 \item Find the maximum instantaneous power dissipated in diode $D_2$ and in the resistor $R_\text{lim}$.

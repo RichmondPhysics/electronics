@@ -5,10 +5,18 @@
 
 \bigskip
 
+\textbf{The Impedance of an Inductor}
+
+
+The circuit below is essentially a voltage divider between a resistor and an inductor, with a sinusoidal input voltage coming from a buffer amplifier.  
+The purpose of the buffer amplifier is to provide a voltage source with a low output impedance, as opposed to your function generator's $R_{\rm int} \approx 600~\Omega$.%  
+\footnote{You'll notice a curious addition to our buffer amplifier here: a 2.2~k$\Omega$ ``pulldown'' resistor between the op-amp's output and $V_{\rm EE}$ that would \textit{seem} to have no effect whatsoever, since the amplifier's output still feeds back into $V_-$, ensuring that $V_\text{out}=V_+$.  In fact, the pulldown resistor greatly reduces output noise at high frequencies, eliminating a large voltage spike as the output crosses zero volts.  The reason for the spike is that the LM324 op-amp uses different parts of its internal circuitry for positive and negative output current (i.e., acting as a current ``source'' or current ``sink''); the spike happens during the switch-over between them. The pulldown resistor removes the spike by ensuring that even when  $V_\text{out}<0$, the LM324's output \textit{current} is always positive---with some of it always flowing through $R_\text{pulldown}$ into the negative supply rail at $V_{\rm EE}$.}
+
+Although $V_{\rm AB}$ and $V_{\rm BC}$ are time-varying, for this section of the lab we will measure their RMS values with a DMM---\textit{NOT} the oscilloscope---because it will allow us focus on the circuit's behavior one aspect at a time, as opposed to being confronted with a firehose of unexpected results all at once.
+
 \begin{enumerate}[wide]
 
-\item Construct the circuit below.\footnote{The purpose of the buffer amplifier is to provide a voltage source for $R$ and $L$ with a low output impedance, as opposed to your function generator's $R_{\rm int} \approx 600~\Omega$.  But you'll notice a curious addition: a 2.2~k$\Omega$ ``pulldown'' resistor between the op-amp's output and $V_{\rm EE}$ that would seem to have no effect whatsoever.  In fact, the pulldown resistor greatly reduces output noise at high frequencies, eliminating a large spike as the output crosses zero volts.  The reason for the spike is that the LM324 op-amp uses different parts of its internal circuitry for positive and negative output current (i.e., acting as a current ``source'' or current ``sink''); the spike happens during the switch-over between them. The pulldown resistor ensures that the output current from the LM324 is always positive, avoiding both the spike at the crossover as well as any subsequent ringing.}
-Use your DMM (not your oscilloscope) to measure all three RMS voltages $V_{\rm AB}$,  $V_{\rm BC}$, and $V_{\rm AC}$.  Do it for frequencies of 20~Hz and 20~kHz.  Is there more current in $R$ and $L$ at high frequencies or at low frequencies? 
+\item Construct the circuit below. \textbf{Use your DMM}  to measure all three RMS voltages $V_{\rm AB}$,  $V_{\rm BC}$, and $V_{\rm AC}$ for frequencies of 20~Hz and 20~kHz.  Is there more current in $R$ and $L$ at high frequencies or at low frequencies? 
 
 \begin{minipage}{.55\textwidth}
 \begin{center}
@@ -17,7 +25,7 @@ Use your DMM (not your oscilloscope) to measure all three RMS voltages $V_{\rm A
 \end{minipage}
 \begin{minipage}{.4\textwidth}
 \begin{center} 
-{\renewcommand{\arraystretch}{1.5}
+{\renewcommand{\arraystretch}{1.8}
 \begin{tabular}{|l|c|c|}
 \hline & 20 Hz & 20 kHz \\ 
 \hline $\Delta V_{\rm BC}$ ($V_R$) & & \\ 
@@ -30,20 +38,26 @@ Use your DMM (not your oscilloscope) to measure all three RMS voltages $V_{\rm A
 \end{minipage}
 
 
-\item Think of the inductor as part of a voltage divider circuit.  How does the inductor's ``resistance'' (actually its \textit{impedance} $Z_L$) depend on the angular frequency $\omega$, where $\omega = 2 \pi f$?
+\item Think of the inductor as part of a voltage divider circuit.  How does the inductor's ``resistance'' (actually its \textit{impedance} $Z_L$) depend on the angular frequency $\omega$, where $\omega = 2 \pi f$?  Of course, two data points isn't enough to determine a mathematical relationship, but suppose you get to choose  $Z_L \propto \omega$ or $Z_L \propto 1 / \omega$;   which of those is consistent with your data?
 
 \item Adjust the \textit{frequency} of the generator so that the RMS value of $V_{\rm AB}$ is about 30\% of $V_{\rm AC}$, which should be somewhere in the neighborhood of around $f \approx 1$~kHz.  Predict what will happen to $V_{\rm AB}$ if the 33~mH inductor is replaced by 10~mH.  Test your prediction.
 
-\item Based on your previous answer, how does the inductor's ``resistance'' (actually its \textit{impedance} $Z_L$) depend on its inductance $L$?  Take a stab at writing a single equation relating $Z_L$ to both $\omega$ and $L$.
+\item Based on your previous answer, how does the inductor's ``resistance'' (actually its \textit{impedance} $Z_L$) depend on its inductance $L$?  Again, suppose you can choose either $Z_L \propto L$ or $Z_L \propto 1 / L$.  While you're at it, take a stab at writing a single equation relating $Z_L$ to both $\omega$ and $L$.
 \label{part_guess_Z_L}
 
-\item (Today's shocker!) With the 33~mH inductor back in place, adjust the frequency of the generator so that the RMS value of $V_{\rm AB} = V_{\rm BC}$, which should be around $f \approx 2$~kHz.   Is it still the case that $V_{\rm AB} + V_{\rm BC} = V_{\rm AC}$?  How can this be?  Use your oscilloscope to measure all three voltages versus time, and demonstrate that Kirchoff's loop rule is not being violated here.  (Use channel 1 for $V_B$, channel 2 for $V_C$, and the difference Ch$2- $Ch1 for $V_{\rm BC}$.)
+\item (Today's shocker!) With the 33~mH inductor back in place, adjust the frequency of the generator so that the RMS value of $V_{\rm AB} = V_{\rm BC}$, which should be at around $f \approx 2$~kHz.   Is it still the case that $V_{\rm AB} + V_{\rm BC} = V_{\rm AC}$?  How can this be?  Use your oscilloscope to measure all three voltages versus time, and demonstrate that Kirchoff's loop rule is not being violated here.  (Use channel 1 for $V_B$, channel 2 for $V_C$, and the difference Ch$2- $Ch1 for $V_{\rm BC}$.)
 
-\item Graph the voltage across the inductor and the current as a function of time.  What is the relative phase shift between them, in both radians and degrees?  Does the current ``lead'' the voltage, or does the voltage ``lead'' the current? (Which one reaches its maximum value first?) \label{part_RL_graphs}
+\item Graph the voltage across the inductor and the current as a function of time.  What is the relative phase shift between them, in both radians and degrees?  Does the current ``lead'' the voltage, or does the voltage ``lead'' the current? (Which one reaches its maximum value at the earlier time?) \label{part_RL_graphs}
 
 \newpage
 
-\item Now construct the circuit below. Again, use either the DMM or your oscilloscope to measure all three RMS voltages  $V_{\rm AB}$,  $V_{\rm BC}$, and $V_{\rm AC}$.   Do it for frequencies of 20~Hz and 20~kHz.  Is there more current in this circuit at high frequencies or low frequencies?
+
+
+
+
+\textbf{The Impedance of a Capacitor}
+
+\item Now construct the circuit below. Again, measure all three RMS voltages  $V_{\rm AB}$,  $V_{\rm BC}$, and $V_{\rm AC}$ for frequencies of 20~Hz and 20~kHz.  (This time, you can use either your DMM or your friend the oscilloscope for your measurements.)  Is there more current in this circuit at high frequencies or low frequencies?
 
 \begin{minipage}{.55\textwidth}
 \begin{center}
@@ -52,7 +66,7 @@ Use your DMM (not your oscilloscope) to measure all three RMS voltages $V_{\rm A
 \end{minipage}
 \begin{minipage}{.4\textwidth}
 \begin{center} 
-{\renewcommand{\arraystretch}{1.5}
+{\renewcommand{\arraystretch}{1.8}
 \begin{tabular}{|l|c|c|} 
 \hline & 20 Hz & 20 kHz \\ 
 \hline $\Delta V_{\rm BC}$ ($V_R$) & & \\ 
@@ -64,22 +78,22 @@ Use your DMM (not your oscilloscope) to measure all three RMS voltages $V_{\rm A
 \end{center}
 \end{minipage}
 
-\item Think of the capacitor as a resistor in a voltage divider circuit: how does its ``resistance'' (actually its \textit{impedance}~$Z_C$) depend on the angular frequency $\omega$, where $\omega$, where $\omega = 2 \pi f$?
+\item Think of the capacitor as a resistor in a voltage divider circuit: how does its ``resistance'' (actually its \textit{impedance}~$Z_C$) depend on the angular frequency $\omega$, where $\omega$, where $\omega = 2 \pi f$?  As before, you can assume that either $Z_C \propto \omega$ or $Z_C \propto 1 / \omega$ is correct.
 
 \item Adjust the \textit{frequency} of the generator so that the RMS value of $V_{\rm AB}$ is about 0.1 volts.  Predict what will happen to $V_{\rm AB}$ if the 330~nF capacitor is replaced by 100~nF.  Test your prediction.  
 
-\item Based on your previous answer, how does the capacitor's ``resistance'' (actually its \textit{impedance} $Z_C$) depend on its capacitance $C$?  Take a stab at writing a single equation relating $Z_C$ to both $\omega$ and $C$.
+\item Based on your previous answer, how does the capacitor's ``resistance'' (actually its \textit{impedance} $Z_C$) depend on its capacitance $C$?  Again, suppose you can choose either $Z_C \propto C$ or $Z_C \propto 1 / C$.  While you're at it, take a stab at writing a single equation relating $Z_C$ to both $\omega$ and $C$.
 \label{part_guess_Z_C}
 
-\item Adjust the frequency of the generator so that the RMS value of $V_{\rm AB} = V_{\rm BC}$.   Again, is it the case that $V_{\rm AB} + V_{\rm BC} = V_{\rm AC}$?  Again, use your oscilloscope to measure all three voltages versus time, and demonstrate that Kirchoff's loop rule is not being violated here.  
+\item Adjust the frequency of the generator so that the RMS value of $V_{\rm AB} = V_{\rm BC}$.   Is it the case that $V_{\rm AB} + V_{\rm BC} = V_{\rm AC}$?  Again, use your oscilloscope to measure all three voltages versus time, and demonstrate that Kirchoff's loop rule is not being violated here.  
 
-\item Graph the voltage across the capacitor and the current through the capacitor as a function of time.  What is the relative phase shift between them?  Does the current ``lead'' the voltage, or does the voltage ``lead'' the current? \label{part_RC_graphs}
+\item Graph the voltage across the capacitor and the current through the capacitor as a function of time.  What is the relative phase shift between them, in both radians and degrees?  Does the current ``lead'' the voltage, or does the voltage ``lead'' the current? \label{part_RC_graphs}
 
-\vfill
+\bigskip\bigskip\bigskip
+
+\textbf{But Have We Fully Captured Impedance?}
 
 \item In parts \ref{part_guess_Z_L} and \ref{part_guess_Z_C}, you probably came up with the relationships $Z_L = \omega L$ and $Z_C = 1/ \omega C$.  Those are \textit{close} to being correct, but they don't quite capture everything we want.  Ideally, we'd like for those impedances to follow something like Ohm's law, where $V_L = I Z_L$, and $V_C = I Z_C$.  But if  $I(t) = I_0 \cos(\omega t)$, do the equations $Z_L = \omega L$ and $Z_C = 1/ \omega C$ really give the correct voltages for the inductor and the capacitor?  Why not?  Think about your graphs for parts~\ref{part_RL_graphs} and \ref{part_RC_graphs}, and think carefully about whether the current and voltage are really proportional to each other in each case.
-
-\vfill
 
 \end{enumerate}
 

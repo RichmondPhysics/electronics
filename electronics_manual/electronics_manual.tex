@@ -17,6 +17,24 @@
 \makeindex
 
 \usepackage{calc}
+\newlength{\figurewidth}
+
+\NewDocumentCommand \figuretoright {m O{} m +m} {%
+		% #1 is the picture width
+		% #2 is list of optional parameters to \includegraphics
+
+		% #3 is the picture filename
+		% #4 is the text to the right
+	\setlength{\figurewidth}{#1\textwidth }
+	\begin{minipage}{\textwidth - \figurewidth - 3pt}
+	#4
+	\end{minipage}
+	\begin{minipage}{\figurewidth - 2pt}
+	\medskip
+	\hfill\includegraphics[#2]{#3}
+	\end{minipage}
+}
+
 %\usepackage[bottom]{footmisc}
 \begin{document}
 
@@ -47,7 +65,7 @@
 \includelab{1}{digital_electronics/miniproject2}
 
 %--------------------------------------------
-\part{Storing, Converting, and Carrying Power: Capacitors, Transformers, and Diodes}
+\part{Storing, Converting, and Distributing Power: Capacitors, Transformers, and Diodes}
 
 \includelab{1}{capacitors/capacitors}
 \includelab{1}{transformers/transformers}
@@ -55,7 +73,9 @@
 \includelab{1}{power_supply/power_supply}
 \includelab{1}{building_wiring/building_wiring}
 
+%--------------------------------------------
 \part{Complex Impedance and AC Circuits}
+
 \includelab{1}{inductors/inductors}
 \includelab{1}{ac_circuits/ac_circuits}
 \includelab{1}{filters/filters}

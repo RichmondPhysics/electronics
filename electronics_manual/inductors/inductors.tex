@@ -6,46 +6,73 @@
 
 \bigskip
 
+\textbf{Measuring Inductance}
+
 \begin{enumerate}[wide]
 
-\item Use your DMM to measure the inductance (in Henries) of several of the inductors in your kits.  You should have eight of them to choose from.  What can you deduce about the color code for the bands?
+\item Use your DMM to measure the inductance (in Henries, abbreviated as ``H'') of several of the inductors in your kits.  You should have several of them in the $\mu$H range and three in the $mH$ range to choose from.  The ones with colored bands follow the familiar resistor color code, except that the base unit is not Henries.  What is the base unit?
 
-\item An inductor is basically a series of wire loops, usually around an iron or ferrite core.  Your transformer consists of four sets of wire loops around a common iron core: two primaries and two secondaries.  Make a prediction: which has a greater inductance: one of the primaries (say, white and black leads) or one of the secondaries (say, red and yellow).  Test your prediction.
+\item An inductor is basically a series of wire loops, usually around an iron or ferrite core.  Your transformer consists of four sets of wire loops around a common iron core: two primaries and two secondaries.  Make a prediction: which has a greater inductance: one of the primaries (say, the black and white leads) or one of the secondaries (say, red and yellow)?  Test your prediction.
 \begin{center}
 \includegraphics{inductors/transformer_as_inductor1.pdf}
 \end{center}
 
-\item Make another prediction: given what you just measured for the inductance of one of the primaries, what value do you predict for the inductance of both primaries connected in series, as shown.  Test whether your prediction was correct, and explain why it wasn't. 
+\item Make another prediction: given what you just measured for the inductance of one of the primaries, what numerical value do you predict for the inductance of both primaries connected in series, as shown.  Test whether your prediction was correct, and explain why it wasn't. 
 \begin{center}
 \includegraphics{inductors/transformer_as_inductor2.pdf}
 \end{center}
  
-\medskip 
+\textbf{An RL Circuit}
 
-\textit{Note: For the remainder of this lab, set both of your probes to $10\times$ to minimize the effects of probe capacitance. Also, be sure both channels of your oscilloscope are set to DC coupling.}
+The \textit{RL circuit} below on the right is analagous to the RC circuit you built in Lab~\ref{lab_capacitors}. 
+With the switch open, current flows from the power supply to the resistor $R$ and the inductor $L$ in series.
+When the switch is closed, channel 2 is shorted to ground and the power supply no longer supplies an emf to $R$ and $L$. However, current continues to flow from the power supply to ground, maintained at a safe level by $R_\text{lim}$.
 
-\item Build the circuit shown below, with channels 1 and 2 of your scope hooked up as shown, using the two transformer primaries in series as your inductor.  Note that the switch is kind of funny here in that it shorts out the power supply.  To measure the voltage across the resistor $V_{R1}$, you will need to push the ``math'' button on your scope to get it to display the difference Ch2 $-$ Ch1.  It's hard to get the switch to open and close cleanly every time; for best results, try to slide the switch quickly but silently.  (Or just give up and touch two wires together by hand, the way the cavemen did.)  Sketch graphs of $V_{R1}$ and $V_L$ versus time both for when you open the switch and for when you close it.   Also sketch the current $I$ vs. time.  What is the time constant $\tau$ of this circuit?  It should be in the neighborhood of about a millisecond.  \label{part_rl_constant}
-\begin{center}
-\includegraphics{inductors/single_dc_inductor.pdf}
-\end{center}
+\item Build the circuit below as shown.  The switch should be a debounced pushbutton switch )PB$_1$ or PB$_2$), and the inductor $L$ should be the two primaries of your transformer connected in series.  
+The inductor voltage $V_L$ is given by your scope's channel 1, 
+but to read the voltage $V_R$ across the resistor you will need to use the \button{Math} button to display Ch2~$-$~Ch1.
 
-\item Sanity check: Does $V_{R1} +V_L = 5$ volts when the switch is open?  What's $V_{R1} +V_L$ when the switch is closed?
+\figuretoright{0.32}{inductors/single_dc_inductor.pdf} {
+Other scope settings for measuring $V_R(t)$ and $V_L(t)$:
+\begin{itemize}[nosep]
+\item Set both of your probes to $1\times$.
+\item Set both channels 1 and 2 to DC coupling.
+\item Make sure that Ch1, Ch2, \textit{and} the math function Ch2~$-$~Ch1 are set to the same vertical scale.
+\item The time scale should be set to something like 1~ms/div.
+\item Think about how to configure your scope's triggering to get a single, clean trace when the pushbutton is pressed, and another when it is released.
+\end{itemize}
+}
 
-\item In the water pipe analogy, we can think of power supplies as pumps, resistors as constrictions in the pipes, and a capacitor as a flexible rubber membranes stretched across an enlarged section of pipe.  Draw a picture showing the $RL$ circuit you have just built as a system of water pipes, representing the inductor as a giant, heavy water wheel or turbine on frictionless bearings.  
-The water flow changes when the pump is turned on or when a valve is opened or closed.
-If the mass of the wheel \textit{increases}, does the amount of the water flowing change \textit{more quickly} or \textit{more slowly}?
+Sketch graphs of $V_{R}$ and $V_L$ versus time both for when the pushbutton is pressed and when it is released. Also sketch the current $I_L$ vs. time.  What is the apparent time constant $\tau$ of this circuit?  It should be in the neighborhood of about a millisecond.  \label{part_rl_constant}
+%\begin{center}
+%\includegraphics
+%\end{center}
 
-\item Make a prediction: what will happen to the time constant if you replace $L$ with only a single primary coil of your transformer, instead of two primaries in series?  Check it and see.    
+\item Quick sanity check: Kirchoff's loop rule tells us that $\sum \Delta V = 0$ around any closed loop in a circuit. 
+What should the value  of $V_{R} +V_L$ be when the switch is open? What should it be when the switch is closed? Are the graphs you have drawn above consistent with Kirchoff's loop rule?
 
-\item Make a prediction: what will happen to the time constant if you replace $R_1$ with a 5~k$\Omega$ resistor?  Check it and see.
+\bigskip
 
-\item Figure out a mathematical relationship between $R$, $L$, and the time constant $\tau$.
+In the water pipe analogy for circuits, we can think of a power supplies as a pump, a resistor as a constriction in the pipes, and a capacitor as a flexible rubber membrane stretched across an enlarged section of pipe.  Extending the analogy, we can also imagine an inductor as a big, heavy water wheel or turbine that rotates on frictionless bearings as current flows through it; because of its mass, it is hard to start it spinning and hard to stop it.
+
+\item Draw a picture showing the $RL$ circuit you have just built as a system of water pipes, valves, and a pump, and showing the inductor as something big and heavy that spins.  
+
+\item In the picture you have just drawn, the rate of water flow through the inductor changes after the valve is opened or closed.
+If the mass of the wheel in your drawing were larger, would the water flow rate\textit{change more quickly} or \textit{change more slowly}?
+
+\item Make a prediction: what will happen to the time constant $\tau$ if you replace $L$ with only a \textit{single} primary coil of your transformer, instead of two primaries in series?  Check it and see.    
+
+\item Make a prediction: what will happen to the time constant if you replace $R_1$ with a $5\kohm$ resistor?  Check it and see.
+
+\item Figure out the mathematical relationship that relates the time constant $\tau$ to $R$ and $L$.
+
+\textbf{Relating Current and Voltage for \textit{L} and \textit{C}}
 
 \item From the graphs of $V_{L}(t)$ and $I(t)$ that you found in part~\ref{part_rl_constant}, can you find an explicit relationship between  $V_{L}(t)$ and $I(t)$?  (Hint: one of them is proportional to the time derivative of the other.  Bonus points if you can find the constant of proportionality.)
 
-\item Compare your answer in the previous part to the situation for the RC circuit you studied in Lab~\ref{lab_capacitors}.  (Remake and remeasure the circuit in part~\ref{part_rc_circuit} of that lab if you don't remember how it worked.)  Make graphs of $V_{C}(t)$ and $I(t)$ as the switch is opened and closed.  Can you find an explicit relationship between $V_{C}(t)$ and $I(t)$, where one of them is proportional to the time derivative of the other?  Again, what's the constant of proportionality?
+\item Compare your answer in the previous part to the situation for the RC circuit you studied in Lab~\ref{lab_capacitors}.  (Remake and remeasure the circuit in part~\ref{part_rc_circuit} of that lab if you don't remember how it worked.)  Make graphs of $V_{C}(t)$ and $I(t)$ as the capacitor charges and discharges.  Can you find an explicit relationship between $V_{C}(t)$ and $I(t)$, where one of them is proportional to the time derivative of the other?  Again, what's the constant of proportionality?
 
-
+\vfill
 \end{enumerate}
 
 \textbf{Possible Exam Questions:}
