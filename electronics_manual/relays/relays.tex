@@ -16,7 +16,7 @@ Use your DMM to figure out which of the remaining pins are the ``N.O.'' and ``N.
 %(The dashed line in the circuit diagram indicates that the two switches always move together.  The two horizontal lines represent an iron core, like in a transformer, and are sometimes omitted.)
 
 \begin{center}
-\raisebox{0.5in}{\includegraphics[scale=0.4]{relays/relay_picture.pdf}}
+\raisebox{0.25in}{\includegraphics[scale=0.4]{relays/relay_picture.pdf}}
 \hspace{0.3in}
 \includegraphics[scale=0.7]{relays/relay_pinout.pdf}
 \hspace{-0.1in}
@@ -29,9 +29,10 @@ Use your DMM to figure out which of the remaining pins are the ``N.O.'' and ``N.
 
 \item Build the circuit shown below, using your relay to open and close a connection between the 15~VDC power supply and a 10~k$\Omega$ load resistor.  
 Turn the current to the coil on and off by literally touching two wires together.  
-Use your oscilloscope to monitor both the voltage across the relay coil and the voltage across both 10~k$\Omega$ resistors, producing a graph similar to that on the right.  
+Use your oscilloscope to monitor both the voltage across the relay coil and the voltages across both 10~k$\Omega$ resistors, producing a graph similar to that on the right.  
 How long are the delay times $\Delta t$ between applying 5~VDC to the coil and the times the N.C. and N.O. contacts are broken and made?
 (You should measure a few milliseconds.)
+\label{part_connecting_relay_coil}
 
 \begin{center}
 \includegraphics{relays/relay_timing_circuit.pdf}
@@ -39,10 +40,14 @@ How long are the delay times $\Delta t$ between applying 5~VDC to the coil and t
 \includegraphics{relays/v_vs_t_graph.pdf}
 \end{center}
 
-\item What does your graph from the previous part look like when you remove the 5~VDC from the coil?  Measure these delay times $\Delta t$ as well.
+\item Draw an additional graph showing $V_{R1}(t), V_{R2}(t),$ and $V_\text{coil}(t)$ when you remove the 5~VDC from the coil, allowing the switches to return to their normal positions?  Measure these delay times $\Delta t$ as well.
+\label{part_disconnecting_relay_coil}
+
+\item In your previous graph, you may notice that when the coil is disconnected from the 5~V source, $V_\text{coil}(t)$ becomes briefly negative before returning to zero.  Why is that?
 
 \end{enumerate}
 
+\pagebreak[3]
 \textbf{Possible Exam Questions:}
 
 \begin{itemize}
