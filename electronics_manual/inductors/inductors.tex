@@ -10,7 +10,7 @@
 
 \begin{enumerate}[wide]
 
-\item Use your DMM to measure the inductance (in Henries, abbreviated as ``H'') of several of the inductors in your kits.  You should have several of them in the $\mu$H range and three in the $mH$ range to choose from.  The ones with colored bands follow the familiar resistor color code, except that the base unit is not Henries.  What is the base unit?
+\item Use your DMM to measure the inductance (in henries, abbreviated as ``H'') of several of the inductors in your kits.  You should have several of them in the $\mu$H range and three in the mH range to choose from.  The ones with colored bands follow the familiar resistor color code, except that the base unit is not henries but a decimal multiple of henries (i.e., $\mu$H, mH, kH, etc.).  What is that base unit?
 
 \item An inductor is basically a series of wire loops, usually around an iron or ferrite core.  Your transformer consists of four sets of wire loops around a common iron core: two primaries and two secondaries.  Make a prediction: which has a greater inductance: one of the primaries (say, the black and white leads) or one of the secondaries (say, red and yellow)?  Test your prediction.
 \begin{center}
@@ -24,11 +24,11 @@
  
 \textbf{An RL Circuit}
 
-The \textit{RL circuit} below on the right is analagous to the RC circuit you built in Lab~\ref{lab_capacitors}. 
+The \textit{RL circuit} below on the right is analogous to the RC circuit you built in Lab~\ref{lab_capacitors}. 
 With the switch open, current flows from the power supply to the resistor $R$ and the inductor $L$ in series.
 When the switch is closed, channel 2 is shorted to ground and the power supply no longer supplies an emf to $R$ and $L$. However, current continues to flow from the power supply to ground, maintained at a safe level by $R_\text{lim}$.
 
-\item Build the circuit below as shown.  The switch should be a debounced pushbutton switch )PB$_1$ or PB$_2$), and the inductor $L$ should be the two primaries of your transformer connected in series.  
+\item Build the circuit below as shown.  The switch should be a debounced pushbutton switch (PB$_1$ or PB$_2$), and the inductor $L$ should be the two primaries of your transformer connected in series.  
 The inductor voltage $V_L$ is given by your scope's channel 1, 
 but to read the voltage $V_R$ across the resistor you will need to use the \button{Math} button to display Ch2~$-$~Ch1.
 
@@ -48,8 +48,8 @@ Sketch graphs of $V_{R}$ and $V_L$ versus time both for when the pushbutton is p
 %\includegraphics
 %\end{center}
 
-\item Quick sanity check: Kirchoff's loop rule tells us that $\sum \Delta V = 0$ around any closed loop in a circuit. 
-What should the value  of $V_{R} +V_L$ be when the switch is open? What should it be when the switch is closed? Are the graphs you have drawn above consistent with Kirchoff's loop rule?
+\item Quick sanity check: Kirchhoff's loop rule tells us that $\sum \Delta V = 0$ around any closed loop in a circuit. 
+What should the value  of $V_{R} +V_L$ be when the switch is open? What should it be when the switch is closed? (You can ignore $R_\text{lim}$ since $R_\text{lim} \ll R$.)  Are the graphs you have drawn above consistent with Kirchhoff's loop rule?
 
 \bigskip
 
@@ -58,13 +58,13 @@ In the water pipe analogy for circuits, we can think of a power supplies as a pu
 \item Draw a picture showing the $RL$ circuit you have just built as a system of water pipes, valves, and a pump, and showing the inductor as something big and heavy that spins.  
 
 \item In the picture you have just drawn, the rate of water flow through the inductor changes after the valve is opened or closed.
-If the mass of the wheel in your drawing were larger, would the water flow rate\textit{change more quickly} or \textit{change more slowly}?
+If the mass of the wheel in your drawing were larger, would the water flow rate \textit{change more quickly} or \textit{change more slowly}?
 
 \item Make a prediction: what will happen to the time constant $\tau$ if you replace $L$ with only a \textit{single} primary coil of your transformer, instead of two primaries in series?  Check it and see.    
 
-\item Make a prediction: what will happen to the time constant if you replace $R_1$ with a $5\kohm$ resistor?  Check it and see.
+\item Make a prediction: what will happen to the time constant if you replace $R$ with a $5\kohm$ resistor?  Check it and see.
 
-\item Figure out the mathematical relationship that relates the time constant $\tau$ to $R$ and $L$.
+\item Take a wild guess at the mathematical relationship that relates the time constant $\tau$ to $R$ and $L$.
 
 \textbf{Relating Current and Voltage for \textit{L} and \textit{C}}
 
@@ -78,7 +78,7 @@ If the mass of the wheel in your drawing were larger, would the water flow rate\
 \textbf{Possible Exam Questions:}
 
 \begin{itemize}
-\item The primary of a 10:1 step-down transformer has an inductance of 1.4 Henries.  What is the inductance of the transformer's secondary?
+\item The primary of a 10:1 step-down transformer has an inductance of 1.4 henries.  What is the inductance of the transformer's secondary?
 
 %\item An inductor ($L = 35$~mH) and a resistor (200~$\Omega$) are connected in series to a 10~V power supply at time $t = 0$.  Graph the current through the inductor and voltage across the inductor as functions of time.  Find the time at which the voltage across the resistor is 4 volts.
 
