@@ -5,9 +5,11 @@
 
 \bigskip
 
+\textbf{Basic BJT measurements}
+
 \begin{enumerate}[wide]
 
-\item Build the circuit drawn below, which includes a 2N3904 npn bipolar junction transistor.  Measure the DC current through the base, collector, and emitter leads of the transistor.  (To minimize the effect of your DMM on the circuit, use the ``mA'' scale where possible.)  What is the ratio of $I_E/I_B$?  (You should get a ratio of about 100.)  Where is all the current in the emitter coming from?
+\item Build the circuit drawn below, which includes a 2N3904 npn bipolar junction transistor.  Measure the DC current through the base, collector, and emitter leads of the transistor.  (To minimize the effect of your DMM on the circuit, use the ``mA'' scale where possible.)  What is the ratio of $I_E/I_B$?  (You should get a ratio somewhere between 100 and 200.)  Where is all the current in the emitter coming from?
 \begin{center}
 \includegraphics{bjt/first_bjt_test_circuit.pdf}
 \includegraphics{appendices/pinouts/2N3904_pinout.pdf}
@@ -20,59 +22,85 @@
 
 \item How does the size of the current $I_B$ compare to the current in the coil of the relay switch from the Lab~\ref{lab_relays}?
 
-\item In the circuit below, the output of an op-amp is being used to light a red LED.  (Perhaps this is the last stage of some other more complicated project.)  This circuit should work just fine. Build it and verify that the output voltage of the op-amp and the current through the LED are what they should be. 
-\begin{center}
-\includegraphics{bjt/buffer_one_led.pdf}
-\end{center}
+\medskip
+\textbf{Amplifying Current from a Buffer}
+
+\item In the circuit below on the left, the output of an op-amp is being used to light a red LED.  (Perhaps this is the last stage of some other more complicated project.)  This circuit should work just fine. Build it and verify that the output voltage of the op-amp and the current through the LED are what they should be. 
+
+\hspace{\fill}\includegraphics{bjt/buffer_one_led.pdf}
+\hspace{\fill}\includegraphics{bjt/buffer_four_leds.pdf}
+\hspace*{\fill}
+
+\item Now suppose that you want to use the op-amp's output to power three additional LEDs in parallel, as shown above on the right.  What is the maximum output current of the LM324?  How is the current through the first LED affected by the addition of the other three, and what causes that difference?
 
 \pagebreak[3]
-\item Now suppose that you want to use the op-amp's output to power three additional LEDs in parallel, as shown below.  What is the maximum output current of the LM324?  How is the current through the first LED affected by the addition of the other three?
-\begin{center}
-\includegraphics{bjt/buffer_four_leds.pdf}
-\end{center}
+\item The circuit below shows an easy way to fix the problem you just found, using a transistor as an \textit{emitter follower} amplifier, also called a \textit{common collector} amplifier.  Now what is the current through each LED?  What is the voltage at the emitter, $V_E$?  What is the current $I_B$?  (BTW: No worries, the LM324 will be perfectly happy with $V_\text{CC} = 10$~V.)
 
-\item The circuit below shows one way to fix the problem you just found, using a transistor as an ``emitter follower amplifier.''  Now what is the current through each LED?  What is the voltage at the emitter, $V_E$?  What is the current $I_B$?  (BTW: No worries, the LM324 will be perfectly happy with 10~V for its positive power supply.)
+\vspace{-0.1in}
 \begin{center}
 \includegraphics{bjt/emitter_follower1.pdf}
 \end{center}
+\vspace{-0.1in}
 
-\item The circuit above has a problem, that the emitter of the transistor is always about 0.7 volts lower than the base, so that the voltage across the load is always 0.7 volts lower than you really want it to be.  The circuit below shows an improved version of what you just built.  In the circuit below, what is $V_E$, and what is the $V_{\rm out}$ of the op-amp?  And finally, what is the current through each LED?  (Clever, eh?)  \label{part_buffer_op-amp_emitter_follower}
+\item You've probably noticed that the circuit you just built still isn't quite right; the voltage drop $\Delta V_\text{BE}$ between the base and emitter means that the voltage across the load is about 0.7 volts lower than you really want it to be.  The circuit below shows an improved version, in which the feedback to the op-amp's $V_-$ input comes from the BJT's emitter.  In this new circuit, what is $V_E$, and what is the $V_{\rm out}$ of the op-amp?  And finally, what is the current through each LED?  (Clever, eh?)  \label{part_buffer_op-amp_emitter_follower}
+
+\vspace{-0.1in}
 \begin{center}
 \includegraphics{bjt/emitter_follower2.pdf}
 \end{center}
+\vspace{-0.1in}
 
-\item Set your signal generator to output a 1~kHz sine wave with a 4~V peak voltage with no load.  Now hook it up to a load resistance of 1~k$\Omega$ and record the actual peak voltage across the load resistor.  Is this consistent with the internal resistance of the signal generator?  (See Lab~\ref{lab_input_output_impedance}.)
- \begin{center}
-\includegraphics{bjt/unamplified_ac.pdf}
-\end{center}
+\textbf{An Emitter Follower Amplifier for AC signals?}
 
-\pagebreak[4]
-\item We've solved the impedance mismatch of the previous part once before, using a op-amp buffer.  Let's see if we can do it with just a transistor!  Connect your signal generator up to the base of the transistor, and connect the load resistor to the emitter.  Sketch the waveform across the load resistor.  Is this a good way to get a 4-volt peak sine wave across the load resistor?
-\begin{center}
-\vspace{-0.08in}
-\includegraphics{bjt/ac_with_emit_follower.pdf}
-\vspace{-0.08in}
-\end{center}
+\item Set your signal generator to output a 1~kHz sine wave with a 4~V peak voltage with no load.  Now hook it up to a load resistance of 1~k$\Omega$ and record the peak voltage across the load resistor.  Is this consistent with the internal resistance of the signal generator?  (You've done this before, so this is really just a reminder.  See Lab~\ref{lab_op-amps}, part~\ref{part_func_gen_impedance}.)
 
-\item The circuit above is a lousy amplifier for AC signals, because it cuts off the bottom half of the input signal.  The circuit below shows how to ``bias'' the input signal with a DC voltage so that the base of the transformer is always positive.  What is the voltage at the base of the transistor in the circuit below (AC and DC components)?  Given the values of $R_1$ and $R_2$ shown below, what must be the value of the capacitor for the cutoff frequency $f_C$ to be 100~Hz?  (We're picking $f_C=100$~Hz because we want to be sure that the AC amplitude $V_{\rm out}$ is the same as the AC amplitude $V_{\rm in}$ at 1~kHz.)
-\begin{center}
-\vspace{-0.08in}
-\includegraphics{bjt/emit_follower_biased_input.pdf}
-\vspace{-0.08in}
-\end{center}
 
-\pagebreak[3]
-\item Great!  You now have a sinusoidal output that looks like the input.  The only problem is that the output has an additional DC offset you don't especially want.  To eliminate the DC offset from $V_{\rm out}$, your first instinct should be to use a high pass filter on the output, as shown below.  Theoretically, what is the cutoff frequency of the output filter shown in the diagram?  Now measure the signal across the load resistor.  Is it consistent with what you expect?  (It might not be....)
-\begin{center}
-\vspace{-0.08in}
-\includegraphics{bjt/biased_output_and_input_incorrect.pdf}
-\vspace{-0.08in}
-\end{center}
+\hspace{\fill}\includegraphics{bjt/unamplified_ac.pdf}
+\hspace{\fill}\includegraphics{bjt/ac_with_emit_follower.pdf}
+\hspace*{\fill}
+
+\item Previously, we have gotten around high output impedances using an op-amp buffer amplifier (Lab~\ref{lab_op-amps}, part~\ref{part_buffer}) and also using a transformer (Lab~\ref{lab_transformers}, part~\ref{part_step_down_speaker}). Here we will do it using an emitter-follower amplifier, although it turns out that using it for an AC signal is harder than for DC.  Connect your signal generator up to the base of the transistor as shown above on the right,, and connect the load resistor to the emitter.  Sketch the waveform across the load resistor.  Is this a good way to put a large sinusoidal current through the load resistor?
+
+\textbf{Transistor Biasing}
+
+You have just seen that a single npn transistor doesn't work for AC signals; current can only flow one way through the base-emitter junction, cutting off the bottom half of the input signal.  A common technique for getting around this problem is to add a DC \textit{bias} voltage to the input signal, so that $\Delta V_\text{BE}$ remains positive at all times.%
+\footnote{You have seen the idea of \textit{biasing} previously when you made a biased shunt clipper in Lab~\ref{lab_diodes}, Part~\ref{part_biased_shunt_clipper}, on page~\pageref{part_biased_shunt_clipper}.}
+
+\item The circuit below shows how to bias the input signal with a DC voltage so that the base of the transformer is always positive, using a trick you used before in problem~\ref{prob_superposition_DC_bias}.  Predict the AC and DC components the voltage $V_B$ at the base of the transistor in the circuit below.  Given the values of $R_1$ and $R_2$ shown, what must the value of the capacitor be to yield a cutoff frequency of $f_\text{c} = 100$~Hz?  (We're picking $f_C=100$~Hz because we want to be sure that the AC amplitude $V_\text{out}$ is the same as the AC amplitude $V_{\rm in}$ at 1~kHz.)
+
+
+\hspace{\fill}\includegraphics{bjt/emit_follower_biased_input.pdf}
+\hspace*{\fill}
+
+
+\vspace{-0.1in}
+\figuretoright{0.30}[scale=0.8]{bjt/biased_output_incorrect.pdf}{
+\item Great!  You now have a sinusoidal output that looks like the input.  The only problem is that the output has an additional DC offset you don't especially want.  To eliminate the DC offset from $V_{\rm out}$, your first instinct should be to use a high pass filter on the output, as shown  to the right.  Theoretically, what is the cutoff frequency of the output filter shown in the diagram?  Now measure the signal across the load resistor.  Is it consistent with what you expect?  (It might not be....)
+}
 
 \item From the measurements you have just made, you have probably found that the circuit above is totally useless.  It doesn't work, because current can never flow backwards across the transistor; the junction between the base and emitter is a diode, and current only flows across it forwards. Once the capacitor charges up to a maximum voltage, there is no way for it to discharge.  To provide a path for it to discharge, you will need to use a second resistor in parallel with $C_2$ and $R_{\rm load}$, as shown below.  The value of this discharge resistor has to be less than half of the load resistance for this to work properly.  What values of $C_1$ and $C_2$ are required to make this amplifier work well over the entire frequency range of human hearing, from 20~Hz to 20~kHz?  (Be careful, that's a trick question.  Is each of these a high-pass or a low-pass filter?) \label{part_biased_output_and_input_correct}
 \begin{center}
-\includegraphics{bjt/biased_output_and_input_correct.pdf}
+\includegraphics[scale=0.8]{bjt/biased_output_and_input_correct.pdf}
 \end{center}
+
+\pagebreak[3]
+\textbf{A Push-Pull  Amplifier}
+
+\medskip
+Adding a DC bias to an AC signal to ensure that it falls in a specific range is a trick that is used in a wide variety of circuits.  It can allow polarized components like a transistors to be used for AC signals, and can also let AC signals be handled in circuits using only a single positive power supply as opposed to both a $V_\text{CC}$ and a $V_\text{EE}$.  But it comes with disadvantages as well: the amplifier you just built in the previous part is extremely inefficient, with significantly more power dissipated in $R_\text{discharge}$ and the transistor than in $R_\text{load}$.
+
+\item An alternative to DC biasing is to employ both npn and pnp transistors for the positive and negative phases of an AC input signal, respectively.  In the circuit shown below, the 2N3904 npn transistor handles the input signal's positive phase, and the complimentary 2N3906 pnp transistor handles the negative phase, an arrangement called a \textit{push-pull amplifier}.%
+\footnote{In fact, there is a whole nomenclature system describing different power amplifier configuations.  The single-transistor circuit you built in part~\ref{part_biased_output_and_input_correct} is a ``class A'' amplifier, and the push-pull amplifier in part~\ref{part_push_pull_amp} is a ``class B'' amplifier.  Variations on the latter that use small offsets to minimize crossover distortion  are called ``class AB'' amplifiers, and there are even class C, D, E, F, G, and H amplifiers as well---the engineers having clearly stayed up all night thinking of what to name all of these.}
+Build the circuit below, and measure it's input and output signals carefully, drawing a graph to show how they compare.  What causes the mismatch between the input and output signals?
+\label{part_push_pull_amp}
+\begin{center}
+\includegraphics[scale=0.8]{bjt/simple_push_pull_amp.pdf}
+\end{center}
+
+
+The primary issue with the simple push-pull amplifier above is the hiccup in the output that occurs as the input crosses zero volts.  There are several strategies for minimizing this \textit{crossover distortion}, ranging from using resistors or additional diodes to add $\pm \sim$0.7-volt offsets to the transistor inputs, to using op-amp feedback similar to what you did in 
+part~\ref{part_buffer_op-amp_emitter_follower}.  We could spend weeks going further down this road, but as long as you have caught a glimpse of the richness of this topic, now is also an excellent time to move on.
+
 
 \end{enumerate}
 
