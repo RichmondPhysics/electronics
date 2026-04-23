@@ -1,10 +1,5 @@
 \documentclass[english,10pt,twoside]{article}
 
-\usepackage{iftex}
-\ifpdftex
-   \pdfminorversion 7
-\fi
-
 \input{../../131/StudentGuideModule1/labmanual_formatting_commands} % all formatting commands 
 
 %------COMPILE OPTIONS---------
@@ -21,26 +16,6 @@
 
 \makeindex
 
-\usepackage{calc}
-\newlength{\figurewidth}
-
-\NewDocumentCommand \figuretoright {m O{} m +m} {%
-		% #1 is the picture width
-		% #2 is list of optional parameters to \includegraphics
-
-		% #3 is the picture filename
-		% #4 is the text to the right
-	\setlength{\figurewidth}{#1\textwidth }
-	\begin{minipage}{\textwidth - \figurewidth - 3pt}
-	#4
-	\end{minipage}
-	\begin{minipage}{\figurewidth - 2pt}
-	\medskip
-	\hfill\includegraphics[#2]{#3}
-	\end{minipage}
-}
-
-%\usepackage[bottom]{footmisc}
 \begin{document}
 
 \input{electronics_front_pages/electronics_title_page}
