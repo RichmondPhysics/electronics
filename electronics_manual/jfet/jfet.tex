@@ -5,22 +5,31 @@
 
 \bigskip
 
+A \textit{Junction Field Effect Transistor,} or JFET, is very different from the BJT transistors you have seen before.  Although both are three-terminal devices in which a current between two of the leads is controlled by a smaller signal at a third lead, they behave differently enough that their terminals have different names:
+\begin{itemize}[nosep]
+\item The JFET's  \textit{drain} is analogous to a BJT's collector.
+\item The JFET's  \textit{source} is analogous to a BJT's emitter.
+\item The JFET's  \textit{gate} is analogous to a BJT's base.
+\end{itemize}
+
 \begin{enumerate}[wide]
 
-\item Build the circuit drawn below, which includes a 2N5457 transistor.  This is a new type of transistor called a ``Junction Field Effect Transistor,'' or JFET, and you've never seen anything like it before.  The three leads of this kind of transistor have different names than the BJT transistors you have seen so far.  The ``drain'' is analogous to the BJT's collector, the ``source'' is analogous to the emitter, and the ``gate'' is analogous to the base.  \textit{Notice that the 2N5457 pins are numbered differently from the previous transistor you used (the 2N3904), so be careful hooking it up!}  Measure the current through the source as you vary the gate voltage from 0 to $-2$ volts.  Make a rough plot of $I_D$ vs. $V_G$.
+\item Build the circuit drawn below, which includes a 2N5457 JFET transistor.  \textit{Be careful: the \textsl{2N5457} pins are numbered differently from the \textsl{2N3904} you've used before---pin~\textsl{2} is NOT the gate!}  Measure the current $I_D$ through the drain as you vary the gate voltage from 0 to $-2$ volts.  Make a rough plot of $I_D$ vs. $V_G$.
 \begin{center}
 \includegraphics{jfet/JFET_test_circuit.pdf}
 \includegraphics{appendices/pinouts/2N5457_pinout.pdf}
 \includegraphics[width=1.3in]{appendices/pinouts/TO-92_package_pinout.pdf}
 \end{center}
 
-\item Adjust the potentiometer so that the gate voltage is about $-0.5$ volts, and note the drain current.  Without changing the potentiometer adjustment, move your DMM to measure the current in the gate.  What's the ratio of $I_D/I_G$?  (\textit{Hint: The current $I_G$ will be very small, even right at the edge of what your DMM can measure.  To be sure you're not being fooled by an offset error on your DMM, try reversing the leads on the meter to see if your result switches signs.  If not, the best you may be able to do is give an upper bound for $I_G$.)}  \label{part_ratio_is_ig}
+\item Adjust the potentiometer so that the gate voltage is about $-0.5$ volts, and note the drain current.  Without changing the potentiometer adjustment, move your DMM to measure the gate current $I_G$.  What's the ratio of $I_D/I_G$?  (\textit{Hint: The current $I_G$ will be very small, even right at the edge of what your DMM can measure.  To be sure you're not being fooled by an offset error on your DMM, try reversing the leads on the meter to see if your result switches signs.  If not, the best you may be able to do is give an upper bound for $I_G$.)}  \label{part_ratio_id_ig}
 
-\item If you adjust $V_G$ to increase the magnitude of the current $I_G$, would that \textit{increase} or \textit{decrease} the current $I_D$?  Is the ratio $I_D/I_G$ a constant?
+\item Although $I_G$ is small and difficult to measure, it is still true that increasing 
+$|V_G|$ also increases $|I_G|$.  Based on your measurements, does increasing 
+$|I_G|$  \textit{increase} or \textit{decrease} the current $I_D$?  Is the ratio $I_D/I_G$ a constant?
 
 \item In previous labs, we learned two basic rules for bipolar junction transistors in active mode: $V_E=V_B - 0.7$~volts, and $I_C/I_B=h_{FE}$ (a constant).   Does either of these two rules appear to hold true for the corresponding leads of this JFET transistor?  
 
-\item Given the ratio of $I_D/I_G$ you found in part~\ref{part_ratio_is_ig}, what would be the advantage of using a transistor like this in an amplifier circuit?
+\item Given the ratio of $I_D/I_G$ you found in part~\ref{part_ratio_id_ig}, what would be the advantage of using a transistor like this in an amplifier circuit?
 
 \end{enumerate}
 

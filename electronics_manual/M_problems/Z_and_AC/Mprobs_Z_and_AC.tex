@@ -53,7 +53,7 @@ in the limit of low frequency and in the limit of high frequency.
 (a) $|I|=V_0/\sqrt{R^2+1/(\omega C)^2 };~\phi=\tan^{-1}(1/\omega RC)$  \\
 (b)~Yes, currents of components in series are \textit{always} in phase.\\
 (c)~$|V_C |=V_0/\sqrt{(\omega RC)^2+1};~\phi=-\tan^{-1}(\omega RC) $\\
-(d)~$f_c=\frac{\pi}{2}RC$ \\
+(d)~$f_c=1 / (2 \pi RC)$ \\
 (e)~about $-3$~dB \\
 (f) As $\omega \to 0, V_C/V_0 \to 1$. As $\omega \to \infty, V_C/V_0 \sim (\omega RC)^{-1}.$  
 \end{Answer}
@@ -166,12 +166,14 @@ In this problem you will analyze the circuit on the left, below, using the \text
 
 %--------------------------------------------------------------------------------------------------------------
 \begin{Exercise}
+\label{prob_superposition_DC_bias}
 In this problem you will again analyze a circuit (below) using the \textit{principle of superposition}, and students with a flair for observation will notice a certain similarity with the previous problem.  (a)~Imagine replacing the source $V_2$ with a short, and calculate the voltage $V_\text{out}$, assuming the circuit has been on long enough that the capacitor is fully charged.  (b)~With source $V_2$ restored, replace the source $V_1$ with a short.  What kind of filter is the resulting circuit, and what is its cutoff frequency?  With $V_1$ shorted out, what is $V_\text{out}$ in the limit of both high and low frequencies?  (c)~The actual voltage $V_\text{out}$ for the circuit as drawn below is the superposition of the two cases in (a) and~(b).  So what is $V_\text{out}$, in the limit of both high and low frequencies?  
 \begin{center}
 \vspace{-0.1in}
 \hspace{\fill}\includegraphics{M_problems/Z_and_AC/dc_biasing_problem1a.pdf}
 \hspace{\fill}\includegraphics{M_problems/Z_and_AC/dc_biasing_problem1b.pdf}
-\hspace*{\fill}\\
+\hspace{\fill}
+
 \hfill \textit{Circuit drawn as you would usually see it...} 
 \hfill \textit{...and redrawn to look exactly like} \textsl{problem~\ref{prob_superposition}.}
 \vspace{-0.1in}
@@ -185,11 +187,20 @@ for $f \ll f_\text{c}:~V_\text{out} \approx 6$~V
 \end{Answer}
 
 
-
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+(a) For an RC circuit like that in problem~\ref{prob_RCcircuit_AC}, draw a phasor diagram at time $t=0$ showing $V_\text{source}$, $V_R$, $V_C$, and $I$ on the complex plane for the cases of (i)~$f \ll f_\text{c}$, (ii)~$f = f_\text{c}$, and (iii)~$f \gg f_\text{c}$.   (b) Do the same for an RL circuit, showing $V_\text{source}$, $V_R$, $V_L$, and $I$ for the same three cases.  \textit{Hint: remember that the magnitudes of your voltage vectors should reflect that Kirchhoff's loop rule is obeyed in all cases.} 
+\end{Exercise}
 
 
 
 %Ideas for additional problems:
+
+
+%\item Draw a ``phasor diagram'' for an $RC$ circuit.  (That is, on the complex plane, draw vectors representing $V_{\rm source}$, $V_R$, $V_C$, and $I$, at time $t=0$.)  Show how your drawing changes for $\omega \ll (RC)^{-1}$ and for $\omega \gg (RC)^{-1}$.
+
+%\item Draw a ``phasor diagram'' for an $RL$ circuit.  (That is, on the complex plane, draw vectors representing $V_{\rm source}$, $V_R$, $V_L$, and $I$, at time $t=0$.)  Show how your drawing changes for $\omega \ll R/L$  and for $\omega \gg R/L$.
+
 %\vfill
 %\pagebreak[3]
 

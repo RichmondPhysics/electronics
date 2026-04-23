@@ -5,7 +5,9 @@
 
 \bigskip
 
-\textit{In this lab, we'll look closely at the behavior of an npn bipolar junction transistor under different operating conditions, simultaneously measuring the voltage and current at all three transistor terminals.  Rather than trying to scrounge up six multimeters for the job, we'll simulate the transistor's behavior in Multisim instead.}
+In this lab, we'll look closely at the behavior of an npn bipolar junction transistor under different operating conditions, simultaneously measuring the voltage and current at all three transistor terminals.  Rather than trying to scrounge up six multimeters for the job, we'll simulate the transistor's behavior in Multisim instead.
+
+\textbf{BJT Operating Modes}
 
 \begin{enumerate}[wide]
 
@@ -23,13 +25,17 @@
 
 \item In fact, bipolar junction transistors have three distinct ``modes of operation'' depending on the relative voltages of their terminals.  For an npn transistor,
 \begin{itemize}[nosep]
-\item $V_C > V_B \leq V_E$: ``cut-off mode'' (all currents $\approx 0$)\footnote{Some authors extend ``cut-off mode'' to include any $V_{BE} \lesssim 0.7$~V where $I_C \approx 0$.}
-\item $V_C > V_B > V_E$: ``active mode''  (e.g. a working amplifier)
-\item$V_C < V_B > V_E$: ``saturation mode''
+\item \textbf{Cut-off mode:} all currents $\approx 0$.  $V_{BE} \lesssim 0.7$~V, and $V_C > V_B$.%
+\footnote{Authors differ on the exact definition of these modes.}  
+\item \textbf{Active mode:} $V_C > V_B > V_E$  (e.g. a working amplifier).
+\item \textbf{Saturation mode:} $V_B > V_C > V_E$.
 \end{itemize}
 Label each row of your data table to show which operating mode your transistor is in.
 
 \item We say that a p-n junction is ``forward-biased'' when the p-type material is at a higher potential than the n-type material.  (For a regular single diode, current flows when it is forward biased.)  A junction is ``reverse-biased'' when the n-type material is at the higher potential.  For each of the three operating modes above, indicate whether the emitter-base junction is forward- or reverse-biased, and whether the collector-base junction is forward- or reverse-biased.  (Remember, the transistor you are using is an npn BJT.)
+
+\pagebreak[3]
+\textbf{Bipolar Junction Transistors as Logical Inverters}
 
 \item If you think about what's happening to $V_C$ as you raise $V_{BB}$, you'll realize that your single BJT transistor can be used as a simple inverter, or NOT gate, using $V_{BB}$ as the input and $V_C$ as the output.  (For this application, you can remove the resistor $R_E$ from your circuit, or just set its value to $R_E = 0$~$\Omega$.)  When you set the input to 0~V or 5~V, how close is the output to being exactly of 5~V or 0~V?  
 

@@ -5,22 +5,63 @@
 
 \bigskip
 
+
+A flip-flop is a device that holds a single bit of memory: either a logical ``0'' or ``1'', represented by an output voltage of either 0 V or 5 V.  Unlike a NAND or NOR gate that changes its output based on the instantaneous values of its inputs, a flip-flop's output remains constant (that is, it ``remembers'' a value of 0 or 1) unless it is given a specific input signal to change its value.
+
 \begin{enumerate}[wide]
 
-\item A flip-flop is a device that holds a single bit of memory: either a logical ``1'' or ``0''.  The CD4013, shown below, contains two flip-flops (two independent bits) on the same chip.  To wire up the flip-flop on one side of the chip, start by connecting $V_{CC}$ and GND to 5 volts and ground.   Connect all four inputs on one side (SET, RESET, DATA, and CLOCK) to four digital logic switches on your proto-board, all set to zero. Connect the two outputs Q and $\mathrm{\overline{Q}}$ on the same side of the chip to two of the LED logic indicators on the right side of your proto-board.  The line over the ``Q'' here means ``not.''  Do Q and $\mathrm{\overline{Q}}$ give opposite readings like they're supposed to?
+\item The CD4013, shown below, contains two flip-flops (two independent bits) on a single chip. To wire up the flip-flop on one side of the chip, 
+\begin{itemize}[nosep]
+\item  Connect the $V_\text{CC}$ and GND pins to $+5$~volts and ground.   
+\item Connect all four inputs on one side (SET~1, RESET~1, DATA~1, and CLOCK~1) to four digital logic switches, all set to zero. 
+\item Connect the two outputs Q~1 and $\mathrm{\overline{Q}}$~1 to two LED logic indicators.  
+\end{itemize}
+
+The symbol $\mathrm{\overline{Q}}$ (pronounced ``Q bar'') means \textit{NOT Q}. Do the Q and $\mathrm{\overline{Q}}$ outputs of your chip have opposite values as they're supposed to?
+\vspace{-0.1in}
 \begin{center}
 \includegraphics[scale=0.8]{appendices/pinouts/cd4013.pdf}
 \end{center}  
+\vspace{-0.1in}
 
-\item Start by playing with the SET and RESET inputs.  What happens to the output when you change SET to 1 (actually 5 volts)?  Does it change back when you lower SET back to 0?  What about when you do the same thing with the RESET input?
+\textbf{Asynchronous Operation}
 
-\item If the SET input is held at 1, does the RESET input have any effect on the output?  How about the reverse?
+\item The left half of the graphs below show how the outputs behave in response to the SET and RESET inputs used individually. SET makes $Q=1$, and RESET makes $Q=0$.  When SET or RESET return to 0, the new value of $Q$ remains.  Verify that your chip behaves in this way.  (You do NOT need to make pretty traces on your oscilloscope; just play with the switches at your own pace and look at the logic indicators to see what the outputs do in response.)
+\label{part_SR_latch}
+\vspace{-0.1in}
+\begin{center}
+\includegraphics[scale=0.9]{flipflops/flipflop_graph1.pdf}
+\end{center}  
+\vspace{-0.1in}
 
-\item The SET and RESET inputs are one method of controlling the output of the flip-flop, called ``asynchronous'' operation.  You can also change the output in a ``synchronous'' mode, using a clock signal.  With the SET and RESET switches both off, set the DATA switch to 1.  Then change the CLOCK switch from 0 to 1.  At the moment the CLOCK input rises, the output should change to 1, if it wasn't there already.  What happens when you change the DATA input to 0?  Write a rule that describes what CLOCK and DATA do.
+\item Copy the graphs above into your notebook, extending the lower one to show how $Q$ and $\mathrm{\overline{Q}}$ behave when both SET and RESET are high.
+\label{both_set_and_reset}
 
-\item Does the CLOCK input have any any effect on the output when SET or RESET is held at 1?  Do SET and RESET work when the CLOCK input is held at 1?
+\item Write a rule that describes the behavior of Q and $\mathrm{\overline{Q}}$ when both SET and RESET are high and when one of the two is then returned to low.
 
-\item {[\textit{Optional}]} Show how to use the two flip-flops on your CD4013 to wire up a set of buttons and lights that could be used to control a game show.  Two contestants are asked a question, and each contestant hits their button (a switch) as soon as they think they know the answer.  A light turns on over contestant ``A'' or ``B'' to show who buzzed in first.  After the contestant answers, the host clicks a third button to turn both lights off.  The tricky part here is that each contestant will  hit his or her button only briefly; once their hand comes off their button, the signal from the button turns off again, but you still need to hold that contestant's light on, \textit{AND} prevent the other contestant's button from having any effect---that is, until the host has reset the system for the next question.  (Hints: you can use the outputs Q or $\mathrm{\overline{Q}}$ as inputs to the system as well.  If one player's ``Q'' turns to 1, what effect should that have on the other player's controls?  You are allowed to use additional digital components like logic gates if you need to, but try to make your circuit as simple and elegant as possible.)
+\pagebreak[3]
+\textbf{Synchronous Operation}
+
+The SET and RESET inputs are one method of controlling the output of the flip-flop, called ``asynchronous'' operation.  But the output can also be controlled in a ``synchronous'' mode, in which changes in the output must be triggered by a separate clock signal.%
+\footnote{Although the term \textit{flip-flop} is often used to include both synchronous and asynchronous operation, some authors make a point of describing any asynchronous device as a \textit{latch}, as in the \textit{SR latch} you have just used.  Adding to the confusion, the term \textit{flip-flop} includes an alphabet soup of different types (D-type, T-type, or JK-type, each following a different set of rules) as well as variations on whether changes in output are triggered by a rising clock, a falling clock, or both. All of this is far more than we need to tackle in this course, but consider yourself forewarned that the next ``flip-flop'' you encounter in the wild may behave differently than the CD4013 chip you've seen here.}
+
+\item To get a sense of how the CLOCK and DATA inputs work together, begin with $Q=0$ and all four inputs low. Does moving the DATA input up and down by itself have any effect on the output? With the DATA input high, does changing the CLOCK input from low to high have any effect on the output?
+
+
+\item At least one of the following statements are true, and at least one is false.  Copy any true ones into your notebook.
+\begin{description}[labelindent=0.25in, leftmargin=0.5in, nosep]
+
+\item[Statement 1:] ``Moving the DATA input by itself has no effect on Q, regardless of the value of CLOCK.''
+\item[Statement 2:] ``If DATA is high, then Q is always the same as the CLOCK input.''
+\item[Statement 3:] ``If DATA is high, then changing CLOCK from low to high causes Q to change from 0 to 1 or from 1 to 0, depending on its initial value.''
+\item[Statement 4:] ``Moving the CLOCK from low to high causes Q to take on the value of DATA.''
+\end{description}
+
+\item Draw graphs in your notebook similar to those on the previous page, showing how Q and $\mathrm{\overline{Q}}$ change in response to the DATA and CLOCK inputs.
+
+\item Does the CLOCK input have any any effect on the output when SET or RESET is held at 1?  Do SET and RESET work when the CLOCK input is held at 1?  Do the synchronous inputs DATA and CLOCK override SET and RESET, or do the asynchronous inputs SET and RESET override DATA and CLOCK?
+\label{part_synchronous_asynchronous_interference}
+
 
 \end{enumerate}
 
