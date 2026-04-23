@@ -5,33 +5,43 @@
 
 \bigskip
 
+\textbf{Placing and Connecting Components}
+
 \begin{enumerate}[wide]
 
-\item Open the program Multisim 14.0 on your computer (under \button{Programs} $\longrightarrow$ \button{Physics Applications}).  
+\item Open the program Multisim 14.0 on your computer.  It may be under \button{Programs} $\longrightarrow$ \button{Physics Applications}, or you can find it in the full list of software under \button{National Instruments} or \button{NI Multisim}.  
+
+\item As a first exercise, we'll use Multisim to recreate the emitter-follower amplifier you built in  Lab~\ref{lab_bjt}. We will begin by placing the necessary components onto the blank workspace in the middle of the screen, starting with two $10\kohm$ resistors.
+
 \begin{itemize}
-\item Under the \button{Place} menu, select \button{component} to add a component to a circuit.  
-\item In the window that opens, under the \button{Group} menu, select \button{Basic}, and under the list of \button{Families} select \button{RESISTOR}.  
-\item In the long list to the right, scroll down and click on \button{10k} to select a 10~k$\Omega$ resistor.  Click \button{OK} and then click somewhere on your empty canvas to add the resistor to your circuit diagram.   
+\item Under the \button{Place} menu, select \button{component} to add each component to your circuit.  In the window that opens, you'll see a nested hierarchy of where components are stored: \button{Database, Group, Family,} and finally individual \button{Components} in the list to the right. Everything we'll need is in the \button{Master Database}
+\item Under the \button{Group} menu, select \button{Basic}, and under the \button{Families} menu, select \button{RESISTOR}.  
+\item In the long list of resistors to the right, scroll down and click on \button{10k} to select a $10\kohm$ resistor.  Click \button{OK} and then click somewhere on your empty workspace to add the resistor to your circuit diagram.   
 \item After placing two resistors on the diagram, right click on each one and select \button{Rotate 90$^\circ$ clockwise} to rotate them so that they look like the figure below.  
 \end{itemize}
 \begin{center}
 \includegraphics{multisim/two_resistors.pdf}
 \end{center}
 
-\item Continue adding all of the components in the figure below, mimicking the emitter-follower circuit you built in lab~\ref{lab_bjt}. 
+\item Continue adding all of the components in the figure below, mimicking the emitter-follower circuit you built in Lab~\ref{lab_bjt}. 
 
 \begin{itemize}
-\item The capacitor is under the group \button{Basic} in the family \button{CAP\_ELECTROLIT}.  
+\item The 10 $\mu$F capacitor:~~
+(group \button{Basic}, family \button{CAP\_ELECTROLIT}).  
 
-\item The 2N3904 transistor is under the group \button{Transistors} in the family \button{BJT\_NPN}.
+\item The 2N3904 transistor: (group \button{Transistors}, family \button{BJT\_NPN}).
 
-\item The ground symbol is under the group \button{Sources} in the family \button{POWER\_SOURCES}.
+\item The ground symbol:~~~ 
+(group \button{Sources}, family \button{POWER\_SOURCES}).
 
-\item The power supply VCC is also in the family \button{POWER\_SOURCES}.  To set it to 10 volts instead of the default value of 5, right click and select \button{properties}.
+\item The signal generator $V_1$: 
+(group \button{Sources}, family \button{SIGNAL\_VOLTAGE\_SOURCES}).
 
-\item The signal generator is under the group \button{Sources} in the family \button{SIGNAL\_VOLTAGE\_ SOURCES}.
+\item The power supply $V_\text{CC}$: 
+(group \button{Sources}, in family \button{POWER\_SOURCES}).  
 
 \end{itemize}
+After placing $V_\text{CC}$ in your workspace, you can change its value from 5 volts to 10 volts by right clicking on it and selecting \button{Properties}.
 \begin{center}
 \includegraphics{multisim/more_components.pdf}
 \index{color_page}
@@ -45,39 +55,60 @@
 \index{color_page}
 \end{center}
 
-\bigskip
-\item Making pretty pictures is all well and good, but Multisim also allows you to simulate the behavior of the circuit.  Remove two connecting wires, and add two multimeters, as shown below.  (Multimeters are the top item on the toolbar on the right edge of the screen.)  Double click each one to set them to \button{Amps} and \button{DC}.  With the pop-up windows for each meter still open, choose \button{Simulate} then \button{Run} from the main menu.  What is the apparent value of $h_{FE}$ for this transistor?  You can also start, pause, and stop the simulation using the icons (\raisebox{-0.3ex}{\includegraphics[height=2ex]{multisim/icons.pdf}}) \index{color_page} in the top toolbar.
+\textbf{Running Circuit Simulations}
+\smallskip
+
+\item Making pretty pictures is all well and good, but Multisim also allows you to simulate the behavior of the circuit.  
+The easiest way to monitor the voltage or current at a specific place in your circuit is by placing a ``measurement probe'' on a wire.  
+\begin{itemize}
+\vspace{-1ex}
+\item The measurement probes are grouped together in a toolbar at the top center of the screen (\includegraphics[scale=0.405]{multisim/probe_toolbar_white.png}). \\
+Add one voltage probe, one current probe, and one voltage-and-current probe to the places on the circuit shown below.  The measurements for each probe will appear in a yellow textbox, which you can click on to reposition as needed.
+
+\item You can also start, pause, and stop the simulation using the icons (\raisebox{-0.3ex}{\includegraphics[height=2ex]{multisim/icons.pdf}}) \index{color_page} a toolbar just to the left of the measurement probes.
+\end{itemize}
 \begin{center}
-\includegraphics{multisim/multimeters.pdf}
+\includegraphics{multisim/V_and_A_probes.pdf}
 \index{color_page}
 \end{center}
 
-\item Add an oscilloscope to your circuit to measure the voltage across the load resistor, $R_4$ in the picture above. (The scope is the fourth tiny icon down on the toolbar on the right side of the screen).  The positive lead to input A of the scope will go to your circuit; for the negative lead, you can place another ``ground'' symbol and connect it to your scope.  Before you start simulating, make a prediction of what you should see (both AC and DC parts!).  Is your prediction correct?  Eyeballing values from the graph is fine here; the oscilloscope tool doesn't give you a great way to measure exact values.
+\item The first voltage or current measurement for each probe, labeled simply ``V'' or ``I'', is the instantaneous value, which bounces around fairly uselessly. By contrast, the $V_\text{p-p}$, $V_\text{rms}$, and $V_\text{dc}$ values can actually be useful. Although your signal generator is set to $V_\text{Pk}=1$~V, the first voltage probe shows a different value.  Is the value shown consistent with what you should expect from your circuit?
+
+\item From the values shown by the other probes, what is the apparent value of $h_\text{FE}$ used by the simulation for the 2N3904?  Is that consistent with the value you measured in Lab~\ref{lab_bjt}?
+
+%\item Add an oscilloscope to your circuit to measure the voltage across the load resistor, $R_4$ in the picture above. (The scope is the fourth tiny icon down on the toolbar on the right side of the screen).  The positive lead to input A of the scope will go to your circuit; for the negative lead, you can place another ``ground'' symbol and connect it to your scope.  Before you start simulating, make a prediction of what you should see (both AC and DC parts!).  Is your prediction correct?  Eyeballing values from the graph is fine here; the oscilloscope tool doesn't give you a great way to measure exact values.
 
 \bigskip
-\pagebreak[4]
-\item One of the coolest things Multisim can do is to show you the behavior of your circuit at different frequencies.  Add a ``bode plotter'' to your circuit as shown below.  (It's the sixth icon down on the right-hand toolbar.)  This tool gives you a graph of   as a function of frequency.  Zoom in on the graph by changing the maximum and minimum frequencies, and find the cutoff frequency for this circuit (the $-3$~dB point) using the little slider on the display. \label{part_bode_plotter}
+\item Multisim can also show you the behavior of your circuit at different frequencies.  Add a ``Bode plotter'' to your circuit as shown below.  (It's the sixth icon down on the right-hand toolbar.%
+\footnote{I haven't played with most of these other simulated instrument tools. Of the ones I have played with, several (like the multimeters) essentially duplicate what can already be done better with voltage and current probes.  The oscilloscope seems potentially useful, but its user interface is so wretched that it's always been easier for me to build and test my circuit in real life than to coax Multisim to give me any usable output.}%
+)  
+This tool gives you a graph of $V_\text{out}/V_\text{in}$  as a function of frequency.  Zoom in on the graph by changing the maximum and minimum frequencies, and find the cutoff frequency for this circuit (the $-3$~dB point) using the little slider on the display. \label{part_bode_plotter}
 \begin{center}
 \includegraphics{multisim/bode_plotter.pdf}
 \index{color_page}
 \end{center}
 
-\item As an alternative to the multimeters, Multisim allows you to add a ``measurement probe'' to monitor the voltage and current on a particular wire.  (In the main menu, select \button{Place} $\longrightarrow$ \button{Probe}, or use the little ``V'' and ``A'' icons just to the right of the stop/start buttons.)  Remove the two current meters from your circuit, and replace them with ``voltage and current'' probes.   What additional information do these give you?
+\bigskip
+\textbf{Building a Common Emitter Amplifier}
 
-\item Use Multisim to design a common emitter amplifier similar to the one we studied in class, but with a gain of  $-20$.  (That is, the AC part of $V_{OUT}$ is 20 times larger than $V_{IN}$, but phase shifted 180 degrees.)  Connect the input of your amplifier to a 0.1~V~AC source through a capacitor, as in the figure in part~\ref{part_bode_plotter} above.  Test your amplifier using Multisim to be certain it has the correct gain.  (Hint: it will be easier if you increase the voltage of the DC supply to 20 volts.)  Make a printout of your circuit showing measurement probe values of the input and output, and include it in your lab notebook. \label{part_emitter_follower}
 
-\item Connect the output of your circuit in part~\ref{part_emitter_follower} to a 200~$\Omega$ load, and watch how everything instantly goes to hell!  :-)  The reason for this is that the load draws lots of current from your amplifier, which throws a monkey wrench into all of the resistor ratios you worked out so carefully.  Use trial and error with Multisim to find out how large the load resistance has to be in order to keep the gain within 95\% or so of what it is with no load. \label{part_problems_with_load}
+\item Use Multisim to design a common emitter amplifier similar to the one we studied in class, but with a voltage gain of  $-20$.  (That is, the AC part of $V_\text{out}$ is 20 times larger than $V_\text{in}$, but phase shifted 180 degrees.)  Connect the input of your amplifier to a 0.1~VAC source through a capacitor, as in the figure in part~\ref{part_bode_plotter} above.  Test your amplifier using Multisim to be certain it has the correct gain.  (Hint: it will be easier if you increase the voltage of the DC supply to 20 volts.)  Make a printout of your circuit showing measurement probe values of the input and output, and include it in your lab notebook. \label{part_emitter_follower}
 
-\item To avoid the problem you ran into in part~\ref{part_problems_with_load}, connect the output of your circuit in part~\ref{part_emitter_follower} to a second amplifier stage with a gain of $G=1$, but with very low output impedance, suitable to drive a 200~$\Omega$ load.  To keep this second stage from drawing too much input current (which would affect the first stage), you may need to use two transistors in the Darlington configuration.  As in lab~\ref{lab_bjt}, you will need to use an additional bypass capacitor on the output to get rid of the DC component of the output. \label{part_common_emitter_and_emitter_follower}
+\item Connect the output of your circuit in part~\ref{part_emitter_follower} to a 200~$\Omega$ load, and watch how the output becomes instantly ruined.  The reason for this is that the load draws lots of current from your amplifier, which throws a monkey wrench into all of the resistor ratios you worked out so carefully.  Use trial and error with Multisim to find out how large the load resistance has to be in order to keep the gain within 95\% or so of what it is with no load. \label{part_problems_with_load}
 
+\figuretoright{0.15}[scale=0.75]{multisim/darlington.pdf}{%
+\medskip
+
+\item To avoid the problem you ran into in part~\ref{part_problems_with_load}, you will need to connect the output of your circuit in part~\ref{part_emitter_follower} to a second amplifier stage with a voltage gain of $G=1$, but with a high input impedance and a large current gain. In short, this calls for an emitter follower amplifier like what you built in Lab~\ref{lab_bjt}. part~\ref{part_biased_output_and_input_correct}.
+To keep this second stage from drawing too much input current (which would affect the first stage), you may need to use two transistors in the Darlington configuration, as shown on the right, giving a net current gain of $h_\text{FE1} \cdot h_\text{FE2}$.  As in Lab~\ref{lab_bjt}, you will need to use an additional bypass capacitor on the output to get rid of the DC component of the output. \label{part_common_emitter_and_emitter_follower}
+\vspace{0.2in}
+}
 
 \end{enumerate}
 
 \pagebreak[3]
 \textbf{Possible Exam Questions:}
-
 \begin{itemize}
-
 \item Use bipolar junction transistors to design a multi-stage amplifier with a gain $G=100$, capable of a 5~V amplitude output signal.  Use two stages, each with $G=10$, with an additional emitter-follower stage in the middle to correct for any impedance mismatch.  Use additional capacitors and resistors to correctly bias each amplifier stage so that $V_C > V_B > V_E$.
 
 \end{itemize}
