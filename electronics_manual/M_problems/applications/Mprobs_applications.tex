@@ -5,6 +5,154 @@
 Answers to M\Alph{subsection} problems are on page \pageref{applications_prob_answers}.  \textbf{\textcolor{red}{Updated \DTMnow.}}
 
 %--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+\label{prob_jfet_as_resistor}
+When you used an electret microphone in the lab, you connected the microphone in series with a $5.6\kohm$ resistor as shown below.  
+Suppose that in the circuit shown, the voltage at the output of the microphone capsule has a DC level of 3~volts and an AC level of 80~mV peak-to-peak.   
+
+\figuretoright{0.39}{M_problems/applications/microphone_circuit.pdf}{
+\begin{enumerate}[nosep, label=(\alph*)]
+\item Making the gross over-simplification that the JFET inside the microphone is behaving like a variable resistor, determine the apparent range of the JFET's resistance in this circuit.  
+\item Assuming the JFET's effective range of resistance is unchanged from the previous part, what would be the AC output level if you used an external resistance of $R=1\kohm$?  
+\item What would be the AC output level if you used an external resistance of $R=100\kohm$?  
+\item Write a rule of thumb for how to choose the value of external resistance to use in a JFET circuit like this one to maximize the AC output.
+\end{enumerate}
+}
+
+\end{Exercise}
+\begin{Answer}
+(a) $8.125\kohm$ to $8.686\kohm$ (b) 31.7 mV peak-to-peak (c) 23.9 mV peak-to-peak.
+\end{Answer}
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+We will now examine the same microphone circuit as in problem~\ref{prob_jfet_as_resistor}, but with a more sophisticated treatment of the JFET, which we will imagine is characterized by the (fictitious) graph below.  Suppose again that the voltage at the output of the microphone capsule has a DC level of 3~volts.
+\begin{enumerate}[nosep, label=(\alph*)]
+\item What are the DC values of $V_\text{DS}$ and $I_D$?  (Hint: you can certainly find the current and voltage drop across the $5.6\kohm$ resistor and go from there.)
+\item From the graph below, what is the value of $V_\text{GS}$?
+\item From the graph, estimate the value of $\partial I_D / \partial V_\text{GS}$ at the values of $V_\text{DS}$ and $V_\text{GS}$ you found above.
+\item If the microphone capsule output has an AC voltage of 80~mV peak-to-peak, what is the AC voltage of $V_\text{GS}$?
+\item The AC voltage $\Delta V_\text{GS}$ is a result of the vibrating electret element, and the microphone circuit is acting like a voltage amplifier with an extremely high input impedance.  What is the AC voltage gain of the amplifier?
+\end{enumerate}
+\begin{center}
+\includegraphics[scale=0.7]{M_problems/applications/jfet_graph.pdf}
+\end{center}
+\end{Exercise}
+\begin{Answer}
+(a) 3 V and 0.357 mA (b) $-0.2$ V (c) $\approx 0.73$ mA/V (d) $\approx 20$ mV peak-to-peak 
+(e) $G \approx 4$
+\end{Answer}
+
+\pagebreak[3]
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+\label{prob_gameshow_2_players}
+The circuit below is for a quiz show in which two contestants each try to be the first to hit their button and answer each question.
+\begin{itemize}[nosep]
+\item After a question is read, each player hits their button ($PL_1$ or $PL_2$) as fast as they can.  
+\item A light (LED1 or LED2) goes on over the contestant that hits their button first.
+\item Only the fastest player's light goes on; the slower player's button is then ``locked out'' and has no effect.
+\item Before the next question, the host button is pressed to turn off the light and reset the system.
+\end{itemize}
+
+\begin{center}
+\includegraphics[scale=0.9]{M_problems/applications/gameshow_circuit.pdf}
+\end{center}
+
+Initially, all switches are open and both lights are off, so $Q_1=Q_2=0$.  (We'll use ``1'' and ``0'' here instead of specific voltages.)
+
+\begin{enumerate}[nosep, label=(\alph*)]
+\item What is the purpose of the three $10\kohm$ resistors to ground?
+\item If player 1 hits the button first, what inputs and outputs on U1 and U2 are changed while the switch $PL_1$ is closed? (Hint: of the twelve leads shown, four change values.)
+\item What changes when switch $PL_1$ is released (opened)?
+\item Player 2 hits their button later than player 1.  What specifically happens to both Q$_2$ and to $\mathrm{\overline{Q}_2}$ while button $PL_2$ is pressed?  Why doesn't Player 2's light go on?
+\item It would seem that the circuit could be simplified by removing the two NOT gates and connecting the two lights directly to the Q$_1$ and Q$_2$ outputs.  Why is that not quite the same as what is done above, using the NOT gates?  (Hint: See Lab~\ref{lab_flipflops}, part~\ref{both_set_and_reset}.)
+\item The host presses the host button to turn the winning player's light off and reset the system.  Explain how this action affects both U1 and U2.  (Hint: Only one of the two flip-flops is directly affected through its CLOCK and DATA inputs; the other is affected through its SET or RESET input.  See Lab~\ref{lab_flipflops} 
+part~\ref{part_synchronous_asynchronous_interference} for an additional hint.)
+\end{enumerate}
+\end{Exercise}
+
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+Design a circuit that extends problem~\ref{prob_gameshow_2_players} to include three players, drawing a complete circuit diagram to show how it works.  Hint: besides a third flip-flop, you will probably require some simple logic gates.
+\end{Exercise}
+
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+\label{prob_derive_555_eqns}
+The circuit to the right shows the 555 configured in its astable mode as a square wave generator.
+\vspace{-0.1in}
+\figuretoright{0.27}{M_problems/applications/astable_555.pdf}{
+\begin{enumerate}[nosep, label=(\alph*)]
+\item Derive the equations below for the dwell times of the 555 timer in astable mode:
+\begin{align*}
+\Delta t_\text{high} &= \ln (2) C(R_1 + R_2) \\
+\Delta t_\text{low} &= \ln (2) CR_2
+\end{align*}
+\item Find both the frequency and the duty cycle of the oscillator for $R_1=27\kohm$, $R_2=10\kohm$, and $C=33$~nF.
+\item Draw a circuit diagram showing how to use an additional diode to create an oscillator with a frequency of 500~Hz and a duty cycle of 33\%, while maintaining the same value of $C=33$~nF.
+\end{enumerate}
+}
+\end{Exercise}
+
+\begin{Answer}
+(b) 930 Hz and 78.7\%.
+\end{Answer}
+
+
+\pagebreak[3]
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+The circuit below shows the internal block diagram of a 555 timer, connected in the astable mode to a capacitor and two resistors.  Complete the table below, showing the values of the quantities listed for all four phases of a full cycle. 
+\begin{center}
+\includegraphics[scale=1.0]{M_problems/applications/555_block_diagram_astable_multisim.pdf}
+
+{\renewcommand{\arraystretch}{2.0}
+\begin{tabular}{|C{1.1in}||C{1.2in}|C{0.9in}|C{1.2in}|C{0.9in}|} \hline 
+%\hline
+ & \textbf{While capacitor \newline charging} & \textbf{At instant \newline of max 
+ $\bm{V_C}$}  
+ & \textbf{While capacitor \newline discharging} & \textbf{At instant \newline of min 
+ $\bm{V_C}$} \\ 
+\hhline{|=||=|=|=|=|}
+$V_C$ (capacitor) & 
+$1.6~\text{V} < V_C < 3.3~\text{V}$ & $V_C > 3.3~\text{V}$ & 
+$1.6~\text{V} < V_C < 3.3~\text{V}$ & $V_C < 1.6~\text{V}$   \\ \hline 
+$V_\text{out}$ & & & & \\ \hline 
+Q & & & & \\ \hline 
+$\mathrm{\overline{Q}}$ & & & & \\ \hline 
+BJT mode \par (cutoff, active, \par or saturation) & & & & \\ \hline 
+$V_\text{disch}=0$ \par or \par $I_\text{disch}=0$ & & & & \\ \hline 
+flip-flop R & & & & \\ \hline 
+flip-flop S & & & & \\ \hline 
+\end{tabular} }
+\end{center}
+
+
+\end{Exercise}
+
+
+\begin{Exercise}
+Create an outline for a possible final exam for this course, consisting of about a dozen problems you have seen before.  For each problem, you only need to write where it comes from and give a brief description of what's being asked.  For example,
+
+\begin{description}[labelindent=0.25in, leftmargin=0.5in, nosep]
+\item 1. Problem MB10.  (Finding output $V$ and $I$ for differential amplifier with random resistor values)
+\item 2. Appendix E, \#20. (Design a common emitter amplifier with specific gain and frequency range).
+\item etc.
+\end{description}
+Your exam should adhere to the following guidelines:
+\begin{itemize}[nosep]
+\item About 60\% of problems from material before Exam 2, 40\% from after Exam 2.
+\item About half of the problems involving circuits to analyze, and about half requiring students to design their own circuits.
+\item A mix of problems from different sources: specific lab parts, M problems,  ``possible exam questions'' from labs, and ``circuits to know'' from Appendix~\ref{circuits_to_know}. 
+\item Include one or two essay/explain problems.
+\item Do not include any question that appeared exactly on Exam 1 or Exam 2.  (Though it's fine to cover the same topic in a different way, such as requiring the student to design their own circuit rather than analyze a circuit that is given.)
+\item Arrange the problems roughly in the order that the topics were covered in class.
+\end{itemize}
+(No, I won't use any of your outlines as the actual final exam for the course, and whatever you write will have zero effect on what I write.)
+\end{Exercise}
 
 %Ideas for additional problems:
 %\vfill
