@@ -17,12 +17,24 @@ If you haven't done so already, please read the following documents on Blackboar
 \end{Exercise}
 
 %--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+In Lab~\ref{lab_equipment} you found which rows and columns of your breadboard are connected to each other.  Based on those findings, calculate the resistance between the two purple wires for each of the four arrangements of resistors on breadboards below.  (The resistors' wire leads are drawn in red for clearer visibility.) Be forewarned that two of the four have apparently been ``miswired'' in that the actual resistance is  not what was likely intended.
+\begin{center}
+\includegraphics{M_problems/the_basics/resistors_on_breadboard.pdf}
+\index{color page}
+\end{center}
+\end{Exercise}
+\begin{Answer}
+(a) $R=30\kohm$ (b) $R=30\kohm$ (c) $R= 15\kohm$ (d) $R=\infty$
+\end{Answer}
+
+%--------------------------------------------------------------------------------------------------------------
 \begin{minipage}{0.7\textwidth}
 \begin{Exercise}
 A student wants to find the internal resistance of a standard, size-AA battery.  With no load resistor connected, the voltage across the terminals of the battery is 1.55~V.  But when the battery is connected to a load resistor of 10~$\Omega$ (as shown on the right) the voltage across the load resistor is 1.47~V.  What is the internal resistance of the battery?
 \end{Exercise}
 \begin{Answer}
-0.544~$\Omega$ The circuit is built correctly and the output is within the range expected for the tolerances of the components. The circuit is built correctly and the output is within the range expected for the tolerances of the components. The circuit is built correctly and the output is within the range expected for the tolerances of the components.
+0.544~$\Omega$ 
 \end{Answer}
 \end{minipage}
 \begin{minipage}{0.30\textwidth - 5pt}
@@ -52,22 +64,29 @@ The figures below show two possible circuits you could use to measure the curren
 
 
 %--------------------------------------------------------------------------------------------------------------
-\begin{minipage}[t]{0.7\textwidth}
 \begin{Exercise}
-As shown in the figure to the right, two resistors in series may be thought of as a \textit{voltage divider}, 
+As shown in the figure to the right, two resistors in series may be thought of \hspace*{0.25\textwidth}
+
+\vspace{-1.4ex}
+\begin{minipage}[t]{0.75\textwidth}
+as a \textit{voltage divider}, 
 where the output voltage $V_{\rm out}$ is a fixed fraction of the input voltage $V_{\rm in}$.  
 Derive a general expression for $V_{\rm out}$ in terms of $R_1$, $R_2$, and $V_{\rm in}$.  Note that the word \textit{derive} means to
 demonstrate using some mixture of mathematical statements along with some words and possibly a picture.
+\end{minipage}
+\begin{minipage}[t]{0.25\textwidth - 4pt}
+
+\phantom{need text here}
+
+\vspace*{-0.7in}
+\hfill\includegraphics{M_problems/the_basics/voltage_divider.pdf}
+\end{minipage}
+
+
 \end{Exercise}
 \begin{Answer}
 $\displaystyle V_{\rm out} = V_{\rm in}\left(\frac{R_2}{R_1+R_2}\right)$.  (Hint: start by finding the current through the resistors.)
 \end{Answer}
-\end{minipage}
-\begin{minipage}[t]{0.3\textwidth - 4pt}
-
-\smallskip
-\hfill\includegraphics{M_problems/the_basics/voltage_divider.pdf}
-\end{minipage}
 
 %--------------------------------------------------------------------------------------------------------------
 \begin{Exercise}
@@ -111,7 +130,7 @@ A student has connected the circuit below to their 5~V power supply, expecting a
 \item The voltmeter reads about 0 volts.       % b, R2 shorted 
 \end{enumerate}
 \end{minipage}%
-\begin{minipage}[t]{0.42\textwidth}
+\begin{minipage}[t]{0.39\textwidth}
 \textbf{Causes}
 \begin{enumerate}[label=(\alph*),nosep,labelindent=0in]
 \item The two leads of $R_1$ are touching each other (``shorted'')
@@ -125,14 +144,14 @@ A student has connected the circuit below to their 5~V power supply, expecting a
 \item The circuit is built correctly and the output is within the range expected for the tolerances of the components.
 \end{enumerate}
 \end{minipage}%
-\begin{minipage}[t]{0.22\textwidth}
+\begin{minipage}[t]{0.25\textwidth}
 %Testing testing
 
 \phantom{need text here}
 
-\vspace*{-0.3in}
+\vspace*{+0.1in}
 
-\includegraphics{M_problems/the_basics/troubleshooting_IV_series.pdf}
+\hspace{\fill}\includegraphics{M_problems/the_basics/troubleshooting_IV_series.pdf}
 
 \end{minipage}%
 \end{Exercise}
@@ -156,7 +175,7 @@ A student has constructed the circuit to the right, expecting an adjustable outp
 \item  $V_{\rm out}$ range is 1~V to 2~V. % f, Input voltage is 3 V
 \end{enumerate}
 \end{minipage}
-\begin{minipage}[t]{0.54\textwidth}
+\begin{minipage}[t]{0.49\textwidth}
 \textbf{Causes}
 \begin{enumerate}[label=(\alph*),nosep,labelindent=0in]
 \item $R_2$ has not been connected to ground. %
@@ -168,14 +187,14 @@ A student has constructed the circuit to the right, expecting an adjustable outp
 \item The circuit is correct and the output is within the range expected for the tolerances of the components.
 \end{enumerate}
 \end{minipage}
-\begin{minipage}[t]{0.15\textwidth}
+\begin{minipage}[t]{0.20\textwidth}
 
 %Testing testing
 \phantom{need text here}
 
-\vspace*{-0.3in}
+\vspace*{-0.1in}
 
-\includegraphics[scale=0.65]{M_problems/the_basics/troubleshooting_voltage_divider_masked.pdf}
+\hspace{\fill}\includegraphics[scale=0.9]{M_problems/the_basics/troubleshooting_voltage_divider_masked.pdf}
 
 \end{minipage}%
 \end{Exercise}
@@ -236,14 +255,6 @@ In general, you want as little current as possible to flow through the wiper of 
 
 %--------------------------------------------------------------------------------------------------------------
 \begin{Exercise}
-A sinusoidal voltage with an amplitude of 10~V and a frequency of 0.25~Hz is placed across a load resistance of $220\ohm$.  (a)~What is the maximum \textit{instantaneous} power dissipated in the resistor?  (b) What is the \textit{average} power dissipated in the resistor?
-\end{Exercise}
-\begin{Answer}
-(a) 0.45 W (b) 0.23 W
-\end{Answer}
-
-%--------------------------------------------------------------------------------------------------------------
-\begin{Exercise}
 The periodic waveform shown below is 20~V for $10~\mu$s and $-5$~V for $15~\mu$s.
 \begin{center}
 \includegraphics{M_problems/the_basics/irregular_periodic_wave.pdf}
@@ -258,6 +269,14 @@ The periodic waveform shown below is 20~V for $10~\mu$s and $-5$~V for $15~\mu$s
 \end{Exercise}
 \begin{Answer}
 (b)$-10$ to 15 V (c)~13.23~V (d)~12.25~V 
+\end{Answer}
+
+%--------------------------------------------------------------------------------------------------------------
+\begin{Exercise}
+A sinusoidal voltage with an amplitude of 10~V and a frequency of 0.25~Hz is placed across a load resistance of $220\ohm$.  (a)~What is the maximum \textit{instantaneous} power dissipated in the resistor?  (b) What is the \textit{average} power dissipated in the resistor?
+\end{Exercise}
+\begin{Answer}
+(a) 0.45 W (b) 0.23 W
 \end{Answer}
 
 %--------------------------------------------------------------------------------------------------------------
